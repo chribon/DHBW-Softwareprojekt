@@ -5,9 +5,9 @@
     <div class="row">
         <div id="subcategory" class="col-sm-3 map-col d-flex flex-column">
             <div *ngFor="let subcategory of subcategories | subcategories:category.id ">
-                <div class="row">
+                <div class="row sub">
                     <div class="col-8"> {{subcategory.name}}</div>
-                    <div class="col-4">
+                    <div class="col-4 d-flex justify-content-end">
                         <div class="checkbox"></div>
                     </div>
                 </div>
@@ -15,7 +15,10 @@
             </div>
 
         </div>
-        <div id="map " class="col-sm-3 map-col"></div>
+        <div id="map " class="col-sm-3 map-col">
+
+                <div id="mapid" ></div>
+        </div>
 
     </div>
 

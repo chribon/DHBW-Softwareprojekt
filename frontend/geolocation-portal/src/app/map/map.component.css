@@ -9,5 +9,24 @@
 
 }
 .row{
-    height:40px;
+   padding: 20px 0;
+    margin: 3% 0;
+   
+}
+#mapid{ 
+    height: 300px; 
+    width: 700px;
+}
+.container-fluid{
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.sub{
+    background-color: white;
+    border-radius: 5px;
+
+}
+#mapid{
+    border: 1px solid white;
+    border-radius: 5px;
 }
