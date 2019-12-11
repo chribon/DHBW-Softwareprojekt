@@ -1,3 +1,21 @@
-<p>menu works!</p>
-#
-<a routerLink="map/1">test</a>
+
+
+<div id="maincontainer">
+    <div class="row">
+
+        <div *ngFor="let category of  categories " class="col-sm-3 d-flex align-items-stretch">
+
+            <div class="card animated bounceIn">
+                <a routerLink="../map/{{category.id}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{category.name}}</h5>
+                        <p class="card-text">{{category.name}}</p>
+
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

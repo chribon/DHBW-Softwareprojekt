@@ -1,0 +1,9 @@
+#maincontainer{
+    margin: 3%;
+    padding: 5%;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+.card{
+    width: 100%;
+}

@@ -1,0 +1,13 @@
+.map-col{
+    min-height: max-content;
+}
+.checkbox{
+    height: 20px;
+    width: 20px;
+    border: 1px solid;
+    border-radius:2px ;
+
+}
+.row{
+    height:40px;
+}

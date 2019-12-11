@@ -1,2 +1,22 @@
 <p>map works!</p>
 <div *ngIf="category">{{category.name}}</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="subcategory" class="col-sm-3 map-col d-flex flex-column">
+            <div *ngFor="let subcategory of subcategories | subcategories:category.id ">
+                <div class="row">
+                    <div class="col-8"> {{subcategory.name}}</div>
+                    <div class="col-4">
+                        <div class="checkbox"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="map " class="col-sm-3 map-col"></div>
+
+    </div>
+
+</div>
