@@ -10,4 +10,5 @@ export const CATEGORIES: Category[] = [
 export const SUBCATEGORIES: Subcategory[] = [
   { id: 1, cid: 1, name: 'Wohngebiete' },
   { id: 2, cid: 2, name: 'Mülleimer' },
+  { id: 3, cid: 2, name: 'test' },
 ];
