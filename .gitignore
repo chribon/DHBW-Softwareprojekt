@@ -7,6 +7,10 @@ Scripts/
 pyvenv.cfg
 pip-selfcheck.json
 
+# sublime
+project.sublime-project
+project.sublime-workspace
+
 # django template
 ### OSX ###
 .DS_Store
