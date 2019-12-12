@@ -1,2 +1,3 @@
 # ignoring the env folder
+backend/env/
 env/
