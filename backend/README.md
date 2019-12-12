@@ -12,3 +12,8 @@ Aktiviere nun die Umgebung mit
 Du solltest nun ein ```(backend)``` zu Beginn der Kommandozeile sehen, als Zeichen, dass die Umgebung aktiviert ist.
 
 Lade dir nun alle Abhängigkeiten per ```pip install -r requirements.txt``` herunter. 
+
+## Fehler nach git pull
+Wenn ```git pull``` Fehler wirft, stelle bitte sicher, dass
+- du neue Abhängigkeiten per ```pip freeze -r requirements.txt``` installiert hast.
+- du alle Migrationen auf einer aktuellen Datenbank ausgeführt hast, per ```python manage.py migrate```.
