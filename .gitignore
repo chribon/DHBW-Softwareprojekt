@@ -1,3 +1,7 @@
-# ignoring the env folder
+# ignoring the virtual environment
 backend/env/
 env/
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
