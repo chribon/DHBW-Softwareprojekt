@@ -1,5 +1,6 @@
 export class Subcategory{
     id: number;
     cid:number;
-    name: string;
+    title: string;
+    type: string;
      }

@@ -15,8 +15,9 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
   category: Category;
-  subcategories: Subcategory[];
-
+  subcategories: Subcategory[]; 
+  sub: any;
+  title: string;
 
   constructor(private route: ActivatedRoute,
     private categoryService: CategoryService,
@@ -27,21 +28,27 @@ export class MapComponent implements OnInit {
     this.getCategory();
     this.getSubcategories();
     this.initMap();
+    this.sub=this.route.params.subscribe(params => { 
+      this.title = params['title']; 
+      this.categoryService.getCategoryByTitle(this.title).subscribe(category =>( this.category = category));
+      this.subcategoryService.getSubcategoriesFilterByCid(this.category.id).subscribe(subcategories => (this.subcategories = subcategories));
+  });
+    
+  }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   getCategory(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const title = this.route.snapshot.paramMap.get('title');
 
-    this.categoryService.getCategory(id).subscribe(category => (this.category = category));
+    this.categoryService.getCategoryByTitle(title).subscribe(category => (this.category = category));
 
   }
   getSubcategories(): void {
     this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
   }
 
-  filterCategoryOf(cid: number): Subcategory[] {
-    return this.subcategories.filter(Subcategory => Subcategory.cid = cid);
-  }
   initMap() {
     const map = L.map('mapid').setView([49.352164, 9.145679], 13);
 

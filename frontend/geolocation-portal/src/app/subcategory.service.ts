@@ -13,4 +13,15 @@ export class SubcategoryService {
   getSubcategories(): Observable<Subcategory[]>{
     return of(SUBCATEGORIES);
   }
+
+  getSubcategoriesFilterByCid(cid: number): Observable<Subcategory[]>{
+    
+    let Subcategories = [];
+    for(let key in SUBCATEGORIES){
+      if(SUBCATEGORIES[key].cid === cid ){
+        Subcategories.push(SUBCATEGORIES[key]);
+      }
+    }
+    return of(Subcategories);
+  }
 }

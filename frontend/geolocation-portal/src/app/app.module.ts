@@ -10,6 +10,9 @@ import { ApiComponent } from './api/api.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { MenuComponent } from './menu/menu.component';
 import { SubcategoriesPipe } from './subcategories.pipe';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MapNavComponent } from './map-nav/map-nav.component';
+
 
 
 @NgModule({
@@ -22,11 +25,13 @@ import { SubcategoriesPipe } from './subcategories.pipe';
     StatisticsComponent,
     MenuComponent,
     SubcategoriesPipe,
+    MapNavComponent,
  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

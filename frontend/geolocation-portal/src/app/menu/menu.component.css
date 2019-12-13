@@ -4,6 +4,15 @@
     border-radius: 5px;
     background-color: lightgray;
 }
-.card{
+mdb-card:hover{
+    transform: translateY(-10px);
+    transition: 0.5s;
+   
+}
+mdb-card{
+    transition: 0.5s;
+}
+a{
     width: 100%;
+    text-decoration: none;
 }

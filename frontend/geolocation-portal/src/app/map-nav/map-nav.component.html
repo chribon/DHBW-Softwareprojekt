@@ -1,9 +1,10 @@
 
-<div id="maincontainer">
-    <div class="row">
+<div *ngIf="category">{{category.name}}</div>
+<div id="menucontainer" class="container-fluid">
+    <div class="d-flex flex-row ">
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch ">
 
-            <a routerLink="/map/{{category.title}}">
+            <a routerLink="{{category.title}}">
                 <mdb-card>
                     <mdb-card-body>
                         <mdb-card-title>
@@ -13,7 +14,8 @@
                     </mdb-card-body>
                 </mdb-card>
             </a>
-
+            
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>
