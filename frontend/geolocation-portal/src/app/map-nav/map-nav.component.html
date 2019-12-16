@@ -4,7 +4,7 @@
     <div class="d-flex flex-row ">
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch ">
 
-            <a routerLink="{{category.title}}">
+            <a routerLink="{{category.title}}" [ngClass]="{'selectedCategory': category.title == checkSelectedCategoryTitle()}">
                 <mdb-card>
                     <mdb-card-body>
                         <mdb-card-title>

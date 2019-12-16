@@ -15,8 +15,9 @@ import { Subcategory } from '../subcategory';
 })
 export class MapNavComponent implements OnInit {
 
-  category: Category;
   categories: Category[];
+  category: Category;
+  title: string;
  
 
   constructor(private route: ActivatedRoute,
@@ -27,17 +28,26 @@ export class MapNavComponent implements OnInit {
   ngOnInit() {
     this.getCategory();
     this.getCategories();
+   
 
   }
 
   getCategory(): void {
-    const title = this.route.snapshot.paramMap.get('title');
-
-    this.categoryService.getCategoryByTitle(title).subscribe(category => (this.category = category));
+    const title = this.route.firstChild.params.subscribe(params =>{ this.title = params['title'];
+    console.log(this.title);
+    this.categoryService.getCategoryByTitle(this.title).subscribe(category => (this.category = category));
+  });
+    
+    
 
   }
   getCategories(): void {
     this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
+  }
+
+  checkSelectedCategoryTitle(): string{
+   return this.title;
+
   }
 
   

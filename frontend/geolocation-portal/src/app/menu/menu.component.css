@@ -1,8 +1,15 @@
-#maincontainer{
+/* #maincontainer{
     margin: 3%;
     padding: 5%;
     border-radius: 5px;
     background-color: lightgray;
+} */
+
+
+#maincontainer{
+    padding: 5%;
+    background-color: #eceff1;
+    border-bottom: 1px solid #546e7a;
 }
 mdb-card:hover{
     transform: translateY(-10px);
@@ -11,8 +18,15 @@ mdb-card:hover{
 }
 mdb-card{
     transition: 0.5s;
+    margin-bottom: 30px;
 }
 a{
     width: 100%;
     text-decoration: none;
+    color:black;
+}
+#about{
+    border-bottom: 1px solid #546e7a;
+    border-top: 1px solid #546e7a;
+    padding: 20px;
 }

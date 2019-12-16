@@ -17,10 +17,7 @@
     height: 350px; 
     width: 100%;
 }
-#mapcontainer{
-    background-color: lightgray;
-    border-radius: 10px;
-}
+
 #menucontainer{
     border-bottom: 1px solid lightslategrey;
     border-top: 1px solid lightslategrey;
@@ -46,5 +43,9 @@ mdb-card{
 }
 a{
     width: 100%;
+    color: black;
     
+}
+.selectedCategory{
+    color:rgb(245, 0, 0);
 }
