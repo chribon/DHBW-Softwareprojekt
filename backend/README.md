@@ -13,6 +13,9 @@ Du solltest nun ein ```(backend)``` zu Beginn der Kommandozeile sehen, als Zeich
 
 Lade dir nun alle Abhängigkeiten per ```pip install -r requirements.txt``` herunter. 
 
+Achtung:  
+Stelle bitte sicher, dass du unter unixoiden Systemen die nötigen Pakete zum Kompilieren des ```psycopg2``` hast. D.h. stelle sicher, dass du das entsprechende dev Paket vom Python installiert hast:
+```python-dev```, ```python3-dev``` oder entsprechend ```python3.8-dev``` (z.B. per ```apt-install```).
 ## Fehler nach git pull
 Wenn ```git pull``` Fehler wirft, stelle bitte sicher, dass
 - du neue Abhängigkeiten per ```pip freeze -r requirements.txt``` installiert hast.
