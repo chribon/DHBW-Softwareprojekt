@@ -92,7 +92,7 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'geolocation_portal',
         'USER': 'postgres',
         'PASSWORD': 'SAPis1sche1ss*',
