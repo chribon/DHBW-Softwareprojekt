@@ -107,3 +107,6 @@ db.sqlite3
 
 # Media
 media/
+
+# VSCode
+.vscode/
