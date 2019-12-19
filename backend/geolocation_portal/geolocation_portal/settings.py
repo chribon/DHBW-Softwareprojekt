@@ -29,8 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,12 +36,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # additional
+    'django.contrib.gis',
+    'leaflet',
+    'rest_framework',
+    'rest_framework_gis',
+    'corsheaders',
     # own
     'geoadmin',
     'geoapi',
     'geomodels',
-    'rest_framework',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
