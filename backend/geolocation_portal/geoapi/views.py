@@ -52,4 +52,4 @@ class SubcategoryView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
 class EntryView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = EntrySerializer
     http_method_names = ['get']
-    queryset = Entry.objects.all()
+#    queryset = Entry.objects.all()

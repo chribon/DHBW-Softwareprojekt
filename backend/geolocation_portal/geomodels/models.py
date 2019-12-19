@@ -1,6 +1,4 @@
-from django.db import models
-from django.contrib.postgres.fields import JSONField
-
+from django.contrib.gis.db import models
 
 class Category(models.Model):
     title           = models.CharField(max_length=1024, verbose_name = 'Titel')
@@ -11,28 +9,17 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
-        
+
     class Meta:
         verbose_name = "Kategorie"
         verbose_name_plural = "Kategorien"
 
 
-
 class Subcategory(models.Model):
-    POINT       = 'point'
-    POLYGON     = 'polygon'
-    STATICTYPE  = 'static'
-    
-    SUBCATTYPES = (
-        (POINT, 'Punkt'),
-        (POLYGON, 'Polygon'),
-        (STATICTYPE, 'Statisch')
-    )
 
     id_category     = models.ForeignKey(Category, on_delete = models.PROTECT, verbose_name = 'Hauptkategorie')
     title           = models.CharField(max_length=1024, verbose_name = 'Titel')
     description     = models.TextField(verbose_name = 'Beschreibung')
-    type            = models.CharField(max_length=20, choices = SUBCATTYPES, verbose_name = 'Typ der Kategorie')
     image           = models.ImageField(upload_to = 'images/subcategory/', verbose_name = 'Bild')
     created_at      = models.DateTimeField(auto_now_add=True)
     updated_at      = models.DateTimeField(auto_now=True)
@@ -45,18 +32,58 @@ class Subcategory(models.Model):
         verbose_name_plural = "Unterkategorien"
 
 
-
 class Entry(models.Model):
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie')
     title           = models.CharField(max_length=1024, verbose_name = 'Titel')
-    content         = models.TextField(verbose_name = 'Inhalt')
-    coordinates     = JSONField(verbose_name = 'Koordinaten')
+    content         = models.TextField(null = True, verbose_name = 'Inhalt')
     created_at      = models.DateTimeField(auto_now_add=True)
     updated_at      = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = "Eintrag"
         verbose_name_plural = "Einträge"
+        abstract = True
+
+class PointEntry(Entry):
+    point = models.PointField()
+
+    class Meta:
+        abstract = True
+
+class PolygonEntry(Entry):
+    polygon = models.PolygonField()
+
+    class Meta:
+        abstract = True
+
+
+"""
+Fully specified models
+"""
+class GlassTrash(PointEntry):
+    pass
+
+    class Meta:
+        verbose_name = "Glass-Müll-Punkt"
+        verbose_name_plural = "Glass-Müll-Punkte"
+
+
+class ClothingTrash(PointEntry):
+    pass
+
+    class Meta:
+        verbose_name = "Kleidungs-Müll-Punkt"
+        verbose_name_plural = "Kleidungs-Müll-Punkte"
+
+
+class BatteryTrash(PointEntry):
+    pass
+
+    class Meta:
+        verbose_name = "Batterien-Müll-Punkt"
+        verbose_name_plural = "Batterien-Müll-Punkte"
+
+
