@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from geomodels.models import Category, Subcategory, Entry
 from .serializers import CategorySerializer, SubcategorySerializer, EntrySerializer
 from rest_framework.decorators import action
@@ -17,33 +17,39 @@ class CategoryView(viewsets.ModelViewSet):
     http_method_names = ['get']
     queryset = Category.objects.all()
 
-    @action(detail = True, renderer_classes = [renderers.StaticHTMLRenderer])
+    @action(methods = ['get'], detail = True, renderer_classes = [renderers.StaticHTMLRenderer], url_path = 'subcategories')
     def subcategories(self, request, *args, **kwargs):
-        subcats = Subcategory.objects.filter(id_category = 1)
-        serializer = SubcategorySerializer(subcats, many = True)
+        queryset = Subcategory.objects.select_related().filter(id_category = self.kwargs.get('pk'))
+        serializer = SubcategorySerializer(queryset, many = True)
         return JsonResponse(serializer.data, safe = False)
 
 
 
-# /subcategories/
+# /subcategories/ --> aktuell nicht verfügbar, nur bei class SubcategoryView(viewsets.ModelViewSet):
 # /subcategories/1/
 # /subcategories/1/entries/
-class SubcategoryView(viewsets.ModelViewSet):
+class SubcategoryView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = SubcategorySerializer
     http_method_names = ['get']
     queryset = Subcategory.objects.all()
 
-    @action(detail = True, renderer_classes = [renderers.StaticHTMLRenderer])
+    @action(methods = ['get'], detail = True, renderer_classes = [renderers.StaticHTMLRenderer], url_path = 'entries')
     def entries(self, request, *args, **kwargs):
-        entrs = Entry.objects.filter(id_subcategory = 1)
-        serializer = EntrySerializer(entrs, many = True)
+        queryset = Entry.objects.filter(id_subcategory = self.kwargs.get('pk'))
+        
+        # page = self.paginate_queryset(queryset)
+        # if page is not None:
+        #     serializer = self.get_serializer(page, many=True)
+        #     return self.get_paginated_response(serializer.data)
+        
+        serializer = EntrySerializer(queryset, many = True)
         return JsonResponse(serializer.data, safe = False)
 
 
 
-# /entries/
+# /entries/ --> aktuell nicht verfügbar, nur bei class EntryView(viewsets.ModelViewSet):
 # /entries/1/
-class EntryView(viewsets.ModelViewSet):
+class EntryView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = EntrySerializer
     http_method_names = ['get']
     queryset = Entry.objects.all()
