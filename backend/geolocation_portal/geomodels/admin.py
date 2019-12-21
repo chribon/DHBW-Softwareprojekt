@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from leaflet.admin import LeafletGeoAdmin
+from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
 
 from .models import (
     Category,
@@ -17,7 +17,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 
-
+# this is just an example, 
+# to do: remove if we decide not to use inline model editing
+class GlassTrashInline(LeafletGeoAdminMixin, admin.StackedInline):
+    model = GlassTrash
 
 class SubcategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'hauptkategorie']
@@ -26,6 +29,10 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
     def hauptkategorie(self, instance):
         return instance.id_category.title
+
+    inlines = [
+        GlassTrashInline,
+    ]
 
 admin.site.register(Subcategory, SubcategoryAdmin)
 
