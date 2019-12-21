@@ -19,7 +19,9 @@ project.sublime-workspace
 # npm 
 package-lock.json
 package.json
-
+*package.json
+*package*
+frontend/geolocation-portal/package.json
 # django template
 ### OSX ###
 .DS_Store
