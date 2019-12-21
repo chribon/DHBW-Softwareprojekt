@@ -29,7 +29,6 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Subcategory, SubcategoryAdmin)
 
-
 class GlassTrashAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
     ordering = ['title']
