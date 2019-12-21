@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from rest_framework import viewsets, mixins
 from geomodels.models import Category, Subcategory, Entry
 from .serializers import CategorySerializer, SubcategorySerializer, EntrySerializer
+from rest_framework import viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import renderers
-from django.http import HttpResponse, JsonResponse
+#from django.http import HttpResponse, JsonResponse
+from rest_framework import status
 
-# Create your views here.
 
 # /categories/
 # /categories/1/
@@ -17,11 +17,12 @@ class CategoryView(viewsets.ModelViewSet):
     http_method_names = ['get']
     queryset = Category.objects.all()
 
-    @action(methods = ['get'], detail = True, renderer_classes = [renderers.StaticHTMLRenderer], url_path = 'subcategories')
-    def subcategories(self, request, *args, **kwargs):
-        queryset = Subcategory.objects.select_related().filter(id_category = self.kwargs.get('pk'))
+    @action(methods = ['get'], detail = True,  url_path = 'subcategories')
+    def subcategories(self, request, pk, *args, **kwargs):
+        queryset = Subcategory.objects.select_related().filter(id_category = pk)
+
         serializer = SubcategorySerializer(queryset, many = True)
-        return JsonResponse(serializer.data, safe = False)
+        return Response(serializer.data, status = status.HTTP_200_OK)
 
 
 
