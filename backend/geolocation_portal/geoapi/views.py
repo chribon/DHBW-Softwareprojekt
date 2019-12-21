@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework import renderers
 #from django.http import HttpResponse, JsonResponse
 from rest_framework import status
-
+from django.http import Http404
 
 # /categories/
 # /categories/1/
@@ -21,10 +21,11 @@ class CategoryView(viewsets.ModelViewSet):
     def subcategories(self, request, pk, *args, **kwargs):
         queryset = Subcategory.objects.select_related().filter(id_category = pk)
 
-        serializer = SubcategorySerializer(queryset, many = True)
-        return Response(serializer.data, status = status.HTTP_200_OK)
+        if queryset:
+            serializer = SubcategorySerializer(queryset, many = True)
+            return Response(serializer.data, status = status.HTTP_200_OK)
 
-
+        raise Http404()
 
 # /subcategories/ --> aktuell nicht verfügbar, nur bei class SubcategoryView(viewsets.ModelViewSet):
 # /subcategories/1/
