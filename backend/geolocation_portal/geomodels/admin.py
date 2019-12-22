@@ -17,10 +17,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 
-# this is just an example, 
-# to do: remove if we decide not to use inline model editing
-class GlassTrashEntryInline(LeafletGeoAdminMixin, admin.StackedInline):
-    model = GlassTrashEntry
 
 class SubcategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'hauptkategorie']
@@ -30,11 +26,9 @@ class SubcategoryAdmin(admin.ModelAdmin):
     def hauptkategorie(self, instance):
         return instance.id_category.title
 
-    inlines = [
-        GlassTrashEntryInline,
-    ]
 
 admin.site.register(Subcategory, SubcategoryAdmin)
+
 
 class GlassTrashEntryAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
