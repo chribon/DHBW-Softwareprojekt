@@ -40,6 +40,9 @@ class SubcategoryView(viewsets.ModelViewSet): #mixins.RetrieveModelMixin, viewse
         # we have to dynamicaly use the right queryset and serializer
         queryset = Subcategory.objects.filter(id_subcategory = pk)
 
+        if not queryset:
+            raise Http404()
+
         # page = self.paginate_queryset(queryset)
         # if page is not None:
         #     serializer = self.get_serializer(page, many=True)
