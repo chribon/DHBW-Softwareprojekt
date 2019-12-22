@@ -5,7 +5,7 @@ from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
 from .models import (
     Category,
     Subcategory,
-    GlassTrash,
+    GlassTrashEntry,
 )
 
 # Register your models here.
@@ -19,8 +19,8 @@ admin.site.register(Category, CategoryAdmin)
 
 # this is just an example, 
 # to do: remove if we decide not to use inline model editing
-class GlassTrashInline(LeafletGeoAdminMixin, admin.StackedInline):
-    model = GlassTrash
+class GlassTrashEntryInline(LeafletGeoAdminMixin, admin.StackedInline):
+    model = GlassTrashEntry
 
 class SubcategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'hauptkategorie']
@@ -31,12 +31,12 @@ class SubcategoryAdmin(admin.ModelAdmin):
         return instance.id_category.title
 
     inlines = [
-        GlassTrashInline,
+        GlassTrashEntryInline,
     ]
 
 admin.site.register(Subcategory, SubcategoryAdmin)
 
-class GlassTrashAdmin(LeafletGeoAdmin):
+class GlassTrashEntryAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
     ordering = ['title']
     search_fields = ['title']
@@ -44,4 +44,4 @@ class GlassTrashAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(GlassTrash, GlassTrashAdmin)
+admin.site.register(GlassTrashEntry, GlassTrashEntryAdmin)

@@ -24,6 +24,13 @@ class Subcategory(models.Model):
     created_at      = models.DateTimeField(auto_now_add=True)
     updated_at      = models.DateTimeField(auto_now=True)
 
+    entry_type_choices = (
+        ('glasstrash', 'Glassmüll-Abgabestellen'),
+        ('clothing', 'Altkleider-Abgabestellen'),
+        ('batterytrash', 'Altbatterien-Abgabestellen'),
+    )
+    entry_types     = models.CharField(max_length = 30, choices = entry_type_choices, verbose_name = "Art der möglichen Einträge", default = 'glasstrash')
+
     def __str__(self):
         return self.title
 
@@ -63,7 +70,7 @@ class PolygonEntry(Entry):
 """
 Fully specified models
 """
-class GlassTrash(PointEntry):
+class GlassTrashEntry(PointEntry):
     pass
 
     class Meta:
