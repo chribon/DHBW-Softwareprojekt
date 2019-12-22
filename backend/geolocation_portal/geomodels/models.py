@@ -20,12 +20,11 @@ class Subcategory(models.Model):
     id_category     = models.ForeignKey(Category, on_delete = models.PROTECT, verbose_name = 'Hauptkategorie')
     title           = models.CharField(max_length=1024, verbose_name = 'Titel')
     description     = models.TextField(verbose_name = 'Beschreibung')
-    image           = models.ImageField(upload_to = 'images/subcategory/', verbose_name = 'Bild')
     created_at      = models.DateTimeField(auto_now_add=True)
     updated_at      = models.DateTimeField(auto_now=True)
 
     entry_type_choices = (
-        ('glasstrash', 'Glassmüll-Abgabestellen'),
+        ('glasstrash', 'Glasmüll-Abgabestellen'),
         ('clothing', 'Altkleider-Abgabestellen'),
         ('batterytrash', 'Altbatterien-Abgabestellen'),
     )
@@ -53,6 +52,7 @@ class Entry(models.Model):
         verbose_name_plural = "Einträge"
         abstract = True
 
+
 class PointEntry(Entry):
     point = models.PointField()
 
@@ -73,8 +73,8 @@ class GlassTrashEntry(PointEntry):
     pass
 
     class Meta:
-        verbose_name = "Glass-Müll-Punkt"
-        verbose_name_plural = "Glass-Müll-Punkte"
+        verbose_name = "Glas-Müll-Punkt"
+        verbose_name_plural = "Glas-Müll-Punkte"
 
 
 class ClothingTrashEntry(PointEntry):
