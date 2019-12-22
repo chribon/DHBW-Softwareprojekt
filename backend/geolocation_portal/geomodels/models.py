@@ -25,7 +25,7 @@ class Subcategory(models.Model):
     updated_at      = models.DateTimeField(auto_now=True)
 
     entry_type_choices = (
-        ('glasstrash', 'Glassmüll-Abgabestellen'),
+        ('glasstrash', 'Glasmüll-Abgabestellen'),
         ('clothing', 'Altkleider-Abgabestellen'),
         ('batterytrash', 'Altbatterien-Abgabestellen'),
     )
@@ -74,8 +74,8 @@ class GlassTrashEntry(PointEntry):
     pass
 
     class Meta:
-        verbose_name = "Glass-Müll-Punkt"
-        verbose_name_plural = "Glass-Müll-Punkte"
+        verbose_name = "Glas-Müll-Punkt"
+        verbose_name_plural = "Glas-Müll-Punkte"
 
 
 class ClothingTrashEntry(PointEntry):
