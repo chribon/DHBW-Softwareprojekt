@@ -78,7 +78,7 @@ class GlassTrashEntry(PointEntry):
         verbose_name_plural = "Glass-Müll-Punkte"
 
 
-class ClothingTrash(PointEntry):
+class ClothingTrashEntry(PointEntry):
     pass
 
     class Meta:
@@ -86,7 +86,7 @@ class ClothingTrash(PointEntry):
         verbose_name_plural = "Kleidungs-Müll-Punkte"
 
 
-class BatteryTrash(PointEntry):
+class BatteryTrashEntry(PointEntry):
     pass
 
     class Meta:
