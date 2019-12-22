@@ -38,7 +38,6 @@ class Subcategory(models.Model):
         verbose_name = "Unterkategorie"
         verbose_name_plural = "Unterkategorien"
 
-
 class Entry(models.Model):
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie')
     title           = models.CharField(max_length=1024, verbose_name = 'Titel')

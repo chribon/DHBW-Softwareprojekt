@@ -1,13 +1,14 @@
-from django.shortcuts import render
-from geomodels.models import Category, Subcategory, Entry
-from .serializers import CategorySerializer, SubcategorySerializer
 from rest_framework import viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework import renderers
-#from django.http import HttpResponse, JsonResponse
 from rest_framework import status
+
 from django.http import Http404
+
+from geomodels.models import Category, Subcategory, Entry
+from .serializers import CategorySerializer, SubcategorySerializer
+
+from .subcategory_response import SubcategoryResponse
 
 # /categories/
 # /categories/1/
@@ -38,18 +39,14 @@ class SubcategoryView(viewsets.ModelViewSet): #mixins.RetrieveModelMixin, viewse
     @action(methods = ['get'], detail = True, url_path = 'entries')
     def entries(self, request, pk, *args, **kwargs):
         # we have to dynamicaly use the right queryset and serializer
-        queryset = Subcategory.objects.filter(id_subcategory = pk)
+        queryset = Subcategory.objects.filter(id = pk)
 
         if not queryset:
             raise Http404()
 
-        # page = self.paginate_queryset(queryset)
-        # if page is not None:
-        #     serializer = self.get_serializer(page, many=True)
-        #     return self.get_paginated_response(serializer.data)
-        serializer = EntrySerializer(queryset, many = True)
-        return JsonResponse(serializer.data, safe = False)
+        subcategory = queryset[0]
 
+        return SubcategoryResponse(subcategory).get_response()
 
 
 # /entries/ --> aktuell nicht verfügbar, nur bei class EntryView(viewsets.ModelViewSet):
