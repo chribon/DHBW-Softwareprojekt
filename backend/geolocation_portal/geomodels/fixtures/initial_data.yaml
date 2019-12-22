@@ -1,0 +1,42 @@
+- model: geomodels.Category
+  pk: 1
+  fields:
+    title: Müll
+    description: Müllentsorgung in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+- model: geomodels.Category
+  pk: 2
+  fields:
+    title: Wohnen
+    description: Wohnen in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+- model: geomodels.Category
+  pk: 3
+  fields:
+    title: Tourismus
+    description: Tourismus in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+- model: geomodels.Category
+  pk: 4
+  fields:
+    title: Natur
+    description: Natur in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+- model: geomodels.Category
+  pk: 5
+  fields:
+    title: Verkehr
+    description: Verkehr in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+- model: geomodels.Category
+  pk: 6
+  fields:
+    title: Freizeit
+    description: Müllentsorgung in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00

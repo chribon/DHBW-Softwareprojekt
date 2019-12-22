@@ -30,6 +30,4 @@ Wenn ```git pull``` Fehler wirft, stelle bitte sicher, dass
   * psql auf der command line: ```psql -d geolocation_portal -c "CREATE EXTENSION postgis;"```
   * oder verbinde dich per pgAdmin auf die Datenbank und führe über das Query-Tool ```CREATE EXTENSION postgis;``` aus.
 6. Erstelle aktuelle Migrationen und lass sie laufen.
-
-
-
+7. Lade alle Fixtures (vordefinierte Standarddaten) per ```python manage.py loaddata geomodels/fixtures/initial_data.yaml````
