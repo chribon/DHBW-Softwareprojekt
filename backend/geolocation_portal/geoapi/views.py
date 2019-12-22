@@ -38,7 +38,6 @@ class SubcategoryView(viewsets.ModelViewSet): #mixins.RetrieveModelMixin, viewse
 
     @action(methods = ['get'], detail = True, url_path = 'entries')
     def entries(self, request, pk, *args, **kwargs):
-        # we have to dynamicaly use the right queryset and serializer
         queryset = Subcategory.objects.filter(id = pk)
 
         if not queryset:
