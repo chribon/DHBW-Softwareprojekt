@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { SubcategoryService } from '../subcategory.service';
 import { Subcategory } from '../subcategory';
-
+import * as $ from 'jquery';
 
 
 @Component({
@@ -23,12 +23,11 @@ export class MapNavComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private categoryService: CategoryService,
     private subcategoryService: SubcategoryService,
-    private location: Location, ) { }
+    private location: Location, ) {}
 
   ngOnInit() {
     this.getCategory();
     this.getCategories();
-   
 
   }
 
@@ -49,6 +48,8 @@ export class MapNavComponent implements OnInit {
    return this.title;
 
   }
+
+
 
   
   

@@ -2,6 +2,12 @@
 <div id="mapcontainer" class="container-fluid">
     <div class="row">
         <div id="subcategory" class="col-sm-3 map-col d-flex flex-column">
+            <div class="row header-row">
+                <h4>Ausgewählte Points-Of-Interest</h4>
+              </div>
+            <div class="row header-row">
+                <h4>Points-Of-Interest</h4>
+              </div>
             <div *ngFor="let subcategory of subcategories">
                 <div class="row sub">
                     <div class="col-8" style="overflow: hidden;"> {{subcategory.title}}</div>
@@ -14,10 +20,21 @@
 
         </div>
         <div id="map " class="col-sm-9 map-col">
-
-            <div id="mapid"></div>
+            <div id="mapid">
+               
+            </div>
+            <div class="row">
+                <div id="map-info">
+        
+                </div>
+            </div>
         </div>
 
+    </div>
+    <div class="row">
+        <div id="map-info">
+
+        </div>
     </div>
 
 </div>
