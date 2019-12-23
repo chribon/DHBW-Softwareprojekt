@@ -5,7 +5,7 @@ from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
 from .models import (
     Category,
     Subcategory,
-    GlassTrashEntry,
+    #GlassTrashEntry,
 )
 
 # Register your models here.
@@ -32,28 +32,28 @@ admin.site.register(Subcategory, SubcategoryAdmin)
 
 ### Specific Entries ###
 
-class GlassTrashEntryAdmin(LeafletGeoAdmin):
-    list_display = ['title', 'unterkategorie']
-    ordering = ['title']
-    search_fields = ['title']
+# class GlassTrashEntryAdmin(LeafletGeoAdmin):
+#     list_display = ['title', 'unterkategorie']
+#     ordering = ['title']
+#     search_fields = ['title']
 
-    def unterkategorie(self, instance):
-        return instance.id_subcategory.title
+#     def unterkategorie(self, instance):
+#         return instance.id_subcategory.title
 
-admin.site.register(GlassTrashEntry, GlassTrashEntryAdmin)
+# admin.site.register(GlassTrashEntry, GlassTrashEntryAdmin)
 
-class ClothingTrashEntryAdmin(LeafletGeoAdmin):
-    list_display = ['title', 'unterkategorie']
-    ordering = ['title']
-    search_fields = ['title']
+# class ClothingTrashEntryAdmin(LeafletGeoAdmin):
+#     list_display = ['title', 'unterkategorie']
+#     ordering = ['title']
+#     search_fields = ['title']
 
-    def unterkategorie(self, instance):
-        return instance.id_subcategory.title
+#     def unterkategorie(self, instance):
+#         return instance.id_subcategory.title
 
-class BatteryTrashEntryAdmin(LeafletGeoAdmin):
-    list_display = ['title', 'unterkategorie']
-    ordering = ['title']
-    search_fields = ['title']
+# class BatteryTrashEntryAdmin(LeafletGeoAdmin):
+#     list_display = ['title', 'unterkategorie']
+#     ordering = ['title']
+#     search_fields = ['title']
 
-    def unterkategorie(self, instance):
-        return instance.id_subcategory.title
+#     def unterkategorie(self, instance):
+#         return instance.id_subcategory.title

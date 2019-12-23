@@ -14,6 +14,7 @@
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
     entry_types: glasstrash
+    coordinates_type: point
 - model: geomodels.Subcategory
   pk: 2
   fields:
@@ -23,6 +24,47 @@
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
     entry_types: clothingtrash
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 3
+  fields:
+    id_category_id: 1
+    title: Batterieentsorgung
+    description: Entsorgungsorte für Batterien in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: batterytrash
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 4
+  fields:
+    id_category_id: 1
+    title: Entsorgung von Leuchtmitteln
+    description: Entsorgungsorte für Leuchtmittel in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: illuminanttrash
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 5
+  fields:
+    id_category_id: 1
+    title: Entsorgung von Elektroschrott
+    description: Entsorgungsorte für Elektroschrott in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: electrotrash
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 6
+  fields:
+    id_category_id: 1
+    title: Wertstoffhöfe
+    description: wertstoffhöfe in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: recyclingcentretrash
+    coordinates_type: point
 
 
 - model: geomodels.Category
@@ -33,23 +75,45 @@
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory
-  pk: 3
+  pk: 7
   fields:
     id_category_id: 2
     title: Bodenrichtwerte
     description: Bodenrichtwerte in Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
-    entry_types: groundvaluesliving
+    entry_types: groundvalueliving
+    coordinates_type: polygon
 - model: geomodels.Subcategory
-  pk: 4
+  pk: 8
   fields:
     id_category_id: 2
     title: Baugebiete
     description: Baugebiete in Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
-    entry_types: buildingareasliving
+    entry_types: buildingarealiving
+    coordinates_type: polygon
+- model: geomodels.Subcategory
+  pk: 9
+  fields:
+    id_category_id: 2
+    title: Spielplätze
+    description: Spielplätze in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: playgroundliving
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 10
+  fields:
+    id_category_id: 2
+    title: Schulen
+    description: Schulen in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: schoolliving
+    coordinates_type: point
 
 
 - model: geomodels.Category
@@ -59,6 +123,48 @@
     description: Tourismus in und um Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
+- model: geomodels.Subcategory
+  pk: 11
+  fields:
+    id_category_id: 3
+    title: Denkmäler
+    description: Denkmäler in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: monumenttourism
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 12
+  fields:
+    id_category_id: 3
+    title: Wanderwege
+    description: Wanderwege in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: trailtourism
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 13
+  fields:
+    id_category_id: 3
+    title: Kirchen
+    description: Kirchen in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: churchtourism
+    coordinates_type: point
+- model: geomodels.Subcategory
+  pk: 14
+  fields:
+    id_category_id: 3
+    title: Unterkünfte
+    description: Unterkünfte in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: accommodationtourism
+    coordinates_type: point
+
+
 - model: geomodels.Category
   pk: 4
   fields:
@@ -66,6 +172,18 @@
     description: Natur in und um Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
+- model: geomodels.Subcategory
+  pk: 15
+  fields:
+    id_category_id: 4
+    title: Aussichtspunkte
+    description: Aussichtspunkte in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: viewpointnature
+    coordinates_type: point
+
+
 - model: geomodels.Category
   pk: 5
   fields:
@@ -73,10 +191,32 @@
     description: Verkehr in und um Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
+- model: geomodels.Subcategory
+  pk: 16
+  fields:
+    id_category_id: 5
+    title: Parkplätze
+    description: Parkplätze in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: parkingtraffic
+    coordinates_type: point
+
+
 - model: geomodels.Category
   pk: 6
   fields:
     title: Freizeit
-    description: Müllentsorgung in und um Mosbach
+    description: Freizeitangebote in Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
+- model: geomodels.Subcategory
+  pk: 17
+  fields:
+    id_category_id: 6
+    title: Sporthallen
+    description: Sporthallen in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: sportscentresparetime
+    coordinates_type: point
