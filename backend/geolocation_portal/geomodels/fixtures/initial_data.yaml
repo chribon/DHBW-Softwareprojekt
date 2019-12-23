@@ -14,6 +14,15 @@
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
     entry_types: glasstrash
+- model: geomodels.Subcategory
+  pk: 2
+  fields:
+    id_category_id: 1
+    title: Kleidungsentsorgung
+    description: Entsorgungsorte für Kleidung in und um Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: clothingtrash
 
 
 - model: geomodels.Category
@@ -23,6 +32,26 @@
     description: Wohnen in und um Mosbach
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
+- model: geomodels.Subcategory
+  pk: 3
+  fields:
+    id_category_id: 2
+    title: Bodenrichtwerte
+    description: Bodenrichtwerte in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: groundvaluesliving
+- model: geomodels.Subcategory
+  pk: 4
+  fields:
+    id_category_id: 2
+    title: Baugebiete
+    description: Baugebiete in Mosbach
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
+    entry_types: buildingareasliving
+
+
 - model: geomodels.Category
   pk: 3
   fields:

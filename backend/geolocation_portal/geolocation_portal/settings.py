@@ -33,6 +33,12 @@ INSTALLED_APPS = [
     'geoadmin',
     'geomodels',
     'geoapi',
+    'category_living',
+    'category_nature',
+    'category_sparetime',
+    'category_tourism',
+    'category_traffic',
+    'category_trash',
 ]
 
 MIDDLEWARE = [

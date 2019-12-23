@@ -1,0 +1,1 @@
+default_app_config = 'category_nature.apps.CategoryNatureConfig'

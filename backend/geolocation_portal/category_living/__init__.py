@@ -1,0 +1,1 @@
+default_app_config = 'category_living.apps.CategoryLivingConfig'
