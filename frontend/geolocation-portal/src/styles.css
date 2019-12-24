@@ -2,4 +2,42 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~animate.css/animate.min.css';
 @import '~leaflet/dist/leaflet.css';
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~@fortawesome/fontawesome-free/css/solid.css';
+@import '~@fortawesome/fontawesome-free/css/regular.css';
+@import '~@fortawesome/fontawesome-free/css/brands.css';
 
+
+html,
+
+body { 
+
+height: 100%;
+
+position: relative;
+}
+
+
+
+
+app-root {
+
+min-height: 100%;
+
+display: block;
+
+position: relative;
+
+padding-bottom: 120px; 
+
+}
+
+footer {
+    
+position: absolute;
+
+bottom: 0;
+
+width: 100%;
+
+}

@@ -1,8 +1,18 @@
-
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand">Navbar</a>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </nav>
+<nav id="header-nav" class="navbar navbar-light z-depth-1-half grey lighten-5 lighten-4 justify-content-between">
+  <div class="d-flex flex-row ">
+    <mdb-icon fas icon="cubes" size="3x"></mdb-icon>
+    <span class="navbar-brand mb-0 h1 ml-1"><a href="/menu">GeoMobsach</a></span>
+  </div>
+  <form class="form-inline my-1">
+    <div class="md-form form-sm my-0">
+      <div class="d-flex flex-row ">
+        <span (click)="toggleSearchbar()" class="mr-2">
+          <mdb-icon fas icon="search"></mdb-icon>
+        </span>
+        <input id="searchbar" [ngClass]="{'displaySearchbar': searchToggle}"
+          class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="Search" aria-label="Search">
+      </div>
+    </div>
+    <button class="btn btn-outline-black btn-sm my-0" type="submit">Search</button>
+  </form>
+</nav>

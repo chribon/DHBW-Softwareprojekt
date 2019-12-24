@@ -1,21 +1,104 @@
+<!-- Card -->
+<mdb-card id="about" style="background-image: url('/assets/images/mosbach_about_img.jpg')" class="card-image mb-1 mt-5">
 
+  <!-- Content -->
+  <div class="text-white text-center  justify-content-center d-flex rgba-black-strong py-5 px-4">
+    <div>
+      <h5>
+        <mdb-icon fas icon="chart-pie"></mdb-icon>
+        GeoMosbach
+      </h5>
+      <h3 class="card-title pt-2"><strong>About</strong></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+        optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+        Odit sed qui, dolorum!.<br><br><br><br></p>
+    </div>
+  </div>
+  <!-- Content -->
+</mdb-card>
+<!-- Card -->
 
 <div id="maincontainer">
-    <div class="row">
-
-        <div *ngFor="let category of  categories " class="col-sm-3 d-flex align-items-stretch">
-
-            <div class="card animated bounceIn">
-                <a routerLink="../map/{{category.id}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{category.name}}</h5>
-                        <p class="card-text">{{category.name}}</p>
-
-                    </div>
-                </a>
-            </div>
-
-        </div>
+  <div class="row">
+   
+    <div id="inhalt-col" class="col-sm-2">
+      <div id="inhalte" class="row mb-5">
+        <h3>Inhalte</h3>
+      </div>
+  
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="menu#Kategorien">Kategorien</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu#API">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="menu#Vorschlaege">Vorschläge für das GeoPortal einrreichen</a>
+        </li>
+      </ul>
     </div>
 
+    <div class="col-sm-10">
+      <div class="row mb-5 header-row">
+        <h3>Kategorien</h3>
+        <a name="Kategorien"></a>
+      </div>
+      <div class="row mb-4">
+
+        <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
+
+          <a routerLink="/map/{{category.title}}">
+
+            <mdb-card class="category">
+              <!--Card image-->
+              <mdb-card-img src="/assets/images/icons/muell.png" alt="Card image cap"></mdb-card-img>
+              <!--Card content-->
+              <mdb-card-body>
+
+                <!--Title-->
+                <mdb-card-title>
+                  <h4>{{category.title}}</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> {{category.description}}
+                </mdb-card-text>
+
+
+              </mdb-card-body>
+            </mdb-card>
+          </a>
+
+        </div>
+      </div>
+      <div class="row mb-5 header-row">
+        <h3>API</h3>
+        <a name="API"></a>
+      </div>
+      <div class="row mb-4">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <a mdbBtn href="#" role="button" class="button-link" mdbWavesEffect>Zur API Dokumentation</a>
+      </div>
+      <div class="row mb-5 header-row">
+        <h3>Vorschläge für das GeoPortal einrreichen</h3>
+        <a name="Vorschlaege"></a>
+      </div>
+      <div class="row">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <a mdbBtn href="#" role="button" class="button-link" mdbWavesEffect>Zum Vorschlagsportal</a>
+      </div>
+
+    </div>
+  </div>
 </div>

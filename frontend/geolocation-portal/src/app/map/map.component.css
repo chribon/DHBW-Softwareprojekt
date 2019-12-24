@@ -9,5 +9,42 @@
 
 }
 .row{
-    height:40px;
+   padding: 20px 0;
+    margin: 3% 0;
+   
+}
+#mapid{ 
+    height: 350px; 
+    width: 100%;
+}
+
+.sub{
+    background-color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+
+}
+#mapid{
+    border: 1px solid white;
+    border-radius: 5px;
+    position: relative;
+}
+.selected-checkbox{
+    background-color:#812323;
+    border-color:#812323 ;
+}
+.selected-sub{
+    border-bottom: 2px solid #812323;
+}
+.row{
+    margin-top: 0;
+}
+#map-info{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    height: 50px;
+    width: 100%;
+}
+
+.header-row{
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
 }

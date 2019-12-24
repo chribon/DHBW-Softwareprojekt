@@ -3,6 +3,7 @@ import { CategoryService } from '../category.service';
 import { Category } from '../category';
 
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -19,4 +20,5 @@ export class MenuComponent implements OnInit {
   getCategories(){
    this.categoryService.getCategories().subscribe( CATEGORIES => (this.categories = CATEGORIES));
   }
+ 
 }

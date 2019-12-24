@@ -1,0 +1,32 @@
+
+/* 
+mdb-card:hover{
+    transform: translateY(-10px);
+    transition: 0.5s;
+   
+}
+mdb-card{
+    transition: 0.5s;
+} */
+a{
+    width: 100%;
+    color: black;
+    
+}
+.selectedCategory{
+    color:rgb(245, 0, 0);
+}
+.nav-tabs > li > a
+{
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #812323;
+}
+
+#map-nav-container{
+    padding: 20px;
+    justify-content: center;
+}

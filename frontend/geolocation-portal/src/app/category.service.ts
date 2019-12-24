@@ -16,8 +16,8 @@ export class CategoryService {
     return of( CATEGORIES);
   }
 
-  getCategory(id: number): Observable<Category>{
+  getCategoryByTitle(title: string): Observable<Category>{
     this.messageService.add('Category fetched');
-    return of(CATEGORIES.find(category => category.id === id));
+    return of(CATEGORIES.find(category =>( category.title === title)));
   }
 }

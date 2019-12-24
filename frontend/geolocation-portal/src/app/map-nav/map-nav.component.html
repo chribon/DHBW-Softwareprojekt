@@ -1,0 +1,32 @@
+<div *ngIf="categories">
+    <div id="map-nav-container" class="mt-3">
+        <ul class="nav nav-pills nav-fill">
+            <li *ngFor="let category of categories" class="nav-item">
+                <a class="nav-link active" routerLink="{{category.title}}"
+                    [ngClass]="{'selectedCategory': category.title == checkSelectedCategoryTitle(),'active': category.title == checkSelectedCategoryTitle() } ">{{category.title}}
+                    <mdb-icon class="ml-1" fas icon="trash-alt"></mdb-icon></a>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<!-- <div *ngIf="category">{{category.name}}</div>
+<div id="menucontainer" class="container-fluid">
+    <div class="d-flex flex-row ">
+        <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch ">
+
+            <a routerLink="{{category.title}}" [ngClass]="{'selectedCategory': category.title == checkSelectedCategoryTitle()}">
+                <mdb-card>
+                    <mdb-card-body>
+                        <mdb-card-title>
+                            <h4>{{category.title}}</h4>
+                        </mdb-card-title>
+                        <mdb-card-text>{{category.description}}</mdb-card-text>
+                    </mdb-card-body>
+                </mdb-card>
+            </a>
+            
+        </div>
+    </div>
+</div> -->
+<router-outlet></router-outlet>
