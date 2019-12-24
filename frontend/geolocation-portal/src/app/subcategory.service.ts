@@ -24,4 +24,13 @@ export class SubcategoryService {
     }
     return of(Subcategories);
   }
+  getSubcategoryFilterByTitle(title: string): Observable<Subcategory>{
+    
+    for(let key in SUBCATEGORIES){
+      if(SUBCATEGORIES[key].title === title ){
+        return of(SUBCATEGORIES[key]);
+      }
+    }
+    
+  }
 }

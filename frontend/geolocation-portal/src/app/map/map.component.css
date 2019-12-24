@@ -28,7 +28,13 @@
     border-radius: 5px;
     position: relative;
 }
-
+.selected-checkbox{
+    background-color:#812323;
+    border-color:#812323 ;
+}
+.selected-sub{
+    border-bottom: 2px solid #812323;
+}
 .row{
     margin-top: 0;
 }

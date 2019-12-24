@@ -1,15 +1,23 @@
-
 <div id="mapcontainer" class="container-fluid">
     <div class="row">
         <div id="subcategory" class="col-sm-3 map-col d-flex flex-column">
             <div class="row header-row">
                 <h4>Ausgewählte Points-Of-Interest</h4>
-              </div>
+            </div>
+            <div *ngFor="let selectedSubcategory of selectedSubcategories">
+                <div class="row sub selected-sub animated bounceInLeft" (click)="toggleSubcategory(selectedSubcategory)">
+                    <div class="col-8" style="overflow: hidden;"> {{selectedSubcategory.title}}</div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <div class="checkbox selected-checkbox"></div>
+                    </div>
+                </div>
+
+            </div>
             <div class="row header-row">
                 <h4>Points-Of-Interest</h4>
-              </div>
+            </div>
             <div *ngFor="let subcategory of subcategories">
-                <div class="row sub">
+                <div class="row sub animated bounceInLeft" (click)="toggleSubcategory(subcategory)">
                     <div class="col-8" style="overflow: hidden;"> {{subcategory.title}}</div>
                     <div class="col-4 d-flex justify-content-end">
                         <div class="checkbox"></div>
@@ -21,20 +29,17 @@
         </div>
         <div id="map " class="col-sm-9 map-col">
             <div id="mapid">
-               
+            </div>
+            <div class="row header-row mb-0">
+                <h4>Info</h4>
             </div>
             <div class="row">
                 <div id="map-info">
-        
                 </div>
             </div>
         </div>
 
-    </div>
-    <div class="row">
-        <div id="map-info">
 
-        </div>
     </div>
 
 </div>
