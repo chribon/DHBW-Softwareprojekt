@@ -1,5 +1,19 @@
-div{
-    height: 100px;
-    width:100%;
-    background-color:  #fafafa;
+
+a{
+    color: #812323 ;
 }
+
+#back-to-top{
+    border: 1px solid #812323;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color:#812323 ;
+}
+
+@media (max-width: 576px) { 
+    
+    #copyright{
+        margin-bottom:8px;
+    }
+ }

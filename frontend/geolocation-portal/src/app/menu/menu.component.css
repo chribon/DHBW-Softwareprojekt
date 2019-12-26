@@ -3,8 +3,6 @@
 
 #maincontainer{
     padding: 5%;
-    border: 1px solid rgb(174, 200, 212);
-    border-radius: 4px;
     margin: 2%;
 }
 
@@ -16,6 +14,7 @@
 .category{
     transition: 0.5s;
     margin-bottom: 30px;
+    border: 1px solid rgb(174, 200, 212);
 }
 
 .header-row{
@@ -24,9 +23,6 @@
 mdb-card-body{
     border-top:1px solid rgb(174, 200, 212); ;
     
-}
-mdb-card{
-    border: 1px solid rgb(174, 200, 212);
 }
 mdb-card-title{
     color: #812323;
@@ -52,3 +48,5 @@ mdb-card-title{
     }
 
  }
+
+

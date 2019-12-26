@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { SubcategoriesPipe } from './subcategories.pipe';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MapNavComponent } from './map-nav/map-nav.component';
+import { VorschlagComponent } from './vorschlag/vorschlag.component';
 
 
 
@@ -26,6 +27,7 @@ import { MapNavComponent } from './map-nav/map-nav.component';
     MenuComponent,
     SubcategoriesPipe,
     MapNavComponent,
+    VorschlagComponent,
  
   ],
   imports: [

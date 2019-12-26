@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { SubcategoryService } from '../subcategory.service';
 import { Subcategory } from '../subcategory';
 import * as L from 'leaflet';
+import { REFERENCE_PREFIX } from '@angular/compiler/src/render3/view/util';
 
 
 @Component({
@@ -86,4 +87,22 @@ export class MapComponent implements OnInit {
     console.log(this.selectedSubcategories);
    
   }
+
+  disableClick(subcategory: Subcategory){
+    if (this.selectedSubcategories.some(subcategoryFromArray => subcategoryFromArray.title === subcategory.title)) {
+     return true;
+    }else{
+      return false;
+    }
+  }
+  
+  checkEmptySelectedCategories(){
+    if(this.selectedSubcategories.length == 0){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  
 }
