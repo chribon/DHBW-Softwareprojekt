@@ -31,3 +31,8 @@ Wenn ```git pull``` Fehler wirft, stelle bitte sicher, dass
   * oder verbinde dich per pgAdmin auf die Datenbank und führe über das Query-Tool ```CREATE EXTENSION postgis;``` aus.
 6. Erstelle aktuelle Migrationen und lass sie laufen.
 7. Lade alle Fixtures (vordefinierte Standarddaten) per ```python manage.py loaddata geomodels/fixtures/initial_data.yaml```
+
+## Leaflet.Fullscreen aktualisieren (nur nötig falls eine aktuellere Version vorhanden ist)
+1. Gehe ins Verzeichnis ```backend```.
+2. Installiere die Abhängigkeiten per ```npm install```.
+3. Kopiere die benötigten Dateien per ```python copy_leaflet_fullscreen.py```.

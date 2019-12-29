@@ -16,9 +16,9 @@ pip-selfcheck.json
 project.sublime-project
 project.sublime-workspace
 
-# npm 
+# npm
 package-lock.json
-package.json
+node_modules
 
 # django template
 ### OSX ###
