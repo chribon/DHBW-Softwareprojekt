@@ -231,4 +231,12 @@
     id_subcategory_id: 1
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
-
+- model: category_trash.GlassEntry
+  pk: 2
+  fields:
+    title: Wertstoffhof in Mosbach INAST-Firmengelände
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    openingHours: "M: 08:30 - 12.00, 14:00 - 18:00\nT: 08.30 - 12.00, 14:00 - 16:30\nW: 08.30 - 12.00, 14:00 - 16:30\nR: 08.30 - 12.00, 14:00 - 18:00\nF: 08.30 - 12.00, 14:00 - 16:30\nS: 08.30 - 12.00\nU:"
+    id_subcategory_id: 1
+    created_at: 2019-01-01 00:00:00
+    updated_at: 2019-01-01 00:00:00
