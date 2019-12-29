@@ -1,7 +1,6 @@
 from django.contrib.gis.db import models
 from geomodels.models import PointEntry, PolygonEntry, Subcategory
 
-# Create your models here.
 class GroundvalueEntry(PolygonEntry):
     price = models.TextField(verbose_name = 'Preis')
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 7)
