@@ -1,5 +1,8 @@
 from django.contrib import admin
+from geoadmin.admin import admin_site
+
 from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
+
 from .models import (
     GroundvalueEntry,
     BuildingareaEntry,
@@ -7,7 +10,6 @@ from .models import (
     SchoolEntry,
 )
 
-# Register your models here.
 class GroundvalueEntryAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
     ordering = ['title']
@@ -17,7 +19,7 @@ class GroundvalueEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(GroundvalueEntry, GroundvalueEntryAdmin)
+admin_site.register(GroundvalueEntry, GroundvalueEntryAdmin)
 
 
 class BuildingareaEntryAdmin(LeafletGeoAdmin):
@@ -29,7 +31,7 @@ class BuildingareaEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(BuildingareaEntry, BuildingareaEntryAdmin)
+admin_site.register(BuildingareaEntry, BuildingareaEntryAdmin)
 
 
 class PlaygroundEntryAdmin(LeafletGeoAdmin):
@@ -41,7 +43,7 @@ class PlaygroundEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(PlaygroundEntry, PlaygroundEntryAdmin)
+admin_site.register(PlaygroundEntry, PlaygroundEntryAdmin)
 
 
 class SchoolEntryAdmin(LeafletGeoAdmin):
@@ -53,4 +55,4 @@ class SchoolEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(SchoolEntry, SchoolEntryAdmin)
+admin_site.register(SchoolEntry, SchoolEntryAdmin)

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from geoadmin.admin import admin_site
 from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
 from .models import (
     GlassEntry,
@@ -9,7 +10,6 @@ from .models import (
     RecyclingcentreEntry,
 )
 
-# Register your models here.
 class GlassEntryAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
     ordering = ['title']
@@ -19,7 +19,7 @@ class GlassEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(GlassEntry, GlassEntryAdmin)
+admin_site.register(GlassEntry, GlassEntryAdmin)
 
 
 class ClothingEntryAdmin(LeafletGeoAdmin):
@@ -31,7 +31,7 @@ class ClothingEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(ClothingEntry, ClothingEntryAdmin)
+admin_site.register(ClothingEntry, ClothingEntryAdmin)
 
 
 class BatteryEntryAdmin(LeafletGeoAdmin):
@@ -43,7 +43,7 @@ class BatteryEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(BatteryEntry, BatteryEntryAdmin)
+admin_site.register(BatteryEntry, BatteryEntryAdmin)
 
 
 class IlluminantEntryAdmin(LeafletGeoAdmin):
@@ -55,7 +55,7 @@ class IlluminantEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(IlluminantEntry, IlluminantEntryAdmin)
+admin_site.register(IlluminantEntry, IlluminantEntryAdmin)
 
 
 class ElectroEntryAdmin(LeafletGeoAdmin):
@@ -67,7 +67,7 @@ class ElectroEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(ElectroEntry, ElectroEntryAdmin)
+admin_site.register(ElectroEntry, ElectroEntryAdmin)
 
 
 class RecyclingcentreEntryAdmin(LeafletGeoAdmin):
@@ -79,4 +79,4 @@ class RecyclingcentreEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(RecyclingcentreEntry, RecyclingcentreEntryAdmin)
+admin_site.register(RecyclingcentreEntry, RecyclingcentreEntryAdmin)

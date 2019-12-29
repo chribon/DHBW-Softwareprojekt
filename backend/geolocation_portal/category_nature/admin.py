@@ -1,10 +1,12 @@
 from django.contrib import admin
+from geoadmin.admin import admin_site
+
 from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
+
 from .models import (
     ViewpointEntry,
 )
 
-# Register your models here.
 class ViewpointEntryAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
     ordering = ['title']
@@ -14,4 +16,4 @@ class ViewpointEntryAdmin(LeafletGeoAdmin):
     def unterkategorie(self, instance):
         return instance.id_subcategory.title
 
-admin.site.register(ViewpointEntry, ViewpointEntryAdmin)
+admin_site.register(ViewpointEntry, ViewpointEntryAdmin)

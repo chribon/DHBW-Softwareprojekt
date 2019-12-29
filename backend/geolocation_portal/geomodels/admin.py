@@ -1,4 +1,5 @@
 from django.contrib import admin
+from geoadmin.admin import admin_site
 
 from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
 
@@ -27,7 +28,7 @@ class CategoryAdmin(ReadOnlyAdmin):
     ordering = ['title']
     search_fields = ['title']
 
-admin.site.register(Category, CategoryAdmin)
+admin_site.register(Category, CategoryAdmin)
 
 
 class SubcategoryAdmin(admin.ModelAdmin):
@@ -38,5 +39,5 @@ class SubcategoryAdmin(admin.ModelAdmin):
     def hauptkategorie(self, instance):
         return instance.id_category.title
 
-admin.site.register(Subcategory, SubcategoryAdmin)
+admin_site.register(Subcategory, SubcategoryAdmin)
 

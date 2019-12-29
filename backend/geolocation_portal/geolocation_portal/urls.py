@@ -19,8 +19,10 @@ from geoapi.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
 
+from geoadmin.admin import admin_site
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin_site.urls),
     path('api/', include(router.urls)),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
