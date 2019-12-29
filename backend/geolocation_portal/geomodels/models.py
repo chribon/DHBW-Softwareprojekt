@@ -23,7 +23,7 @@ class Subcategory(models.Model):
     created_at      = models.DateTimeField(auto_now_add=True)
     updated_at      = models.DateTimeField(auto_now=True)
 
-    entry_type_choices = (       
+    entry_type_choices = (
         ('groundvalueliving', 'Bodenrichtwerte'),
         ('buildingarealiving', 'Baugebiete'),
         ('playgroundliving', 'Spielplätze'),
@@ -90,35 +90,3 @@ class PolygonEntry(Entry):
 
     class Meta:
         abstract = True
-
-
-"""
-Fully specified models
-"""
- 
-
-
-# class GlassTrashEntry(PointEntry):
-#     pass
-
-#     class Meta:
-#         verbose_name = "Glas-Müll-Punkt"
-#         verbose_name_plural = "Glas-Müll-Punkte"
-
-
-# class ClothingTrashEntry(PointEntry):
-#     pass
-
-#     class Meta:
-#         verbose_name = "Kleidungs-Müll-Punkt"
-#         verbose_name_plural = "Kleidungs-Müll-Punkte"
-
-
-# class BatteryTrashEntry(PointEntry):
-#     pass
-
-#     class Meta:
-#         verbose_name = "Batterien-Müll-Punkt"
-#         verbose_name_plural = "Batterien-Müll-Punkte"
-
-
