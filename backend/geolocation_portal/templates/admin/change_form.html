@@ -3,7 +3,9 @@
 {# Important: please write the javascript to work on models without a leaflet-map #}
 
 {% block extrahead %}{{ block.super }}
+<script src="{% static 'geoadmin/Control.FullScreen.js' %}"></script>
 <script src="{% static 'geoadmin/leaflet_customize_mosbach.js' %}"></script>
 {% endblock %}
 
-{% block extrastyle %}{{ block.super }}{% endblock %}
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" href="{% static 'geoadmin/Control.FullScreen.css' %}" />{% endblock %}
