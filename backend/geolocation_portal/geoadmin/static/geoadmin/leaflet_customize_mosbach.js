@@ -1,11 +1,11 @@
-/* customize leaflet in the admin panel
+/* Customize leaflet in the admin panel
  *
- * please note, that we have to write the javascript leaflet agnostic,
+ * Please note, that we have to write the javascript leaflet agnostic,
  * that is, it has to work if there are 0,1,2, ..., n leaflet-maps in the admin panel!
+ * This file is loaded on all admin pages!
 */
-
 window.addEventListener("map:init", function (event) {
-//    window.alert("test");
+//    window.alert("map is loaded");
     var map = event.detail.map;
     console.log(map);
 
