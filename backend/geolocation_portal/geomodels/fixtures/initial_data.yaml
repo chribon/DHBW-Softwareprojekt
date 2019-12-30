@@ -3,6 +3,7 @@
   fields:
     title: Müll
     description: Müllentsorgung in und um Mosbach
+    image: images/category/muell.png
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory
@@ -72,6 +73,7 @@
   fields:
     title: Wohnen
     description: Wohnen in und um Mosbach
+    image: images/category/wohnen.png
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory
@@ -121,6 +123,7 @@
   fields:
     title: Tourismus
     description: Tourismus in und um Mosbach
+    image: images/category/tourismus.png
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory
@@ -170,6 +173,7 @@
   fields:
     title: Natur
     description: Natur in und um Mosbach
+    image: images/category/natur.png
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory
@@ -189,6 +193,7 @@
   fields:
     title: Verkehr
     description: Verkehr in und um Mosbach
+    image: images/category/verkehr.png
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory
@@ -208,6 +213,7 @@
   fields:
     title: Freizeit
     description: Freizeitangebote in Mosbach
+    image: images/category/freizeit.png
     created_at: 2019-01-01 00:00:00
     updated_at: 2019-01-01 00:00:00
 - model: geomodels.Subcategory

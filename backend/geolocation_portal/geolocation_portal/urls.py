@@ -18,12 +18,14 @@ from django.urls import path, include
 from geoapi.urls import router
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 from geoadmin.admin import admin_site
 
 urlpatterns = [
-    path('admin/', admin_site.urls),
-    path('api/', include(router.urls)),
+    path('', TemplateView.as_view(template_name = 'geoapi/start.html')),
+    path('admin/', admin_site.urls, name = 'admin'),
+    path('api/', include(router.urls), name = 'api'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
