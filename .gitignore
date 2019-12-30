@@ -109,8 +109,5 @@ local_settings.py
 .env
 db.sqlite3
 
-# Media
-media/
-
 # VSCode
 .vscode/
