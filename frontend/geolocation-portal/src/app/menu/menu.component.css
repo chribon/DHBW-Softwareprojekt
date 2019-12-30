@@ -1,9 +1,13 @@
 
+hr{
+    border-color: black;
 
+}
 
 #maincontainer{
     padding: 5%;
     margin: 2%;
+    margin-top: 0;
 }
 
 
@@ -14,7 +18,7 @@
 .category{
     transition: 0.5s;
     margin-bottom: 30px;
-    border: 1px solid rgb(174, 200, 212);
+    border: 1px solid rgba(7, 6, 6, 0.123);
 }
 
 .header-row{
@@ -29,6 +33,9 @@ mdb-card-title{
 }
 .nav-link{
     color: #812323;
+}
+.nav-pills .nav-link.active{
+    background-color:#812323 ;
 }
 
 .button-link{
@@ -46,7 +53,19 @@ mdb-card-title{
     #inhalt-col{
         margin-bottom: 20px;
     }
+    #kategorien-hr{
+        visibility: visible !important;
+     }
 
  }
+
+ #kategorien-hr{
+    visibility: hidden;
+ }
+ #inhalt-hr{
+    visibility: hidden;
+ }
+
+
 
 

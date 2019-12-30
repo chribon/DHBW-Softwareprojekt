@@ -13,6 +13,7 @@ import { SubcategoriesPipe } from './subcategories.pipe';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MapNavComponent } from './map-nav/map-nav.component';
 import { VorschlagComponent } from './vorschlag/vorschlag.component';
+import { ImpressumComponent } from './impressum/impressum.component';
 
 
 
@@ -28,6 +29,7 @@ import { VorschlagComponent } from './vorschlag/vorschlag.component';
     SubcategoriesPipe,
     MapNavComponent,
     VorschlagComponent,
+    ImpressumComponent,
  
   ],
   imports: [

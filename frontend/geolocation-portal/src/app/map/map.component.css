@@ -44,13 +44,21 @@
     width: 100%;
 }
 
-.header-row{
+/* .header-row{
     border-bottom: 2px solid black;
     padding-bottom: 5px;
-}
+} */
 .clickDisable{
     pointer-events: none;
 }
 .hideSelectedCategories{
     display:none;
+}
+.hideSelectedCategoriesHr{
+    display:none;
+}
+hr{
+    margin-left: 0;
+  margin-right: 0;
+  border-color: black;
 }
