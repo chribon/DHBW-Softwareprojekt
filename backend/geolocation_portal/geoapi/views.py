@@ -14,6 +14,11 @@ from .subcategory_response import SubcategoryResponse
 # /categories/1/
 # /categories/1/subcategories/
 class CategoryView(viewsets.ModelViewSet):
+    """
+    Pro Kategorie können die Details auch einzeln aufgerufen werden durch '/api/categories/**id_placeholder**/'. 
+    
+    Der Pfad '/api/categories/**id_placeholder**/subcategories/' führt zu einer Auflistung aller Unterkategorien der Hauptkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Hauptkategorie-Instanz).
+    """
     serializer_class = CategorySerializer
     http_method_names = ['get']
     queryset = Category.objects.all()
@@ -28,10 +33,15 @@ class CategoryView(viewsets.ModelViewSet):
 
         raise Http404()
 
-# /subcategories/ --> aktuell nicht verfügbar, nur bei class SubcategoryView(viewsets.ModelViewSet):
+# /subcategories/
 # /subcategories/1/
 # /subcategories/1/entries/
-class SubcategoryView(viewsets.ModelViewSet): #mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+class SubcategoryView(viewsets.ModelViewSet): 
+    """
+    Pro Unterkategorie können die Details einzeln aufgerufen werden durch '/api/subcategories/**id_placeholder**/'. 
+    
+    Der Pfad '/api/subcategories/**id_placeholder**/entries/' führt zu einer Auflistung aller Einträge der Unterkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Unterkategorie-Instanz).
+    """
     serializer_class = SubcategorySerializer
     http_method_names = ['get']
     queryset = Subcategory.objects.all()
@@ -46,9 +56,3 @@ class SubcategoryView(viewsets.ModelViewSet): #mixins.RetrieveModelMixin, viewse
         subcategory = queryset[0]
 
         return SubcategoryResponse(subcategory).get_response()
-
-
-# /entries/ --> aktuell nicht verfügbar, nur bei class EntryView(viewsets.ModelViewSet):
-# /entries/1/
-class EntryView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    http_method_names = ['get']
