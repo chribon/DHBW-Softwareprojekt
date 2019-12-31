@@ -1,0 +1,91 @@
+.button-link{
+    background-color:#812323 ;
+    color: white;
+}
+.ng-valid {
+    border-color: green;
+}
+input.ng-dirty.ng-invalid {
+    border-color: red
+  }
+input.ng-touched.ng-invalid {
+    border-color: red
+}
+textarea.ng-touched.ng-invalid {
+    border-color: red
+}
+
+#submitButton{
+    background-color:#812323 ;
+    color: white;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
+    border: none;
+}
+.custom-select:focus{
+    box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
+    border: none;
+}
+
+    #check-container #checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #check-container input:checked ~ #checkmark:after {
+    display: block;
+  }
+
+  #checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  #check-container input:checked ~ #checkmark {
+    background-color: #812323;
+    border-color:#812323 ;
+  }
+
+
+    #checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: white;
+    border: 1px solid #b1b5b9;
+    border-radius: .25rem;
+  }
+
+  #check-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+   transform: translateY(3px);
+  }
+
+  #check-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+  }

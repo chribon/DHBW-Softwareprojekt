@@ -14,6 +14,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MapNavComponent } from './map-nav/map-nav.component';
 import { VorschlagComponent } from './vorschlag/vorschlag.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -29,13 +31,16 @@ import { ImpressumComponent } from './impressum/impressum.component';
     SubcategoriesPipe,
     MapNavComponent,
     VorschlagComponent,
-    ImpressumComponent,
+    ImpressumComponent
+
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

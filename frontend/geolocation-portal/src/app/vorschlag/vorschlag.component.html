@@ -1,1 +1,115 @@
-<p>vorschlag works!</p>
+<div class="container mt-5">
+
+
+    <h2>Reichen Sie ihre POI's ein</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+        et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+        amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        no
+        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+
+
+
+
+    <form class=" border border-light p-5" [formGroup]="submissionForm" (ngSubmit)="onSubmit()">
+
+        <p class="h4 mb-4">Formular</p>
+
+        <!-- Name -->
+        <input type="text" formControlName="contactFormName" id="FormName" mdbInput class="form-control mb-4"
+            placeholder="Name">
+        <!-- Last Name -->
+        <input type="text" formControlName="contactFormLastName" id="FormLastName" mdbInput class="form-control mb-4"
+            placeholder="Nachname">
+
+        <!-- Email -->
+        <input type="email" formControlName="contactFormEmail" id="FormEmail" mdbInput class="form-control mb-4"
+            placeholder="E-Mail">
+
+        <!-- Kategorie-->
+        <label><b>Kategorie</b></label>
+        <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
+            <option value="" disabled>Option auswählen</option>
+            <option *ngFor=" let category of categories" value="{{category.id}}" selected>{{category.title}}</option>
+        </select>
+
+        <!-- Message -->
+        <div class="form-group">
+            <textarea formControlName="contactFormMessage" class="form-control rounded-0" mdbInput id="FormMessage"
+                rows="3" placeholder="Ihr Vorschlag"></textarea>
+        </div>
+
+        <!--  
+        <mdb-checkbox [default]="true" class="mb-4">Eine Kopie dieses Vorschlags an meine E-Mail-Adresse schicken
+        </mdb-checkbox>
+         -->
+
+        <label id="check-container">
+            <input id="checkbox" type="checkbox">
+            <span id="checkmark"></span>
+
+        </label>
+        <span class="ml-4">Eine Kopie dieses Vorschlags an meine E-Mail-Adresse schicken</span>
+
+        <!-- Submit button -->
+        <button id="submitButton" mdbBtn block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit"
+            [disabled]="disabledSubmitButton">Vorschlag einreichen</button>
+
+
+    </form>
+
+
+
+    <div *ngIf="contactFormEmail.invalid && (contactFormEmail.dirty || contactFormEmail.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="contactFormEmail.errors.required">
+            Das Feld E-Mail muss ausgefüllt sein
+        </div>
+        <div *ngIf="contactFormEmail.errors.email">
+            Das Feld E-Mail muss eine gültige E-Mail-Adresse enthalten
+        </div>
+    </div>
+
+
+    <div *ngIf="contactFormName.invalid && (contactFormName.dirty || contactFormName.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="contactFormName.errors.required">
+            Das Feld Name muss ausgefüllt sein
+        </div>
+    </div>
+
+    <div *ngIf="contactFormLastName.invalid && (contactFormLastName.dirty || contactFormLastName.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="contactFormLastName.errors.required">
+            Das Feld Nachname muss ausgefüllt sein
+        </div>
+    </div>
+
+
+    <div *ngIf="contactFormSubjects.invalid && (contactFormSubjects.dirty || contactFormSubjects.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="contactFormSubjects.errors.required">
+            Das Feld Kategorie muss ausgefüllt sein
+        </div>
+    </div>
+
+    <div *ngIf="contactFormMessage.invalid && (contactFormMessage.dirty || contactFormMessage.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="contactFormMessage.errors.required">
+            Das Feld Ihr Vorschlag muss ausgefüllt sein
+        </div>
+    </div>
+
+</div>

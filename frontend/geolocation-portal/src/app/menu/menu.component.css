@@ -25,7 +25,7 @@ hr{
     border-bottom: 2px solid black;
 }
 mdb-card-body{
-    border-top:1px solid rgb(174, 200, 212); ;
+    border-top:1px solid rgba(7, 6, 6, 0.123);
     
 }
 mdb-card-title{
@@ -43,16 +43,7 @@ mdb-card-title{
     color: white;
 }
 @media (max-width: 576px) { 
-    #maincontainer{
-    border: hidden;
-
-    }
-    #inhalte{
-        border-bottom: 2px solid black;
-    }
-    #inhalt-col{
-        margin-bottom: 20px;
-    }
+  
     #kategorien-hr{
         visibility: visible !important;
      }
