@@ -2,7 +2,7 @@ from django.contrib.gis.db import models
 from geomodels.models import PointEntry, PolygonEntry, Subcategory
 
 class GroundvalueEntry(PolygonEntry):
-    price = models.TextField(verbose_name = 'Preis')
+    price = models.DecimalField(max_digits = 6, decimal_places = 2, verbose_name = 'Preis')
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 7)
 
     class Meta:
