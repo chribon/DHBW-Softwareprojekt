@@ -20,3 +20,18 @@ class SubcategoryResponseTest(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             SubcategoryResponse(subcategory)
+
+
+    def test_valid_entry_types_happy_payh(self):
+        valid_entry_types = ('groundvalueliving', 'buildingarealiving', 'playgroundliving', 'schoolliving', 'viewpointnature', 'sportscentresparetime', 'monumenttourism', 'trailtourism', 'churchtourism', 'accommodationtourism', 'parkingtraffic', 'glasstrash', 'clothingtrash', 'batterytrash', 'illuminanttrash', 'electrotrash', 'recyclingcentretrash')
+
+        subcategory = Mock()
+        subcategory.title = ""
+
+        for entry in valid_entry_types:
+            subcategory.entry_types = entry
+
+            try:
+                SubcategoryResponse(subcategory)
+            except ValueError:
+                self.fail("Subcategory.__init__ raised exception for a valid subcagetory.entry_types value.")
