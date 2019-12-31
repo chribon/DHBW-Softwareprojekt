@@ -35,3 +35,6 @@ class SubcategoryResponseTest(unittest.TestCase):
                 SubcategoryResponse(subcategory)
             except ValueError:
                 self.fail("Subcategory.__init__ raised exception for a valid subcagetory.entry_types value.")
+
+
+
