@@ -32,6 +32,9 @@ Wenn ```git pull``` Fehler wirft, stelle bitte sicher, dass
 6. Erstelle aktuelle Migrationen und lass sie laufen.
 7. Lade alle Fixtures (vordefinierte Standarddaten) per ```python manage.py loaddata geomodels/fixtures/initial_data.yaml```
 
+## Testing
+Tests können per ```python manage.py test``` aufgerufen werden.
+
 ## Leaflet.Fullscreen aktualisieren (nur nötig falls eine aktuellere Version vorhanden ist)
 1. Gehe ins Verzeichnis ```backend```.
 2. Installiere die Abhängigkeiten per ```npm install```.

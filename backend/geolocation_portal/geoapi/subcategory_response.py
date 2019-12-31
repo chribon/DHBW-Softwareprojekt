@@ -108,13 +108,16 @@ class SubcategoryResponse():
     }
 
     def __init__(self, subcategory):
+        if subcategory is None:
+            raise ValueError("Subcategory can't be None")
+
         self.subcategory = subcategory
 
     def __get_queryset(self):
         try:
             self.queryset = self.mapping[self.subcategory.entry_types]["get_queryset"](self.subcategory)
         except KeyError:
-            raise Exception("There is no mapping defined for the specified subcategory.entry_types\nError for subcategory: " + str(self.subcategory.title) + ", and entry_types: " + str(self.subcategory.entry_types))
+            raise ValueError("There is no mapping defined for the specified subcategory.entry_types\nError for subcategory: " + str(self.subcategory.title) + ", and entry_types: " + str(self.subcategory.entry_types))
 
     def get_response(self):
         self.__get_queryset()
