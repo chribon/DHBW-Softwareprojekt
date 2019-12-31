@@ -30,7 +30,7 @@ from rest_framework import status
 
 class SubcategoryResponse():
 
-    mapping = {
+    __mapping = {
         "groundvalueliving": {
             "get_queryset": lambda sc: sc.groundvalueentry_set.all(),
             "serializer": lambda qs: GroundvalueEntrySerializer(qs, many = True)
@@ -111,14 +111,14 @@ class SubcategoryResponse():
         if subcategory is None:
             raise ValueError("Subcategory can't be None")
 
-        if subcategory.entry_types not in self.mapping.keys():
+        if subcategory.entry_types not in self.__mapping.keys():
             raise ValueError("There is no mapping defined for the specified subcategory.entry_types\nError for subcategory: " + str(subcategory.title) + ", and entry_types: " + str(subcategory.entry_types))
 
         self.subcategory = subcategory
 
     def get_response(self):
-        queryset = self.mapping[self.subcategory.entry_types]["get_queryset"](self.subcategory)
+        queryset = self.__mapping[self.subcategory.entry_types]["get_queryset"](self.subcategory)
 
-        serializer = self.mapping[self.subcategory.entry_types]["serializer"](queryset)
+        serializer = self.__mapping[self.subcategory.entry_types]["serializer"](queryset)
 
         return Response(serializer.data, status = status.HTTP_200_OK)
