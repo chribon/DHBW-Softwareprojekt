@@ -15,8 +15,8 @@ from .subcategory_response import SubcategoryResponse
 # /categories/1/subcategories/
 class CategoryView(viewsets.ModelViewSet):
     """
-    Pro Kategorie können die Details auch einzeln aufgerufen werden durch '/api/categories/**id_placeholder**/'. 
-    
+    Pro Kategorie können die Details auch einzeln aufgerufen werden durch '/api/categories/**id_placeholder**/'.
+
     Der Pfad '/api/categories/**id_placeholder**/subcategories/' führt zu einer Auflistung aller Unterkategorien der Hauptkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Hauptkategorie-Instanz).
     """
     serializer_class = CategorySerializer
@@ -39,7 +39,7 @@ class CategoryView(viewsets.ModelViewSet):
 class SubcategoryView(viewsets.ModelViewSet): 
     """
     Pro Unterkategorie können die Details einzeln aufgerufen werden durch '/api/subcategories/**id_placeholder**/'. 
-    
+
     Der Pfad '/api/subcategories/**id_placeholder**/entries/' führt zu einer Auflistung aller Einträge der Unterkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Unterkategorie-Instanz).
     """
     serializer_class = SubcategorySerializer
