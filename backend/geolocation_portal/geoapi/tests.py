@@ -13,3 +13,10 @@ class SubcategoryResponseTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             SubcategoryResponse(None)
 
+    def test_subcategory_without_mapping_raises_value_error(self):
+        subcategory = Mock()
+        subcategory.entry_types = "XXnovalueXX"
+        subcategory.title = ""
+
+        with self.assertRaises(ValueError):
+            SubcategoryResponse(subcategory)

@@ -111,17 +111,14 @@ class SubcategoryResponse():
         if subcategory is None:
             raise ValueError("Subcategory can't be None")
 
+        if subcategory.entry_types not in self.mapping.keys():
+            raise ValueError("There is no mapping defined for the specified subcategory.entry_types\nError for subcategory: " + str(subcategory.title) + ", and entry_types: " + str(subcategory.entry_types))
+
         self.subcategory = subcategory
 
-    def __get_queryset(self):
-        try:
-            self.queryset = self.mapping[self.subcategory.entry_types]["get_queryset"](self.subcategory)
-        except KeyError:
-            raise ValueError("There is no mapping defined for the specified subcategory.entry_types\nError for subcategory: " + str(self.subcategory.title) + ", and entry_types: " + str(self.subcategory.entry_types))
-
     def get_response(self):
-        self.__get_queryset()
+        queryset = self.mapping[self.subcategory.entry_types]["get_queryset"](self.subcategory)
 
-        serializer = self.mapping[self.subcategory.entry_types]["serializer"](self.queryset)
+        serializer = self.mapping[self.subcategory.entry_types]["serializer"](queryset)
 
         return Response(serializer.data, status = status.HTTP_200_OK)
