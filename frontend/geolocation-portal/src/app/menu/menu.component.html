@@ -20,9 +20,9 @@
   <div class="row">
 
     <div class="col-sm-2 mb-4">
-        <hr id="inhalt-hr">
-        <h3>Inhalte</h3>
-      
+      <hr id="inhalt-hr">
+      <h3>Inhalte</h3>
+
       <div class="nav flex-column nav-pills  mt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active mb-1" id="v-pills-home-tab" data-toggle="pill" href="menu#Kategorien" role="tab"
           aria-controls="v-pills-home" aria-selected="true">Kategorien</a>
@@ -38,10 +38,20 @@
       <hr id="kategorien-hr">
       <h3>Kategorien</h3>
       <a name="Kategorien"></a>
-     
 
 
-      <div class="row mb-4 mt-4">
+
+      <div class="d-flex flex-row align-items-center">
+        <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
+        <input class="form-control form-control-sm ml-3" [(ngModel)]="searchTerm"  (ngModelChange)="search()" type="text" placeholder="Search" aria-label="Search"
+          mdbInput>
+        <a mdbBtn role="button" class="button-link" style="height: 31px; padding-top: 5px;" mdbWavesEffect>Suchen</a>
+      </div>
+
+
+
+
+      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTerm != null  ? 'none' : 'flex'}">
 
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
@@ -60,6 +70,37 @@
 
                 <!--Text-->
                 <mdb-card-text> {{category.description}}
+                </mdb-card-text>
+
+
+              </mdb-card-body>
+            </mdb-card>
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTerm != null  ? 'flex' : 'none'}">
+
+        <div *ngFor="let category of searchCategories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
+
+          <a routerLink="/map/{{category.title}}">
+
+            <mdb-card class="category">
+              <!--Card image-->
+              <mdb-card-img src="/assets/images/icons/muell.png" alt="Card image cap"></mdb-card-img>
+              <!--Card content-->
+              <mdb-card-body>
+
+                <!--Title-->
+                <mdb-card-title>
+                  <h4>{{category.title}}</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> 
+                 
                 </mdb-card-text>
 
 
@@ -89,8 +130,8 @@
           <a mdbBtn routerLink="/api" role="button" class="button-link" mdbWavesEffect>Zur API Dokumentation</a>
         </div>
         <div class="col-md-5 order-md-1 mt-2">
-          <svg class=" img-fluid mx-auto" width="500" height="500" preserveAspectRatio="xMidYMid slice"
-            focusable="false" role="img"></svg>
+          <svg class=" img-fluid mx-auto" width="400" height="400" preserveAspectRatio="xMidYMid slice"
+            focusable="false" role="img"><rect width="100%" height="100%" fill="lightgrey"/></svg>
         </div>
       </div>
       <!--  <div class="row mb-4">
@@ -102,7 +143,7 @@
           takimata sanctus est Lorem ipsum dolor sit amet.</p>
         <a mdbBtn routerLink="/api" role="button" class="button-link" mdbWavesEffect>Zur API Dokumentation</a>
       </div> -->
-     <!--  <div class="row mb-5 header-row">
+      <!--  <div class="row mb-5 header-row">
         <h3>Vorschläge für das GeoPortal einrreichen</h3>
         <a name="Vorschlaege"></a>
       </div> -->
@@ -123,8 +164,8 @@
             Vorschlagsportal</a>
         </div>
         <div class="col-md-5 order-md-2 mt-2">
-          <svg class=" img-fluid mx-auto" width="500" height="500" preserveAspectRatio="xMidYMid slice"
-            focusable="false" role="img"></svg>
+          <svg class=" img-fluid mx-auto" width="400" height="400" preserveAspectRatio="xMidYMid slice"
+            focusable="false" role="img"><rect width="100%" height="100%" fill="lightgrey"/></svg>
         </div>
       </div>
       <!-- <div class="row">
