@@ -56,7 +56,10 @@ mdb-card-title{
  #inhalt-hr{
     visibility: hidden;
  }
-
+ .form-control:focus{
+    box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
+    border: none;
+}
 
 
 

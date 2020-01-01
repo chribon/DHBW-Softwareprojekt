@@ -16,38 +16,49 @@ export class MenuComponent implements OnInit {
   categories: Category[];
   subcategories: Subcategory[];
   searchCategories: Category[];
+  searchTerm: string;
+  searchTermLength: number;
 
   constructor(private categoryService: CategoryService,
     private subcategoryService: SubcategoryService) { }
 
-  searchTerm: string;
+
 
   ngOnInit() {
     this.getCategories();
     this.getSubcategories();
   }
 
-  search() {
+  search(): void {
     this.searchCategories = [];
+    this.searchTermLength = this.searchTerm.length;
+
     for (let category of this.categories) {
-      if (category.title.includes(this.searchTerm)) {
+      if (category.title.includes(this.searchTerm) && this.searchTerm.length != 0) {
         this.searchCategories.push(category);
       }
     }
     for (let subcategory of this.subcategories) {
-      if (subcategory.title.includes(this.searchTerm)) {
+      if (subcategory.title.includes(this.searchTerm) && this.searchTerm.length != 0) {
         this.searchCategories.push(this.categories.find(category => category.id == subcategory.cid));
       }
     }
-    console.log(this.searchCategories);
-
   }
 
   getSubcategories(): void {
     this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
   }
-  getCategories() {
+  getCategories(): void {
     this.categoryService.getCategories().subscribe(CATEGORIES => (this.categories = CATEGORIES));
+  }
+  getSubcategoriesOfCatgory(category: Category): Subcategory[] {
+    let subcategories: Subcategory[];
+    for (let subcategory of this.subcategories) {
+      if (category.id == subcategory.cid) {
+        this.subcategories.push(subcategory);
+      }
+    }
+    return subcategories;
   }
 
 }

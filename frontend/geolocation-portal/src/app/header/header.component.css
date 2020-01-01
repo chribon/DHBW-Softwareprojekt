@@ -1,13 +1,4 @@
-.displaySearchbar{
-    display: block !important;
-    transition: 0.5s;
-   
-}
-#searchbar{
-    display: none;
-    transition: 0.5s;
-  
-}
+
 a{
     text-decoration: none;
     color:black;

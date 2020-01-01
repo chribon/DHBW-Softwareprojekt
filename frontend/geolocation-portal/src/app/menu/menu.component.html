@@ -41,17 +41,16 @@
 
 
 
-      <div class="d-flex flex-row align-items-center">
+      <div class="d-flex flex-row align-items-center mt-3">
         <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
-        <input class="form-control form-control-sm ml-3" [(ngModel)]="searchTerm"  (ngModelChange)="search()" type="text" placeholder="Search" aria-label="Search"
-          mdbInput>
-        <a mdbBtn role="button" class="button-link" style="height: 31px; padding-top: 5px;" mdbWavesEffect>Suchen</a>
+        <input class="form-control form-control-sm ml-3" [(ngModel)]="searchTerm" (ngModelChange)="search()" type="text"
+          placeholder="Suchen Sie Kategorien, Orte, Schlüsselwörter.." aria-label="Search" mdbInput>
       </div>
 
 
 
 
-      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTerm != null  ? 'none' : 'flex'}">
+      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null ? 'flex' : 'none'}">
 
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
@@ -81,9 +80,10 @@
       </div>
 
 
-      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTerm != null  ? 'flex' : 'none'}">
+      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null  ? 'none' : 'flex'}">
 
-        <div *ngFor="let category of searchCategories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
+        <div *ngFor="let category of searchCategories"
+          class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
           <a routerLink="/map/{{category.title}}">
 
@@ -99,8 +99,11 @@
                 </mdb-card-title>
 
                 <!--Text-->
-                <mdb-card-text> 
-                 
+                <mdb-card-text>
+                  <div *ngFor="let subcategory of subcategories"
+                    [ngStyle]="{'display': subcategory.cid == category.id  ? 'block' : 'none', 'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">
+                    <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon>{{subcategory.title}}
+                  </div>
                 </mdb-card-text>
 
 
@@ -131,7 +134,8 @@
         </div>
         <div class="col-md-5 order-md-1 mt-2">
           <svg class=" img-fluid mx-auto" width="400" height="400" preserveAspectRatio="xMidYMid slice"
-            focusable="false" role="img"><rect width="100%" height="100%" fill="lightgrey"/></svg>
+            focusable="false" role="img">
+            <rect width="100%" height="100%" fill="lightgrey" /></svg>
         </div>
       </div>
       <!--  <div class="row mb-4">
@@ -165,7 +169,8 @@
         </div>
         <div class="col-md-5 order-md-2 mt-2">
           <svg class=" img-fluid mx-auto" width="400" height="400" preserveAspectRatio="xMidYMid slice"
-            focusable="false" role="img"><rect width="100%" height="100%" fill="lightgrey"/></svg>
+            focusable="false" role="img">
+            <rect width="100%" height="100%" fill="lightgrey" /></svg>
         </div>
       </div>
       <!-- <div class="row">
