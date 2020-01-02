@@ -7,6 +7,6 @@ djangorestframework-gis==0.15
 Pillow==6.2.1
 psycopg2==2.8.4
 pytz==2019.3
-PyYAML==5.2
+PyYAML==5.3b1
 six==1.13.0
 sqlparse==0.3.0
