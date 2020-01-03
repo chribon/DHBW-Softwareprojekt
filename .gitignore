@@ -17,7 +17,6 @@ project.sublime-project
 project.sublime-workspace
 
 # npm
-package-lock.json
 node_modules
 
 # django template
