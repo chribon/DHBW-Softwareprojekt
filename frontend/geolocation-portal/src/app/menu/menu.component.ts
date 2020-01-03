@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
   categories: Category[];
   subcategories: Subcategory[];
   searchCategories: Category[];
+  searchCategoriesLength: number;
   searchTerm: string;
   searchTermLength: number;
 
@@ -43,6 +44,8 @@ export class MenuComponent implements OnInit {
         this.searchCategories.push(this.categories.find(category => category.id == subcategory.cid));
       }
     }
+
+    this.searchCategoriesLength = this.searchCategories.length;
   }
 
   getSubcategories(): void {

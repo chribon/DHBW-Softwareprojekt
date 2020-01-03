@@ -50,7 +50,8 @@
 
 
 
-      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null ? 'flex' : 'none'}">
+      <div class="row mb-4 mt-4"
+        [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null ? 'flex' : 'none'}">
 
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
@@ -80,7 +81,8 @@
       </div>
 
 
-      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null  ? 'none' : 'flex'}">
+      <div class="row mb-4 mt-4"
+        [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null  ? 'none' : 'flex'}">
 
         <div *ngFor="let category of searchCategories"
           class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
@@ -112,6 +114,14 @@
           </a>
 
         </div>
+      </div>
+
+      <div class="alert alert-light" role="alert" *ngIf="searchCategoriesLength == 0 && searchTermLength > 0">
+        <p>
+          <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon>
+          <span>Es wurden keine passenden Suchergebnisse
+            gefunden.</span>
+        </p>
       </div>
       <!--  <div class="row mb-5 header-row">
         <h3>API</h3>
