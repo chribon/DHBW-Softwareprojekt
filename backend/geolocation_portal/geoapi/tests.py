@@ -7,7 +7,7 @@ from .subcategory_response import SubcategoryResponse
 class Mock(): # allows dynamic assignment of values
     pass
 
-class SubcategoryResponseTest(unittest.TestCase):
+class SubcategoryResponseUnitTests(unittest.TestCase):
 
     def test_none_subcategory_raise_value_error(self):
         with self.assertRaises(ValueError):
@@ -36,5 +36,40 @@ class SubcategoryResponseTest(unittest.TestCase):
             except ValueError:
                 self.fail("Subcategory.__init__ raised exception for a valid subcagetory.entry_types value.")
 
+from geomodels.models import Subcategory
+from category_trash.models import GlassEntry
+from django.contrib.gis.geos import Point
+class SubcategoryResponseIntegrationTests(test.TestCase):
+    fixtures = ['geomodels/fixtures/initial_data.yaml']
 
+    @staticmethod
+    def get_entry_of_response_data_via_title(response_data, title):
+        for response_entry in response_data:
+            if response_entry['title'] == title:
+                return response_entry
 
+        raise Exception(f'Entry with title: {title} should be present in SubcategoryResponse but was not found in response.data: {response_data}')
+
+    def test_new_glass_entry_included_in_response(self):
+        test_title = '###test###'
+        test_opening_hours = '42'
+        test_coordinates = Point(5,23)
+
+        GlassEntry.objects.create(
+            title = test_title,
+            openingHours = test_opening_hours,
+            coordinates = test_coordinates,
+        )
+
+        glass_subcategory = Subcategory.objects.get(title__iexact = 'glassmüll')
+        response = SubcategoryResponse(glass_subcategory).get_response()
+
+        response_entry = self.get_entry_of_response_data_via_title(response.data, test_title)
+
+        self.assertEqual(response_entry['openingHours'], test_opening_hours)
+
+        response_point = Point(response_entry['coordinates']['coordinates']) # reponse_entry contains a GeoJsonDict for the coordinates
+        self.assertEqual(
+            response_point.geojson,
+            test_coordinates.geojson # the saved entry in the db automatically gets a SRID, so they are not equal any more, so we have to compare the simple geojson coordinates
+        )
