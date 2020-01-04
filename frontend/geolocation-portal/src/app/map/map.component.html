@@ -22,7 +22,7 @@
                 <h4>Points-Of-Interest</h4>
             </div>
             <hr>
-            <div *ngFor="let subcategory of subcategories">
+            <div *ngFor="let subcategory of subcategoriesFromCategory">
                 <div class="row sub animated bounceInLeft" (click)="toggleSubcategory(subcategory)"
                     [ngClass]="{'clickDisable': disableClick(subcategory)}">
                     <div class="col-8" style="overflow: hidden;">

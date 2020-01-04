@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
   searchCategoriesLength: number;
   searchTerm: string;
   searchTermLength: number;
-
   constructor(private categoryService: CategoryService,
     private subcategoryService: SubcategoryService) { }
 
@@ -41,7 +40,11 @@ export class MenuComponent implements OnInit {
     }
     for (let subcategory of this.subcategories) {
       if (subcategory.title.includes(this.searchTerm) && this.searchTerm.length != 0) {
-        this.searchCategories.push(this.categories.find(category => category.id == subcategory.cid));
+
+        if(!(this.searchCategories.some(category => category.id == subcategory.id_category))){
+          this.searchCategories.push(this.categories.find(category => category.id == subcategory.id_category));
+        }
+        
       }
     }
 
@@ -49,19 +52,30 @@ export class MenuComponent implements OnInit {
   }
 
   getSubcategories(): void {
-    this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
+    this.subcategoryService.getSubcategoriesFromAPI().subscribe((subcategories) => (this.subcategories = subcategories));
   }
   getCategories(): void {
-    this.categoryService.getCategories().subscribe(CATEGORIES => (this.categories = CATEGORIES));
+    this.categoryService.getCategoriesFromAPI().subscribe((category) => (this.categories = category));
   }
   getSubcategoriesOfCatgory(category: Category): Subcategory[] {
     let subcategories: Subcategory[];
     for (let subcategory of this.subcategories) {
-      if (category.id == subcategory.cid) {
+      if (category.id == subcategory.id_category) {
         this.subcategories.push(subcategory);
       }
     }
     return subcategories;
   }
+
+
+
+   /* alte Funktionen ohne API
+  
+  getSubcategories(): void {
+    this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
+  }
+  getCategories(): void {
+    this.categoryService.getCategories().subscribe(CATEGORIES => (this.categories = CATEGORIES));
+  } */
 
 }

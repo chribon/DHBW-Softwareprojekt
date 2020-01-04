@@ -1,5 +1,6 @@
 <mdb-card id="about" style="background-image: url('/assets/images/mosbach_about_img.jpg')" class="card-image mt-0">
 
+  
   <div class="text-white text-center  justify-content-center d-flex rgba-black-strong py-5 px-4">
     <div>
       <h5>
@@ -103,7 +104,7 @@
                 <!--Text-->
                 <mdb-card-text>
                   <div *ngFor="let subcategory of subcategories"
-                    [ngStyle]="{'display': subcategory.cid == category.id  ? 'block' : 'none', 'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">
+                    [ngStyle]="{'display': subcategory.id_category == category.id  ? 'block' : 'none', 'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">
                     <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon>{{subcategory.title}}
                   </div>
                 </mdb-card-text>
