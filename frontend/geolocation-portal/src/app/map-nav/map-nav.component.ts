@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { SubcategoryService } from '../subcategory.service';
 import { Subcategory } from '../subcategory';
 import * as $ from 'jquery';
@@ -18,39 +17,45 @@ export class MapNavComponent implements OnInit {
   categories: Category[];
   category: Category;
   title: string;
- 
+
 
   constructor(private route: ActivatedRoute,
     private categoryService: CategoryService,
-    private subcategoryService: SubcategoryService,
-    private location: Location, ) {}
+    private subcategoryService: SubcategoryService) { }
 
   ngOnInit() {
-    this.getCategory();
-    this.getCategories();
 
+    this.categoryService.getCategoriesFromAPI().subscribe(categories => {
+      this.categories = categories;
+
+      this.route.firstChild.params.subscribe(params => {
+      this.title = params['title'];
+
+        this.category = this.categories.find(category => category.title === this.title);
+      });
+
+    });
   }
 
+  checkSelectedCategoryTitle(): string {
+    return this.title;
+  }
+
+  /*  alte Funktion ohne API
+  
   getCategory(): void {
-    const title = this.route.firstChild.params.subscribe(params =>{ this.title = params['title'];
-    console.log(this.title);
-    this.categoryService.getCategoryByTitle(this.title).subscribe(category => (this.category = category));
-  });
-    
-    
+    this.route.firstChild.params.subscribe(params => {
+    this.title = params['title'];
 
+      this.categoryService.getCategoryByTitle(this.title).subscribe(category => (this.category = category));
+    });
   }
+
   getCategories(): void {
-    this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
-  }
-
-  checkSelectedCategoryTitle(): string{
-   return this.title;
-
-  }
+     this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
+   }  */
 
 
 
-  
-  
+
 }

@@ -30,9 +30,11 @@ export class VorschlagComponent implements OnInit {
 
   }
 
+
   getCategories(): void {
-    this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
+    this.categoryService.getCategoriesFromAPI().subscribe(categories => (this.categories = categories));
   }
+ 
 
 
   get contactFormEmail() {
@@ -55,4 +57,11 @@ export class VorschlagComponent implements OnInit {
     console.log("submitted");
   }
 
+
+
+
+  /* alte Funktion ohne API 
+  getCategories(): void {
+    this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
+  } */
 }

@@ -15,7 +15,9 @@ import { MapNavComponent } from './map-nav/map-nav.component';
 import { VorschlagComponent } from './vorschlag/vorschlag.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
+   
 
 
 
@@ -41,6 +43,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
