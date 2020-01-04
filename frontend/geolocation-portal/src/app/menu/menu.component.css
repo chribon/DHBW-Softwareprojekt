@@ -31,6 +31,7 @@ mdb-card-body{
 mdb-card-title{
     color: #812323;
 }
+
 .nav-link{
     color: #812323;
 }
@@ -42,6 +43,16 @@ mdb-card-title{
     background-color:#812323 ;
     color: white;
 }
+#kategorien-hr{
+    visibility: hidden;
+ }
+ #inhalt-hr{
+    visibility: hidden;
+ }
+.form-control:focus{
+    box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
+    border: none;
+}
 @media (max-width: 576px) { 
   
     #kategorien-hr{
@@ -50,16 +61,6 @@ mdb-card-title{
 
  }
 
- #kategorien-hr{
-    visibility: hidden;
- }
- #inhalt-hr{
-    visibility: hidden;
- }
- .form-control:focus{
-    box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
-    border: none;
-}
-
+ 
 
 
