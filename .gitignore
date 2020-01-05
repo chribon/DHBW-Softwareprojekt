@@ -1,3 +1,6 @@
+# custom files
+todo_groundvalue_entries.txt
+
 # ignoring the virtual environment
 backend/env/
 env/
