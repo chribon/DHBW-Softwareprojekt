@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
+
 from geomodels.models import (
     Category,
     Subcategory,
@@ -48,7 +50,7 @@ class SubcategorySerializer(serializers.ModelSerializer):
         model = Subcategory
         fields = ('id', 'id_category', 'title', 'description')
 
-class EntrySerializer(serializers.ModelSerializer):
+class EntrySerializer(GeoFeatureModelSerializer):
     class Meta:
         model = Entry
         fields = ('title')
@@ -56,11 +58,13 @@ class EntrySerializer(serializers.ModelSerializer):
 class PointEntrySerializer(EntrySerializer):
     class Meta(EntrySerializer.Meta):
         model = PointEntry
+        geo_field = "coordinates"
         fields = ('title', 'coordinates')
 
 class PolygonEntrySerializer(EntrySerializer):
     class Meta(EntrySerializer.Meta):
         model = PolygonEntry
+        geo_field = "coordinates"
         fields = ('title', 'coordinates')
 
 
