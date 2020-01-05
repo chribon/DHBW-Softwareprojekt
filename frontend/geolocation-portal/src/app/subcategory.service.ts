@@ -4,6 +4,7 @@ import { Subcategory } from './subcategory';
 import { SUBCATEGORIES } from './api-data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Entry } from './entry';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,13 @@ export class SubcategoryService {
 
   getSubcategoriesFromAPI() {
     return this.http.get<Subcategory[]>("http://127.0.0.1:8000/api/subcategories/").pipe(
-      catchError(this.handleError<Subcategory[]>('getCategoriesFromAPI', []))
+      catchError(this.handleError<Subcategory[]>('getSubcategoriesFromAPI', []))
+    );
+  }
+
+  getEntriesFromAPI(subcategoryID: number){
+    return this.http.get<Entry[]>("http://127.0.0.1:8000/api/subcategories/"+subcategoryID+"/entries/").pipe(
+      catchError(this.handleError<Entry[]>('getEntriesFromAPI', []))
     );
   }
 

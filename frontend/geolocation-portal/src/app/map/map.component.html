@@ -8,7 +8,7 @@
             <hr [ngClass]="{'hideSelectedCategoriesHr': checkEmptySelectedCategories()}" class="animated bounceInLeft">
             <div *ngFor="let selectedSubcategory of selectedSubcategories">
                 <div class="row sub selected-sub animated bounceInLeft"
-                    (click)="toggleSubcategory(selectedSubcategory)">
+                    (click)="toggleSubcategory(selectedSubcategory); removePOIsFromMap(selectedSubcategory.id)">
                     <div class="col-8" style="overflow: hidden;">
                         <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon> {{selectedSubcategory.title}}
                     </div>
@@ -23,7 +23,7 @@
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
-                <div class="row sub animated bounceInLeft" (click)="toggleSubcategory(subcategory)"
+                <div class="row sub animated bounceInLeft" (click)="toggleSubcategory(subcategory); displayPOIsOnMap(subcategory.id)"
                     [ngClass]="{'clickDisable': disableClick(subcategory)}">
                     <div class="col-8" style="overflow: hidden;">
                         <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon>{{subcategory.title}}
@@ -47,6 +47,7 @@
             <hr>
             <div class="row" class="mt-0">
                 <div id="map-info">
+                    {{ info }}
                 </div>
             </div>
         </div>

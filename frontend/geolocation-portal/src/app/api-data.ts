@@ -1,8 +1,5 @@
 import { Category } from './category';
 import { Subcategory } from './subcategory';
-import { Entry } from './entry';
-
-
 
 
 export const CATEGORIES: Category[] = [
@@ -23,7 +20,3 @@ export const SUBCATEGORIES: Subcategory[] = [
   { id: 5, id_category: 3, title: 'subcategory3.1', type:'map' },
   { id: 6, id_category: 3, title: 'subcategory3.2', type:'map' },
 ];
-export const ENTRIES: Entry[] = [
-  {id: 1, title: "mülleimer 1", content: [{lat:49.346881, long: 9.135313 }]},
-  {id: 1, title: "mülleimer 1", content: [{lat:49.358234,  long:9.148750}]}
-]

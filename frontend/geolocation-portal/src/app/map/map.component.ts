@@ -6,6 +6,8 @@ import { SubcategoryService } from '../subcategory.service';
 import { Subcategory } from '../subcategory';
 import * as L from 'leaflet';
 import { REFERENCE_PREFIX } from '@angular/compiler/src/render3/view/util';
+import { Entry } from '../entry';
+import { Marker_ID } from '../marker_id';
 
 
 @Component({
@@ -21,6 +23,10 @@ export class MapComponent implements OnInit {
   sub: any;
   title: string;
   selectedSubcategories: Subcategory[] = [];
+  map: any;
+  markers: Marker_ID[] = [];
+  info: string;
+
 
   constructor(private route: ActivatedRoute,
     private categoryService: CategoryService,
@@ -29,7 +35,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.initMap();
     this.categoryService.getCategoriesFromAPI().subscribe((Categories) => {
-    this.categories = Categories;
+      this.categories = Categories;
 
       this.sub = this.route.params.subscribe(params => {
         this.title = params['title'];
@@ -66,11 +72,11 @@ export class MapComponent implements OnInit {
 
 
   initMap() {
-    const map = L.map('mapid').setView([49.352164, 9.145679], 13);
+    this.map = L.map('mapid').setView([49.352164, 9.145679], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(this.map);
 
     var greenIcon = L.icon({
       iconUrl: 'assets/marker-icon.png',
@@ -82,9 +88,6 @@ export class MapComponent implements OnInit {
       shadowAnchor: [4, 62],  // the same for the shadow
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-
-    L.marker([49.354315, 9.150179], { icon: greenIcon }).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-      .openPopup();
 
   }
 
@@ -119,19 +122,66 @@ export class MapComponent implements OnInit {
     }
   }
 
+  displayPOIsOnMap(subcategoryID: number) {
 
+    this.subcategoryService.getEntriesFromAPI(subcategoryID).subscribe(entries => {
+      let subcategoryEntries: Entry[];
+      subcategoryEntries = entries;
+      let markerArray = [];
+      for (let entry of subcategoryEntries) {
+        if (entry.coordinates.type == "Point") {
 
-   /* alte Funktionen ohne API
-  
-  getCategory(): void {
-    const title = this.route.snapshot.paramMap.get('title');
+          let marker = L.marker([entry.coordinates.coordinates[1], entry.coordinates.coordinates[0]]).addTo(this.map)
+            .bindPopup(entry.title)
+            .openPopup().on('click', function(){
+              this.info = entry.info;
+            });
 
-    this.categoryService.getCategoryByTitle(title).subscribe(category => (this.category = category));
+          markerArray.push(marker);
+        }
+        else if (entry.coordinates.type == "Polygon") {
 
+          let marker = L.polygon([entry.coordinates.coordinates]).addTo(this.map)
+            .bindPopup(entry.title)
+            .openPopup().on('click', function(){
+              this.info = entry.info;
+            });
+
+          markerArray.push(marker);
+        }
+      }
+
+      let marker_id: Marker_ID = { subcategoryID: subcategoryID, markers: markerArray };
+      this.markers.push(marker_id);
+    });
   }
- getSubcategories(): void {
-    this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
-  }  */
+
+  removePOIsFromMap(subcategoryID: number) {
+    for (let marker_id of this.markers)
+      if (marker_id.subcategoryID == subcategoryID) {
+        for (let marker of marker_id.markers) {
+          this.map.removeLayer(marker);
+        }
+      }
+  }
+
+
+
+
+
+
+
+  /* alte Funktionen ohne API
+ 
+ getCategory(): void {
+   const title = this.route.snapshot.paramMap.get('title');
+
+   this.categoryService.getCategoryByTitle(title).subscribe(category => (this.category = category));
+
+ }
+getSubcategories(): void {
+   this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
+ }  */
 
 
 

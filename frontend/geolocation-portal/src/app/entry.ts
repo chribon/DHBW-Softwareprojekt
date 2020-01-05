@@ -1,5 +1,7 @@
+import { Coordinate } from './coordinate';
+
 export class Entry{
-    id: number;
     title: string;
-    content: any;
+    coordinates: Coordinate;
+    info: String;
      }
