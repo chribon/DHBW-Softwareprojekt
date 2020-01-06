@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, NgZone } from '@angular/core';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
 import { ActivatedRoute } from '@angular/router';
@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private categoryService: CategoryService,
-    private subcategoryService: SubcategoryService) { }
+    private subcategoryService: SubcategoryService, private _ngZone: NgZone) { }
 
   ngOnInit() {
     this.initMap();
@@ -128,23 +128,30 @@ export class MapComponent implements OnInit {
       let subcategoryEntries: Entry[];
       subcategoryEntries = entries;
       let markerArray = [];
+      let _this = this;
+
       for (let entry of subcategoryEntries) {
         if (entry.coordinates.type == "Point") {
-
+          console.log(entry);
+       
           let marker = L.marker([entry.coordinates.coordinates[1], entry.coordinates.coordinates[0]]).addTo(this.map)
             .bindPopup(entry.title)
             .openPopup().on('click', function(){
-              this.info = entry.info;
+              if(entry.info.length > 0){
+                _this.info = entry.info.toString();
+              }
             });
-
+          
           markerArray.push(marker);
         }
         else if (entry.coordinates.type == "Polygon") {
-
+          
           let marker = L.polygon([entry.coordinates.coordinates]).addTo(this.map)
             .bindPopup(entry.title)
             .openPopup().on('click', function(){
-              this.info = entry.info;
+              if(entry.info.length > 0){
+                _this.info = entry.info.toString();
+              }
             });
 
           markerArray.push(marker);
@@ -164,6 +171,7 @@ export class MapComponent implements OnInit {
         }
       }
   }
+  
 
 
 
