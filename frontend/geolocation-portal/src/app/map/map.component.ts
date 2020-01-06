@@ -5,9 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { SubcategoryService } from '../subcategory.service';
 import { Subcategory } from '../subcategory';
 import * as L from 'leaflet';
-import { REFERENCE_PREFIX } from '@angular/compiler/src/render3/view/util';
-import { Entry } from '../entry';
+import { FeatureCollection } from '../FeatureCollection/featurecollection';
 import { Marker_ID } from '../marker_id';
+
 
 
 @Component({
@@ -124,39 +124,55 @@ export class MapComponent implements OnInit {
 
   displayPOIsOnMap(subcategoryID: number) {
 
-    this.subcategoryService.getEntriesFromAPI(subcategoryID).subscribe(entries => {
-      let subcategoryEntries: Entry[];
-      subcategoryEntries = entries;
-      console.log(subcategoryEntries);
+    this.subcategoryService.getEntriesFromAPI(subcategoryID).subscribe(FeatureCollection => {
+
+      let featureCollection: FeatureCollection = FeatureCollection;
+      console.log(FeatureCollection);
       let markerArray = [];
       let _this = this;
 
-     for (let entry of subcategoryEntries) {
-        if (entry.features.geometry.type == "Point") {
-          console.log(entry);
-       
-          let marker = L.marker([entry.features.geometry.coordinates[1], entry.features.geometry.coordinates[0]]).addTo(this.map)
-            .bindPopup(entry.features.properties.title)
-            .openPopup().on('click', function(){
-              if(entry.features.properties.openingHours.length > 0){
-                _this.info = entry.features.properties.openingHours.toString();
-              }
-            });
-          
-          markerArray.push(marker);
-        }
-        else if (entry.features.geometry.type == "Polygon") {
-          
-          let marker = L.polygon([entry.features.geometry.coordinates]).addTo(this.map)
-            .bindPopup(entry.features.properties.title)
-            .openPopup().on('click', function(){
-              if(entry.features.properties.openingHours.length > 0){
-                _this.info = entry.features.properties.openingHours.toString();
-              }
-            });
 
-          markerArray.push(marker);
-        }
+      if (featureCollection.features[0].geometry.type == "Point") {
+        console.log(featureCollection.features[0].properties);
+
+        let marker = L.marker([featureCollection.features[0].geometry.coordinates[1], featureCollection.features[0].geometry.coordinates[0]]).addTo(this.map)
+          .bindPopup(featureCollection.features[0].properties.title)
+          .openPopup().on('click', function () {
+            
+             if(featureCollection.features[0].properties.openingHours){
+              if (featureCollection.features[0].properties.openingHours.length > 0) {
+                _this.info = featureCollection.features[0].properties.openingHours.toString();
+              }
+            }
+            if(featureCollection.features[0].properties.price){
+              if (featureCollection.features[0].properties.price.length > 0) {
+                _this.info = featureCollection.features[0].properties.price.toString();
+              }
+            }
+           
+          });
+
+        markerArray.push(marker);
+      }
+      else if (featureCollection.features[0].geometry.type == "Polygon") {
+
+        let marker = L.polygon([featureCollection.features[0].geometry.coordinates]).addTo(this.map)
+          .bindPopup(featureCollection.features[0].properties.title)
+          .openPopup().on('click', function () {
+            
+            if(featureCollection.features[0].properties.openingHours){
+              if (featureCollection.features[0].properties.openingHours.length > 0) {
+                _this.info = featureCollection.features[0].properties.openingHours.toString();
+              }
+            }
+            if(featureCollection.features[0].properties.price){
+              if (featureCollection.features[0].properties.price.length > 0) {
+                _this.info = featureCollection.features[0].properties.price.toString();
+              }
+            }
+          });
+
+        markerArray.push(marker);
       }
 
       let marker_id: Marker_ID = { subcategoryID: subcategoryID, markers: markerArray };
@@ -169,10 +185,11 @@ export class MapComponent implements OnInit {
       if (marker_id.subcategoryID == subcategoryID) {
         for (let marker of marker_id.markers) {
           this.map.removeLayer(marker);
+          this.info ="";
         }
       }
   }
-  
+
 
 
 

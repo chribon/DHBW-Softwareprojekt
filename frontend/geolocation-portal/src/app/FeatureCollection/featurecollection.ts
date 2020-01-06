@@ -1,6 +1,6 @@
 import { Feature } from './feature';
 
-export class Entry{
+export class FeatureCollection{
     type: string;
-    features: Feature;
+    features: Feature[];
      }

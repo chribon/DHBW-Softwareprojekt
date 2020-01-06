@@ -1,8 +1,8 @@
-import { Coordinate } from './coordinate';
+import { Geometry } from './geometry';
 import { Property } from './property';
 
 export class Feature{
     type: string;
-    geometry: Coordinate;
+    geometry: Geometry;
     properties: Property;
      }

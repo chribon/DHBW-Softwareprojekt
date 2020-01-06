@@ -5,7 +5,7 @@ import { SUBCATEGORIES } from './api-data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 //import { Entry } from './entry';
-import { FeatureCollection } from './feature_collection';
+import { FeatureCollection } from './FeatureCollection/featurecollection';
 
 @Injectable({
   providedIn: 'root'
