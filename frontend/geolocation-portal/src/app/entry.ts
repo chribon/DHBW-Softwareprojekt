@@ -1,7 +1,6 @@
-import { Coordinate } from './coordinate';
+import { Feature } from './feature';
 
 export class Entry{
-    title: string;
-    coordinates: Coordinate;
-    info: String;
+    type: string;
+    features: Feature;
      }
