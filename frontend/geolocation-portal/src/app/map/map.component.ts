@@ -101,7 +101,7 @@ export class MapComponent implements OnInit {
     } else {
       this.selectedSubcategories.push(subcategory);
     }
-    console.log(this.selectedSubcategories);
+    //console.log(this.selectedSubcategories);
 
   }
 
@@ -127,30 +127,31 @@ export class MapComponent implements OnInit {
     this.subcategoryService.getEntriesFromAPI(subcategoryID).subscribe(entries => {
       let subcategoryEntries: Entry[];
       subcategoryEntries = entries;
+      console.log(subcategoryEntries);
       let markerArray = [];
       let _this = this;
 
-      for (let entry of subcategoryEntries) {
-        if (entry.coordinates.type == "Point") {
+     for (let entry of subcategoryEntries) {
+        if (entry.features.geometry.type == "Point") {
           console.log(entry);
        
-          let marker = L.marker([entry.coordinates.coordinates[1], entry.coordinates.coordinates[0]]).addTo(this.map)
-            .bindPopup(entry.title)
+          let marker = L.marker([entry.features.geometry.coordinates[1], entry.features.geometry.coordinates[0]]).addTo(this.map)
+            .bindPopup(entry.features.properties.title)
             .openPopup().on('click', function(){
-              if(entry.info.length > 0){
-                _this.info = entry.info.toString();
+              if(entry.features.properties.openingHours.length > 0){
+                _this.info = entry.features.properties.openingHours.toString();
               }
             });
           
           markerArray.push(marker);
         }
-        else if (entry.coordinates.type == "Polygon") {
+        else if (entry.features.geometry.type == "Polygon") {
           
-          let marker = L.polygon([entry.coordinates.coordinates]).addTo(this.map)
-            .bindPopup(entry.title)
+          let marker = L.polygon([entry.features.geometry.coordinates]).addTo(this.map)
+            .bindPopup(entry.features.properties.title)
             .openPopup().on('click', function(){
-              if(entry.info.length > 0){
-                _this.info = entry.info.toString();
+              if(entry.features.properties.openingHours.length > 0){
+                _this.info = entry.features.properties.openingHours.toString();
               }
             });
 
