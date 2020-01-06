@@ -1,6 +1,7 @@
 
-export abstract class Geometry{
+export abstract class Geometry {
 }
+
 export class Point extends Geometry {
 	constructor(
 		public type: string,
@@ -8,6 +9,7 @@ export class Point extends Geometry {
 	)
 	{super();}
 }
+
 export class Polygon extends Geometry {
 	constructor(
 		public type: string,
@@ -17,13 +19,39 @@ export class Polygon extends Geometry {
 }
 
 
+export class Properties {
+	constructor(
+		public title: string
+	){}
+}
+
+export class GroundValueProperties extends Properties {
+	constructor(
+		public title: string,
+		public price: string
+	)
+	{
+		super(title);
+		price += "toller Preis";
+	}
+}
+
+export class GlassTrashProperties extends Properties {
+	public openingHours: string
+	constructor(
+		public title: string,
+	){ super(title); }
+}
+
+
 export class Feature {
 	constructor(
 		public type: string,
 		public geometry: Geometry,
-		public properties: any
+		public properties: Properties
 	){}
 }
+
 
 export class FeatureCollection {
 
