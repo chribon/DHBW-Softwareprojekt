@@ -4,7 +4,8 @@ import { Subcategory } from './subcategory';
 import { SUBCATEGORIES } from './api-data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Entry } from './entry';
+//import { Entry } from './entry';
+import { FeatureCollection } from './feature_collection';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +25,9 @@ export class SubcategoryService {
     );
   }
 
-  getEntriesFromAPI(subcategoryID: number){
-    return this.http.get<Entry[]>("http://127.0.0.1:8000/api/subcategories/"+subcategoryID+"/entries/").pipe(
-      catchError(this.handleError<Entry[]>('getEntriesFromAPI', []))
+	getEntriesFromAPI(subcategoryID: number): Observable<any>{
+    return this.http.get<FeatureCollection>("http://127.0.0.1:8000/api/subcategories/"+subcategoryID+"/entries/").pipe(
+	    catchError(this.handleError<FeatureCollection>('getEntriesFromAPI', null))
     );
   }
 
