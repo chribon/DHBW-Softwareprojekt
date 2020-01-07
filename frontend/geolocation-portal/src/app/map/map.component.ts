@@ -131,49 +131,51 @@ export class MapComponent implements OnInit {
       let markerArray = [];
       let _this = this;
 
-
-      if (featureCollection.features[0].geometry.type == "Point") {
-        console.log(featureCollection.features[0].properties);
-
-        let marker = L.marker([featureCollection.features[0].geometry.coordinates[1], featureCollection.features[0].geometry.coordinates[0]]).addTo(this.map)
-          .bindPopup(featureCollection.features[0].properties.title)
-          .openPopup().on('click', function () {
-            
-             if(featureCollection.features[0].properties.openingHours){
-              if (featureCollection.features[0].properties.openingHours.length > 0) {
-                _this.info = featureCollection.features[0].properties.openingHours.toString();
+      for(let feature of featureCollection.features ){
+        if (feature.geometry.type == "Point") {
+          console.log(feature.properties);
+  
+          let marker = L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]]).addTo(this.map)
+            .bindPopup(feature.properties.title)
+            .openPopup().on('click', function () {
+              
+               if(feature.properties.openingHours){
+                if (feature.properties.openingHours.length > 0) {
+                  _this.info = feature.properties.openingHours.toString();
+                }
               }
-            }
-            if(featureCollection.features[0].properties.price){
-              if (featureCollection.features[0].properties.price.length > 0) {
-                _this.info = featureCollection.features[0].properties.price.toString();
+              if(feature.properties.price){
+                if (feature.properties.price.length > 0) {
+                  _this.info = feature.properties.price.toString();
+                }
               }
-            }
-           
-          });
-
-        markerArray.push(marker);
+             
+            });
+  
+          markerArray.push(marker);
+        }
+        else if (feature.geometry.type == "Polygon") {
+  
+          let marker = L.polygon([feature.geometry.coordinates]).addTo(this.map)
+            .bindPopup(feature.properties.title)
+            .openPopup().on('click', function () {
+              
+              if(feature.properties.openingHours){
+                if (feature.properties.openingHours.length > 0) {
+                  _this.info = feature.properties.openingHours.toString();
+                }
+              }
+              if(feature.properties.price){
+                if (feature.properties.price.length > 0) {
+                  _this.info = feature.properties.price.toString();
+                }
+              }
+            });
+  
+          markerArray.push(marker);
+        }
       }
-      else if (featureCollection.features[0].geometry.type == "Polygon") {
-
-        let marker = L.polygon([featureCollection.features[0].geometry.coordinates]).addTo(this.map)
-          .bindPopup(featureCollection.features[0].properties.title)
-          .openPopup().on('click', function () {
-            
-            if(featureCollection.features[0].properties.openingHours){
-              if (featureCollection.features[0].properties.openingHours.length > 0) {
-                _this.info = featureCollection.features[0].properties.openingHours.toString();
-              }
-            }
-            if(featureCollection.features[0].properties.price){
-              if (featureCollection.features[0].properties.price.length > 0) {
-                _this.info = featureCollection.features[0].properties.price.toString();
-              }
-            }
-          });
-
-        markerArray.push(marker);
-      }
+      
 
       let marker_id: Marker_ID = { subcategoryID: subcategoryID, markers: markerArray };
       this.markers.push(marker_id);
