@@ -1,8 +1,8 @@
-
+/* 
 hr{
     border-color: black;
 
-}
+} */
 
 #maincontainer{
     padding: 5%;
@@ -24,6 +24,7 @@ hr{
 .header-row{
     border-bottom: 2px solid black;
 }
+
 mdb-card-body{
     border-top:1px solid rgba(7, 6, 6, 0.123);
     
@@ -53,6 +54,13 @@ mdb-card-title{
     box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
     border: none;
 }
+
+.category-link{
+    color: #812323;
+}
+mdb-card-text a.category-link{
+    color: #747373 !important;
+} 
 @media (max-width: 576px) { 
   
     #kategorien-hr{

@@ -1,6 +1,6 @@
 <mdb-card id="about" style="background-image: url('/assets/images/mosbach_about_img.jpg')" class="card-image mt-0">
 
-  
+
   <div class="text-white text-center  justify-content-center d-flex rgba-black-strong py-5 px-4">
     <div>
       <h5>
@@ -56,27 +56,29 @@
 
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
-          <a routerLink="/map/{{category.title}}">
+          <mdb-card class="category">
+            <!--Card image-->
+            <a class="category-link" routerLink="/map/{{category.title}}">
+              <mdb-card-img src="{{category.image}}" alt="Card image cap"> </mdb-card-img>
+            </a>
+            <!--Card content-->
+            <mdb-card-body>
 
-            <mdb-card class="category">
-              <!--Card image-->
-              <mdb-card-img src="{{category.image}}" alt="Card image cap"></mdb-card-img>
-              <!--Card content-->
-              <mdb-card-body>
-
-                <!--Title-->
-                <mdb-card-title>
+              <!--Title-->
+              <mdb-card-title>
+                <a class="category-link" routerLink="/map/{{category.title}}">
                   <h4>{{category.title}}</h4>
-                </mdb-card-title>
+                </a>
+              </mdb-card-title>
 
-                <!--Text-->
-                <mdb-card-text> {{category.description}}
-                </mdb-card-text>
+              <!--Text-->
+              <mdb-card-text> <a class="category-link" routerLink="/map/{{category.title}}">{{category.description}}
+                </a>
+              </mdb-card-text>
 
 
-              </mdb-card-body>
-            </mdb-card>
-          </a>
+            </mdb-card-body>
+          </mdb-card>
 
         </div>
       </div>

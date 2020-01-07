@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SubcategoryService } from '../subcategory.service';
 import { Subcategory } from '../subcategory';
 import * as L from 'leaflet';
+import { icon, Marker } from 'leaflet';
 import { FeatureCollection } from '../FeatureCollection/featurecollection';
 import { Marker_ID } from '../marker_id';
 
@@ -78,16 +79,34 @@ export class MapComponent implements OnInit {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
 
-    var greenIcon = L.icon({
-      iconUrl: 'assets/marker-icon.png',
-      shadowUrl: 'assets/marker-shadow.png',
+    /* costum marker
+        var greenIcon = L.icon({
+          iconUrl: 'assets/marker-icon.png',
+          shadowUrl: 'assets/marker-shadow.png',
+    
+          iconSize: [38, 95], // size of the icon
+          shadowSize: [50, 64], // size of the shadow
+          iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+          shadowAnchor: [4, 62],  // the same for the shadow
+          popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
+     */
 
-      iconSize: [38, 95], // size of the icon
-      shadowSize: [50, 64], // size of the shadow
-      iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-      shadowAnchor: [4, 62],  // the same for the shadow
-      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+     // fix marker image output path
+    const iconRetinaUrl = 'assets/marker-icon-2x.png';
+    const iconUrl = 'assets/marker-icon.png';
+    const shadowUrl = 'assets/marker-shadow.png';
+    const iconDefault = icon({
+      iconRetinaUrl,
+      iconUrl,
+      shadowUrl,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      tooltipAnchor: [16, -28],
+      shadowSize: [41, 41]
     });
+    Marker.prototype.options.icon = iconDefault;
 
   }
 
@@ -131,51 +150,50 @@ export class MapComponent implements OnInit {
       let markerArray = [];
       let _this = this;
 
-      for(let feature of featureCollection.features ){
+      for (let feature of featureCollection.features) {
         if (feature.geometry.type == "Point") {
-          console.log(feature.properties);
-  
+
           let marker = L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]]).addTo(this.map)
             .bindPopup(feature.properties.title)
             .openPopup().on('click', function () {
-              
-               if(feature.properties.openingHours){
+
+              if (feature.properties.openingHours) {
                 if (feature.properties.openingHours.length > 0) {
                   _this.info = feature.properties.openingHours.toString();
                 }
               }
-              if(feature.properties.price){
+              if (feature.properties.price) {
                 if (feature.properties.price.length > 0) {
                   _this.info = feature.properties.price.toString();
                 }
               }
-             
+
             });
-  
+
           markerArray.push(marker);
         }
         else if (feature.geometry.type == "Polygon") {
-  
+
           let marker = L.polygon([feature.geometry.coordinates]).addTo(this.map)
             .bindPopup(feature.properties.title)
             .openPopup().on('click', function () {
-              
-              if(feature.properties.openingHours){
+
+              if (feature.properties.openingHours) {
                 if (feature.properties.openingHours.length > 0) {
                   _this.info = feature.properties.openingHours.toString();
                 }
               }
-              if(feature.properties.price){
+              if (feature.properties.price) {
                 if (feature.properties.price.length > 0) {
                   _this.info = feature.properties.price.toString();
                 }
               }
             });
-  
+
           markerArray.push(marker);
         }
       }
-      
+
 
       let marker_id: Marker_ID = { subcategoryID: subcategoryID, markers: markerArray };
       this.markers.push(marker_id);
@@ -187,7 +205,7 @@ export class MapComponent implements OnInit {
       if (marker_id.subcategoryID == subcategoryID) {
         for (let marker of marker_id.markers) {
           this.map.removeLayer(marker);
-          this.info ="";
+          this.info = "";
         }
       }
   }
