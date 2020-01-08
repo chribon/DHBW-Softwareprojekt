@@ -48,7 +48,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class SubcategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Subcategory
-        fields = ('id', 'id_category', 'title', 'description')
+        fields = ('id', 'id_category', 'title', 'description', 'entry_types')
 
 class EntrySerializer(GeoFeatureModelSerializer):
     class Meta:
