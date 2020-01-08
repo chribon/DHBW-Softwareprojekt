@@ -30,6 +30,7 @@ from category_traffic.models import (
     ParkingEntry,
 )
 from category_trash.models import (
+    OpeningHours,
     GlassEntry,
     ClothingEntry,
     BatteryEntry,
@@ -134,10 +135,17 @@ class ParkingEntrySerializer(PointEntrySerializer):
 
 
 # Category Trash
+class OpeningHoursSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHours
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
 class GlassEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursSerializer(read_only=True)
+
     class Meta(PointEntrySerializer.Meta):
         model = GlassEntry
-        fields = ('title', 'coordinates', 'openingHours')
+        fields = ('title', 'coordinates', 'openinghours')
 
 class ClothingEntrySerializer(PointEntrySerializer):
     class Meta(PointEntrySerializer.Meta):
