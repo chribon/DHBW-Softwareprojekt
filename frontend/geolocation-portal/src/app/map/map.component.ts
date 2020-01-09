@@ -209,6 +209,13 @@ export class MapComponent implements OnInit {
         }
       }
   }
+  getCategoryTitleBySubcategoryID(subcategoryID: number): string{
+    let category = this.categories.find(category =>(category.id == subcategoryID));
+    if(category.title){
+      return category.title;
+    }
+    return "";
+  }
 
 
 
