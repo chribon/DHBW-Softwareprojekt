@@ -2,6 +2,7 @@ from django.contrib import admin
 from geoadmin.admin import admin_site
 from leaflet.admin import LeafletGeoAdmin, LeafletGeoAdminMixin
 from .models import (
+    OpeningHours,
     GlassEntry,
     ClothingEntry,
     BatteryEntry,
@@ -10,11 +11,15 @@ from .models import (
     RecyclingcentreEntry,
 )
 
+class OpeningHoursAdmin(admin.TabularInline):
+    model = OpeningHours
+
 class GlassEntryAdmin(LeafletGeoAdmin):
     list_display = ['title', 'unterkategorie']
     ordering = ['title']
     search_fields = ['title']
     exclude = ['id_subcategory']
+    inlines = [OpeningHoursAdmin, ]
 
     def unterkategorie(self, instance):
         return instance.id_subcategory.title

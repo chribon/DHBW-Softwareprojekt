@@ -227,16 +227,25 @@
     entry_types: sportscentresparetime
     coordinates_type: point
 
-
+- model: category_trash.OpeningHours
+  pk: 1
+  fields:
+    glass_entry: 1
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
 - model: category_trash.GlassEntry
   pk: 1
   fields:
     title: Container Nr. 1
     coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    openingHours: "M: 00:00 - 24:00\nT: 00:00 - 24:00\nW: 00:00 - 24:00\nR: 00:00 - 24:00\nF: 00:00 - 24:00\nS: 00:00 - 24:00\nU: 00:00 - 24:00"
-    id_subcategory_id: 1
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_trash.BatteryEntry
   pk: 1
   fields:
