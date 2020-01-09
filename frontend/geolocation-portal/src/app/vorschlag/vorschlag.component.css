@@ -14,10 +14,9 @@ input.ng-touched.ng-invalid {
 textarea.ng-touched.ng-invalid {
     border-color: red
 }
-
-#submitButton{
-    background-color:#812323 ;
-    color: white;
+button{
+  background-color:#812323 ;
+  color: white;
 }
 .form-control:focus{
     box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
@@ -26,6 +25,9 @@ textarea.ng-touched.ng-invalid {
 .custom-select:focus{
     box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
     border: none;
+}
+.btn:hover{
+  color: white;
 }
 
     #check-container #checkmark:after {

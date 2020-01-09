@@ -1,8 +1,9 @@
+import { OpeningHours } from './Properties/openingHours';
 
 export class Property {
   title: string;
   price: string;
-  openingHours: string;
+  openinghours: OpeningHours;
 }
 
 

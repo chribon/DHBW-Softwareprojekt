@@ -37,8 +37,10 @@
 }
 #map-info{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-    height: 50px;
+    height: fit-content;
+    min-height: 50px;
     width: 100%;
+    padding: 10px;
 }
 
 /* .header-row{
@@ -61,5 +63,9 @@ hr{
 }
 #selected-category-tag{
     color: #747373;
+}
+
+td{
+    padding-right: 5px;
 }
 

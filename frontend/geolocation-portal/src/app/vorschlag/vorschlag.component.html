@@ -18,7 +18,7 @@
 
 
 
-    <form class=" border border-light p-5" [formGroup]="submissionForm" (ngSubmit)="onSubmit()">
+    <form class="p-5" [formGroup]="submissionForm" (ngSubmit)="onSubmit()">
 
         <p class="h4 mb-4">Formular</p>
 
@@ -58,13 +58,28 @@
         <span class="ml-4">Eine Kopie dieses Vorschlags an meine E-Mail-Adresse schicken</span>
 
         <!-- Submit button -->
-        <button id="submitButton" mdbBtn block="true" class="btn z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit"
+        <button mdbBtn block="true" class="btn z-depth-0 my-4 waves-effect" (click)="frameModal.show()" mdbWavesEffect type="submit"
             [disabled]="disabledSubmitButton">Vorschlag einreichen</button>
 
 
     </form>
 
-
+    <div mdbModal #frameModal="mdbModal" class="modal fade bottom" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+    aria-hidden="true">
+     <div class="modal-dialog  modal-frame modal-bottom" role="document">
+         <div class="modal-content">
+             <div class="modal-body text-center" style="border:none">
+                
+               <h3 style="display: inline;" class="mr-3">Ihr Vorschlag wurde verschickt</h3>
+               <mdb-icon far icon="envelope" size="2x" style="transform: translateY(2px);"></mdb-icon>
+             </div>
+             <div class="modal-footer justify-content-center" style="border:none">
+                 <button  type="button" mdbBtn  class="waves-light" aria-label="Close" (click)="frameModal.hide(); modalAccept()" mdbWavesEffect>Close</button>
+                
+             </div>
+         </div>
+     </div >
+ </div >
 
     <div *ngIf="contactFormEmail.invalid && (contactFormEmail.dirty || contactFormEmail.touched)"
         class="alert alert-danger">

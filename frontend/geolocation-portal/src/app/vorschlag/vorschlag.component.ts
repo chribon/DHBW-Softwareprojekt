@@ -10,7 +10,7 @@ import { CategoryService } from '../category.service';
 })
 export class VorschlagComponent implements OnInit {
   submissionForm: FormGroup;
-  categories: Category[]= [];
+  categories: Category []= [];
 
 
   constructor(private categoryService: CategoryService) { }
@@ -54,7 +54,16 @@ export class VorschlagComponent implements OnInit {
   }
 
   onSubmit(){
+   if(this.submissionForm.valid){
     console.log("submitted");
+   }
+   else{
+    console.log("form invalid");
+   }
+  }
+
+  modalAccept(){
+    this.submissionForm.reset();
   }
 
 

@@ -36,7 +36,7 @@
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
                 <div class="row sub animated bounceInLeft"
-                    (click)="toggleSubcategory(subcategory); displayPOIsOnMap(subcategory.id)"
+                    (click)="toggleSubcategory(subcategory)"
                     [ngClass]="{'clickDisable': disableClick(subcategory)}">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                         <mdb-icon fas icon="angle-right" class="mr-1"></mdb-icon>{{subcategory.title}}
@@ -61,7 +61,55 @@
             <div class="row" class="mt-0">
                 <div id="map-info">
                     {{info}}
+                    <div *ngIf="openingHours">
+                        <h4>Öffnungszeiten</h4>
+                        <table>
+                            <tr>
+                                <td><b>Montag: </b></td>
+                                <td>{{openingHours.monday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.monday[1]}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Dienstag: </b></td>
+                                <td>{{openingHours.tuesday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.tuesday[1]}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Mittwoch: </b></td>
+                                <td>{{openingHours.wednesday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.wednesday[1]}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Donnerstag: </b></td>
+                                <td>{{openingHours.thursday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.thursday[1]}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Freitag: </b></td>
+                                <td>{{openingHours.friday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.friday[1]}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Samstag: </b></td>
+                                <td>{{openingHours.saturday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.saturday[1]}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Sonntag: </b></td>
+                                <td>{{openingHours.sunday[0]}}</td>
+                                <td>bis</td>
+                                <td>{{openingHours.sunday[1]}}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
+               
             </div>
         </div>
 
