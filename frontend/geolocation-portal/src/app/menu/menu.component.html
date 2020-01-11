@@ -90,31 +90,35 @@
         <div *ngFor="let category of searchCategories"
           class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
-          <a routerLink="/map/{{category.title}}">
 
-            <mdb-card class="category">
-              <!--Card image-->
+
+          <mdb-card class="category">
+            <!--Card image-->
+            <a routerLink="/map/{{category.title}}">
               <mdb-card-img src="{{category.image}}" alt="Card image cap"></mdb-card-img>
-              <!--Card content-->
-              <mdb-card-body>
+            </a>
+            <!--Card content-->
+            <mdb-card-body>
 
-                <!--Title-->
-                <mdb-card-title>
-                  <h4>{{category.title}}</h4>
-                </mdb-card-title>
+              <!--Title-->
+              <mdb-card-title>
+                <a routerLink="/map/{{category.title}}">
+                <h4>{{category.title}}</h4>
+              </a>
+              </mdb-card-title>
 
-                <!--Text-->
-                <mdb-card-text>
-                  <div *ngFor="let subcategory of subcategories"
-                    [ngStyle]="{'display': subcategory.id_category == category.id  ? 'block' : 'none', 'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">
-                    <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon>{{subcategory.title}}
-                  </div>
-                </mdb-card-text>
+              <!--Text-->
+              <mdb-card-text>
+                <div *ngFor="let subcategory of subcategories"
+                  [ngStyle]="{'display': subcategory.id_category == category.id  ? 'block' : 'none' }">
+                  <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon> <a routerLink="/map/{{category.title}}" [queryParams]="{'selectedSubcategory': subcategory.title }" [ngStyle]="{'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">{{subcategory.title}}</a>
+                </div>
+              </mdb-card-text>
 
 
-              </mdb-card-body>
-            </mdb-card>
-          </a>
+            </mdb-card-body>
+          </mdb-card>
+
 
         </div>
       </div>

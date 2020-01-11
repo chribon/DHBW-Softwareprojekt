@@ -1,8 +1,3 @@
-/* 
-hr{
-    border-color: black;
-
-} */
 
 #maincontainer{
     padding: 5%;
@@ -21,15 +16,14 @@ hr{
     border: 1px solid rgba(7, 6, 6, 0.123);
 }
 
-.header-row{
-    border-bottom: 2px solid black;
-}
-
 mdb-card-body{
     border-top:1px solid rgba(7, 6, 6, 0.123);
     
 }
 mdb-card-title{
+    color: #812323;
+}
+mdb-card-title a{
     color: #812323;
 }
 
@@ -44,12 +38,7 @@ mdb-card-title{
     background-color:#812323 ;
     color: white;
 }
-#kategorien-hr{
-    visibility: hidden;
- }
- #inhalt-hr{
-    visibility: hidden;
- }
+
 .form-control:focus{
     box-shadow: 0 0 0 0.2em rgba(129, 35, 35, 0.25);
     border: none;
