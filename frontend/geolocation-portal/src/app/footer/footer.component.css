@@ -1,39 +1,39 @@
 
-a{
+  a{
     color: #812323 ;
-}
-/* 
-#back-to-top{
-    border: 1px solid #812323;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    background-color:#812323 ;
-} */
-
-@media (max-width: 576px) { 
-    
-    #copyright{
-        margin-bottom:8px;
-    }
- }
-
- #back-to-top {
-    display: none ; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: -30px; /* Place the button 30px from the right */
-    z-index: 1000; /* Make sure it does not overlap */
+  }
+  .footer-overlay {
+    position: fixed; 
+    z-index: 1000; 
     border: 1px solid white; 
-    outline: none; /* Remove outline */
+    outline: none; 
     background-color:#812323 ;
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
+    color: white; 
+    cursor: pointer; 
     height: 50px;
     width: 50px;
     border-radius: 25px;
   }
+  #back-to-top{
+    bottom: 20px; 
+    right: 20px; 
+  }
+  #chat-bot{
+    bottom: 75px; 
+    right: 20px; 
+  }
+  #chat-bot mdb-icon{
+    transform: translateY(18px);
+  }
+
   display-to-top-button{
-      display: inline !important;
+    display: inline !important;
+  }
+
+  @media (max-width: 576px) { 
+    
+    #copyright{
+        margin-bottom:8px;
+    }
   }
  

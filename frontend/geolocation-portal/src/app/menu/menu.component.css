@@ -50,6 +50,13 @@ mdb-card-title a{
 mdb-card-text a.category-link{
     color: #747373 !important;
 } 
+
+#kategorien-hr{
+    visibility: hidden;
+ }
+ #inhalt-hr{
+    visibility: hidden;
+ }
 @media (max-width: 576px) { 
   
     #kategorien-hr{
