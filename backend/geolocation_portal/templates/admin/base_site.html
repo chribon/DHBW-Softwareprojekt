@@ -1,4 +1,5 @@
 {% extends "admin/base.html" %}
+{% load footer %}
 
 {% block title %} 
     GeoMosbach Datenpflege 
@@ -11,7 +12,12 @@
 {% block branding %}
     <span>
         <div class="navbar-brand">
-            <h1 style="color:whitesmoke;"><img src="/media/logo/logo.png" width="30" height="30" class="" alt=""> GeoMosbach Datenpflege</h1>
+            <h1 style="color:whitesmoke;"><a href="/"><img src="/media/logo/logo.png" width="30" height="30" class="" alt=""></a> GeoMosbach Datenpflege</h1>
         </div>
     </span>
+{% endblock %}
+
+
+{% block footer %}
+    {% admin_footer %}
 {% endblock %}

@@ -15,9 +15,11 @@ from .subcategory_response import SubcategoryResponse
 # /categories/1/subcategories/
 class CategoryView(viewsets.ModelViewSet):
     """
-    Pro Kategorie können die Details einzeln aufgerufen werden durch '/api/categories/**id_placeholder**/'.
+    Pro Kategorie können die Details einzeln aufgerufen werden durch '/api/categories/**id**/'. [Hier][cat1] beispielsweise die Verlinkung zur Hauptkategorie 1.
 
-    Der Pfad '/api/categories/**id_placeholder**/subcategories/' führt zu einer Auflistung aller Unterkategorien der Hauptkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Hauptkategorie-Instanz).
+    Der Pfad '/api/categories/**id**/subcategories/' führt zu einer Auflistung aller Unterkategorien der Hauptkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Hauptkategorie-Instanz). [Hier][cat1subcats] beispielsweise die Verlinkung zu den Unterkategorien der Hauptkategorie 1. 
+    [cat1]: /api/categories/1/
+    [cat1subcats]: /api/categories/1/subcategories/
     """
     serializer_class = CategorySerializer
     http_method_names = ['get']
@@ -38,9 +40,12 @@ class CategoryView(viewsets.ModelViewSet):
 # /subcategories/1/entries/
 class SubcategoryView(viewsets.ModelViewSet): 
     """
-    Pro Unterkategorie können die Details einzeln aufgerufen werden durch '/api/subcategories/**id_placeholder**/'. 
+    Pro Unterkategorie können die Details einzeln aufgerufen werden durch '/api/subcategories/**id**/'. [Hier][subcat1] beispielsweise die Verlinkung zur Unterkategorie 1.
 
-    Der Pfad '/api/subcategories/**id_placeholder**/entries/' führt zu einer Auflistung aller Einträge der Unterkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Unterkategorie-Instanz).
+    Der Pfad '/api/subcategories/**id**/entries/' führt zu einer Auflistung aller Einträge der Unterkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Unterkategorie-Instanz). [Hier][subcat1entries] beispielsweise die Verlinkung zu den Einträgen der Unterkategorie 1.
+    
+    [subcat1]: /api/subcategories/1/
+    [subcat1entries]: /api/subcategories/1/entries/
     """
     serializer_class = SubcategorySerializer
     http_method_names = ['get']
