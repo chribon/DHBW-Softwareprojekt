@@ -15,7 +15,7 @@ from .subcategory_response import SubcategoryResponse
 # /categories/1/subcategories/
 class CategoryView(viewsets.ModelViewSet):
     """
-    Pro Kategorie können die Details auch einzeln aufgerufen werden durch '/api/categories/**id_placeholder**/'.
+    Pro Kategorie können die Details einzeln aufgerufen werden durch '/api/categories/**id_placeholder**/'.
 
     Der Pfad '/api/categories/**id_placeholder**/subcategories/' führt zu einer Auflistung aller Unterkategorien der Hauptkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Hauptkategorie-Instanz).
     """

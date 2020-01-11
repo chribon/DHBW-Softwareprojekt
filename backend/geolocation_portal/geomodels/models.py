@@ -11,8 +11,8 @@ class Category(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Kategorie"
-        verbose_name_plural = "Kategorien"
+        verbose_name = "Kategorie (category)"
+        verbose_name_plural = "Kategorien (categories)"
 
 
 class Subcategory(models.Model):
@@ -60,8 +60,8 @@ class Subcategory(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Unterkategorie"
-        verbose_name_plural = "Unterkategorien"
+        verbose_name = "Unterkategorie (feature class)"
+        verbose_name_plural = "Unterkategorien (feature classes)"
 
 class Entry(models.Model):
     #id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie') # --> bei jeder Eintrag-Klasse gepflegt
