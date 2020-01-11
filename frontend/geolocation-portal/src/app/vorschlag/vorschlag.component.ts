@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
+import { ModalDirective } from "node_modules/angular-bootstrap-md/lib/free/modals/modal.directive";
 
 @Component({
   selector: 'app-vorschlag',
@@ -11,6 +12,8 @@ import { CategoryService } from '../category.service';
 export class VorschlagComponent implements OnInit {
   submissionForm: FormGroup;
   categories: Category []= [];
+  formInvalid: boolean = false;
+  @ViewChild('frameModal', {static: false}) modalDirective: ModalDirective;
 
 
   constructor(private categoryService: CategoryService) { }
@@ -55,16 +58,16 @@ export class VorschlagComponent implements OnInit {
 
   onSubmit(){
    if(this.submissionForm.valid){
-    console.log("submitted");
+    this.modalDirective.show();
+    this.submissionForm.reset();
+    this.formInvalid = false;
+
    }
    else{
-    console.log("form invalid");
+    this.formInvalid= true;
    }
   }
 
-  modalAccept(){
-    this.submissionForm.reset();
-  }
 
 
 

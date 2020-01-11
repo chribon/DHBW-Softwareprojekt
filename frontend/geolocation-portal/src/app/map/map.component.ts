@@ -75,7 +75,7 @@ export class MapComponent implements OnInit {
 
 
   initMap() {
-    this.map = L.map('mapid').setView([49.352164, 9.145679], 13);
+    this.map = L.map('mapid').setView([49.352164, 9.145679], 14);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
