@@ -43,7 +43,7 @@ class SubcategoryView(viewsets.ModelViewSet):
     Pro Unterkategorie können die Details einzeln aufgerufen werden durch '/api/subcategories/**id**/'. [Hier][subcat1] beispielsweise die Verlinkung zur Unterkategorie 1.
 
     Der Pfad '/api/subcategories/**id**/entries/' führt zu einer Auflistung aller Einträge der Unterkategorie (auch erreichbar über den Button 'Extra Actions' auf der Seite der Unterkategorie-Instanz). [Hier][subcat1entries] beispielsweise die Verlinkung zu den Einträgen der Unterkategorie 1.
-    
+
     [subcat1]: /api/subcategories/1/
     [subcat1entries]: /api/subcategories/1/entries/
     """

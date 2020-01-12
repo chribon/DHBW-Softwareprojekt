@@ -227,7 +227,7 @@
     entry_types: sportscentresparetime
     coordinates_type: point
 
-- model: category_trash.OpeningHours
+- model: category_trash.OpeningHoursGlassEntry
   pk: 1
   fields:
     glass_entry: 1

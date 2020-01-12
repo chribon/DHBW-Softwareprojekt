@@ -37,14 +37,18 @@ class SubcategoryResponseUnitTests(unittest.TestCase):
                 self.fail("Subcategory.__init__ raised exception for a valid subcagetory.entry_types value.")
 
 from geomodels.models import Subcategory
-from category_trash.models import GlassEntry
+from category_trash.models import GlassEntry, OpeningHoursGlassEntry
 from django.contrib.gis.geos import Point
+from datetime import time
+import pdb
 class SubcategoryResponseIntegrationTests(test.TestCase):
     fixtures = ['geomodels/fixtures/initial_data.yaml']
 
     @staticmethod
     def get_entry_of_response_data_via_title(response_data, title):
-        for response_entry in response_data:
+        for response_entry in response_data['features']['properties']:
+            pdb.set_trace()
+            breakpoint()
             if response_entry['title'] == title:
                 return response_entry
 
@@ -52,13 +56,22 @@ class SubcategoryResponseIntegrationTests(test.TestCase):
 
     def test_new_glass_entry_included_in_response(self):
         test_title = '###test###'
-        test_opening_hours = '42'
         test_coordinates = Point(5,23)
 
-        GlassEntry.objects.create(
+        glass_entry = GlassEntry.objects.create(
             title = test_title,
-            openingHours = test_opening_hours,
             coordinates = test_coordinates,
+        )
+
+        opening_hours = OpeningHoursGlassEntry.objects.create(
+            monday = [ time(hour = 8, minute = 42), time(hour = 17, minute = 59) ],
+            tuesday = None,
+            wednesday = [time(hour = 0, minute = 1)],
+            thursday = None,
+            friday = None,
+            saturday = None,
+            sunday = None,
+            glass_entry  = glass_entry
         )
 
         glass_subcategory = Subcategory.objects.get(title__iexact = 'glassmüll')

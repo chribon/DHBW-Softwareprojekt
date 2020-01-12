@@ -30,13 +30,18 @@ from category_traffic.models import (
     ParkingEntry,
 )
 from category_trash.models import (
-    OpeningHours,
     GlassEntry,
+    OpeningHoursGlassEntry,
     ClothingEntry,
+    OpeningHoursClothingEntry,
     BatteryEntry,
+    OpeningHoursBatteryEntry,
     IlluminantEntry,
+    OpeningHoursIlluminantEntry,
     ElectroEntry,
+    OpeningHoursElectroEntry,
     RecyclingcentreEntry,
+    OpeningHoursRecyclingcentreEntry,
 )
 
 
@@ -135,39 +140,68 @@ class ParkingEntrySerializer(PointEntrySerializer):
 
 
 # Category Trash
-class OpeningHoursSerializer(serializers.ModelSerializer):
+class OpeningHoursGlassEntrySerializer(serializers.ModelSerializer):
     class Meta:
-        model = OpeningHours
+        model = OpeningHoursGlassEntry
         fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-
 class GlassEntrySerializer(PointEntrySerializer):
-    openinghours = OpeningHoursSerializer(read_only=True)
+    openinghours = OpeningHoursGlassEntrySerializer(read_only=True, source = 'openinghoursglassentry')
 
     class Meta(PointEntrySerializer.Meta):
         model = GlassEntry
         fields = ('title', 'coordinates', 'openinghours')
 
+class OpeningHoursClothingEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursClothingEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class ClothingEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursClothingEntrySerializer(read_only=True, source = 'openinghoursclothingentry')
+
     class Meta(PointEntrySerializer.Meta):
         model = ClothingEntry
         fields = ('title', 'coordinates', 'openingHours')
 
+class OpeningHoursBatteryEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursBatteryEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class BatteryEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursBatteryEntrySerializer(read_only=True, source = 'openinghoursbatteryentry')
+
     class Meta(PointEntrySerializer.Meta):
         model = BatteryEntry
         fields = ('title', 'coordinates')
 
+class OpeningHoursIlluminantEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursIlluminantEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class IlluminantEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursIlluminantEntrySerializer(read_only=True, source = 'openinghoursilluminantentry')
+
     class Meta(PointEntrySerializer.Meta):
         model = IlluminantEntry
         fields = ('title', 'coordinates')
 
+class OpeningHoursElectroEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursElectroEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class ElectroEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursElectroEntrySerializer(read_only=True, source = 'openinghourselectroentry')
+
     class Meta(PointEntrySerializer.Meta):
         model = ElectroEntry
         fields = ('title', 'coordinates')
 
+class OpeningHoursRecyclingcentreEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursRecyclingcentreEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class RecyclingcentreEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursRecyclingcentreEntrySerializer(read_only=True)
+
     class Meta(PointEntrySerializer.Meta):
         model = RecyclingcentreEntry
         fields = ('title', 'coordinates')
