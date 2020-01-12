@@ -22,6 +22,9 @@ project.sublime-workspace
 # npm
 node_modules
 
+# Dolphin
+.directory
+
 # django template
 ### OSX ###
 .DS_Store
