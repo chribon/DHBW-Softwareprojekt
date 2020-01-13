@@ -1,10 +1,11 @@
 from django.contrib.gis.db import models
 from django.contrib.postgres.fields import ArrayField
-from geomodels.models import PointEntry, PolygonEntry, Subcategory, OpeningHours
+from geomodels.models import PointEntry, PolygonEntry, Subcategory, OpeningHours, Address
 
 
 class GlassEntry(PointEntry):
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 1)
+    description     = models.TextField(verbose_name = 'Beschreibung', blank=True, null=True)
 
     class Meta:
         verbose_name = "Glassammelstelle"
@@ -17,10 +18,16 @@ class OpeningHoursGlassEntry(OpeningHours):
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
+class AddressGlassEntry(Address):
+    glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.PROTECT)
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"
+
 
 class ClothingEntry(PointEntry):
-    openingHours = models.TextField(verbose_name = 'Öffnungszeiten') #andere Feldart verwenden
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 2)
+    description     = models.TextField(verbose_name = 'Beschreibung', blank=True, null=True)
 
     class Meta:
         verbose_name = "Altkleidersammelstelle"
@@ -32,6 +39,12 @@ class OpeningHoursClothingEntry(OpeningHours):
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
+
+class AddressClothingEntry(Address):
+    clothing_entry = models.OneToOneField(ClothingEntry, blank=True, null=True, on_delete = models.PROTECT)
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"
 
 
 class BatteryEntry(PointEntry):
@@ -48,6 +61,12 @@ class OpeningHoursBatteryEntry(OpeningHours):
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
+class AddressBatteryEntry(Address):
+    battery_entry = models.OneToOneField(BatteryEntry, blank=True, null=True, on_delete = models.PROTECT)
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"
+
 
 class IlluminantEntry(PointEntry):
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 4)
@@ -62,6 +81,12 @@ class OpeningHoursIlluminantEntry(OpeningHours):
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
+
+class AddressIlluminantEntry(Address):
+    illuminant_entry = models.OneToOneField(IlluminantEntry, blank=True, null=True, on_delete = models.PROTECT)
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"
 
 
 class ElectroEntry(PointEntry):
@@ -78,9 +103,16 @@ class OpeningHoursElectroEntry(OpeningHours):
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
+class AddressElectroEntry(Address):
+    electro_entry = models.OneToOneField(ElectroEntry, blank=True, null=True, on_delete = models.PROTECT)
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"
+
 
 class RecyclingcentreEntry(PointEntry):
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 6)
+    description     = models.TextField(verbose_name = 'Beschreibung', blank=True, null=True)
 
     class Meta:
         verbose_name = "Wertstoffhof"
@@ -92,3 +124,9 @@ class OpeningHoursRecyclingcentreEntry(OpeningHours):
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
+
+class AddressRecyclingcentreEntry(Address):
+    recyclingcentre_entry = models.OneToOneField(RecyclingcentreEntry, blank=True, null=True, on_delete = models.PROTECT)
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"

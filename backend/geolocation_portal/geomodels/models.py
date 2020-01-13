@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib.postgres.fields import ArrayField
+from django.core.validators import MaxValueValidator
 
 class Category(models.Model):
     title           = models.CharField(max_length=1024, verbose_name = 'Titel')
@@ -105,3 +106,16 @@ class OpeningHours(models.Model):
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
+
+
+class Address(models.Model):
+    street          = models.CharField(max_length=1024, verbose_name = 'Straße')
+    housenumber     = models.PositiveIntegerField(verbose_name = 'Hausnummer', validators=[MaxValueValidator(99999)])
+    zipcode         = models.PositiveIntegerField(verbose_name = 'PLZ', default=74821, validators=[MaxValueValidator(99999)])
+    city            = models.CharField(max_length=1024, verbose_name = 'Ort', default = 'Mosbach')
+    created_at      = models.DateTimeField(auto_now_add=True)
+    updated_at      = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Adresse"
+        verbose_name_plural = "Adressen"
