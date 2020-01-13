@@ -16,18 +16,23 @@ from category_living.models import (
 )
 from category_nature.models import (
     ViewpointEntry,
+    OpeningHoursViewpointEntry,
 )
 from category_sparetime.models import (
     SportscentreEntry,
+    OpeningHoursSportscentreEntry,
 )
 from category_tourism.models import (
     MonumentEntry,
+    OpeningHoursMonumentEntry,
     TrailEntry,
     ChurchEntry,
+    OpeningHoursChurchEntry,
     AccommodationEntry,
 )
 from category_traffic.models import (
     ParkingEntry,
+    OpeningHoursParkingEntry,
 )
 from category_trash.models import (
     GlassEntry,
@@ -97,34 +102,54 @@ class SchoolEntrySerializer(PointEntrySerializer):
 
 
 # Category Nature
+class OpeningHoursViewpointEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursViewpointEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class ViewpointEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursViewpointEntrySerializer(read_only=True, source = 'openinghoursviewpointentry')
     class Meta(PointEntrySerializer.Meta):
         model = ViewpointEntry
-        fields = ('title', 'coordinates')
+        fields = ('title', 'coordinates', 'openinghours')
 
 
 # Category Sparetime
+class OpeningHoursSportscentreEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursSportscentreEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class SportscentreEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursSportscentreEntrySerializer(read_only=True, source = 'openinghourssportscentreentry')
     class Meta(PointEntrySerializer.Meta):
         model = SportscentreEntry
-        fields = ('title', 'coordinates')
+        fields = ('title', 'coordinates', 'openinghours')
 
 
 # Category Tourism
+class OpeningHoursMonumentEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursMonumentEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class MonumentEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursMonumentEntrySerializer(read_only=True, source = 'openinghoursmonumententry')
     class Meta(PointEntrySerializer.Meta):
         model = MonumentEntry
-        fields = ('title', 'coordinates')
+        fields = ('title', 'coordinates', 'openinghours')
 
 class TrailEntrySerializer(PointEntrySerializer):
     class Meta(PointEntrySerializer.Meta):
         model = TrailEntry
         fields = ('title', 'coordinates')
 
+class OpeningHoursChurchEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursChurchEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class ChurchEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursChurchEntrySerializer(read_only=True, source = 'openinghourschurchentry')
     class Meta(PointEntrySerializer.Meta):
         model = ChurchEntry
-        fields = ('title', 'coordinates')
+        fields = ('title', 'coordinates', 'openinghours')
 
 class AccommodationEntrySerializer(PointEntrySerializer):
     class Meta(PointEntrySerializer.Meta):
@@ -133,10 +158,15 @@ class AccommodationEntrySerializer(PointEntrySerializer):
 
 
 # Category Traffic
+class OpeningHoursParkingEntrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpeningHoursParkingEntry
+        fields = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 class ParkingEntrySerializer(PointEntrySerializer):
+    openinghours = OpeningHoursParkingEntrySerializer(read_only=True, source = 'openinghoursparkingentry')
     class Meta(PointEntrySerializer.Meta):
         model = ParkingEntry
-        fields = ('title', 'coordinates')
+        fields = ('title', 'coordinates', 'openinghours')
 
 
 # Category Trash

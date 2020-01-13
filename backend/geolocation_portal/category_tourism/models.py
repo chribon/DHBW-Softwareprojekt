@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-from geomodels.models import PointEntry, PolygonEntry, Subcategory
+from geomodels.models import PointEntry, PolygonEntry, Subcategory, OpeningHours
 
 # Create your models here.
 class MonumentEntry(PointEntry):
@@ -8,6 +8,13 @@ class MonumentEntry(PointEntry):
     class Meta:
         verbose_name = "Denkmal"
         verbose_name_plural = "Denkmäler"
+
+class OpeningHoursMonumentEntry(OpeningHours):
+    monument_entry = models.OneToOneField(MonumentEntry, blank=True, null=True, on_delete = models.PROTECT)
+
+    class Meta:
+        verbose_name = "Öffnungszeit"
+        verbose_name_plural = "Öffnungszeiten"
 
 
 class TrailEntry(PointEntry):
@@ -24,6 +31,13 @@ class ChurchEntry(PointEntry):
     class Meta:
         verbose_name = "Kirche"
         verbose_name_plural = "Kirchen"
+        
+class OpeningHoursChurchEntry(OpeningHours):
+    church_entry = models.OneToOneField(ChurchEntry, blank=True, null=True, on_delete = models.PROTECT)
+
+    class Meta:
+        verbose_name = "Öffnungszeit"
+        verbose_name_plural = "Öffnungszeiten"
 
 
 class AccommodationEntry(PointEntry):
