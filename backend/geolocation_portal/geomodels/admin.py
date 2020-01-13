@@ -41,3 +41,9 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 admin_site.register(Subcategory, SubcategoryAdmin)
 
+
+from django.contrib.auth.models import User
+admin_site.register(User)
+
+from django.contrib.auth.models import Group
+admin_site.register(Group)
