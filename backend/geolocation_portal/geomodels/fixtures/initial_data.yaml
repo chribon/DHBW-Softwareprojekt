@@ -227,10 +227,9 @@
     entry_types: sportscentresparetime
     coordinates_type: point
 
-- model: category_trash.OpeningHoursGlassEntry
+- model: geomodels.OpeningHours
   pk: 1
   fields:
-    glass_entry: 1
     monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
@@ -238,6 +237,11 @@
     friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     saturday: null
     sunday: null
+- model: category_trash.OpeningHoursGlassEntry
+  pk: 1
+  fields:
+    glass_entry: 1
+
 - model: category_trash.GlassEntry
   pk: 1
   fields:

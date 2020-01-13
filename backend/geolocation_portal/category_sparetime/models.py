@@ -1,5 +1,5 @@
 from django.contrib.gis.db import models
-from geomodels.models import PointEntry, PolygonEntry, Subcategory
+from geomodels.models import PointEntry, PolygonEntry, Subcategory, OpeningHours
 
 # Create your models here.
 class SportscentreEntry(PointEntry):
@@ -8,3 +8,10 @@ class SportscentreEntry(PointEntry):
     class Meta:
         verbose_name = "Sporthalle"
         verbose_name_plural = "Sporthallen"
+
+class OpeningHoursSportscentreEntry(OpeningHours):
+    sportscentre_entry = models.OneToOneField(SportscentreEntry, blank=True, null=True, on_delete = models.PROTECT)
+
+    class Meta:
+        verbose_name = "Öffnungszeit"
+        verbose_name_plural = "Öffnungszeiten"
