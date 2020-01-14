@@ -28,9 +28,9 @@ class AddressMonumentEntry(Address):
 
 class TrailEntry(PointEntry):
     difficulty_choices = (
-        ('1', 'leicht'),
-        ('2', 'mittel'),
-        ('3', 'schwer')
+        ('leicht', 'leicht'),
+        ('mittel', 'mittel'),
+        ('schwer', 'schwer')
     )
 
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 12)
@@ -51,9 +51,9 @@ class AddressTrailEntry(Address):
 
 class ChurchEntry(PointEntry):
     denomination_choices = (
-        ('1', 'evangelisch'),
-        ('2', 'katholisch'),
-        ('3', 'sonstiges')
+        ('evangelisch', 'evangelisch'),
+        ('katholisch', 'katholisch'),
+        ('sonstiges', 'sonstiges')
     )
 
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 13)

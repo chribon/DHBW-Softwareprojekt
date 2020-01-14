@@ -3,12 +3,12 @@ from geomodels.models import PointEntry, PolygonEntry, Subcategory, Address
 
 class GroundvalueEntry(PolygonEntry):
     using_type_choices = (
-        ('private', 'privat'),
-        ('mixed', 'gemischt genutzt'),
-        ('commercial', 'gewerblich')
+        ('privat', 'privat'),
+        ('gemischt genutzt', 'gemischt genutzt'),
+        ('gewerblich', 'gewerblich')
     )
 
-    price           = models.DecimalField(max_digits = 6, decimal_places = 2, verbose_name = 'Preis')
+    price           = models.DecimalField(max_digits = 6, decimal_places = 2, verbose_name = 'Preis (€) pro m²')
     using_type      = models.CharField(max_length = 30, choices = using_type_choices, verbose_name = "Nutzungsart")
     description     = models.TextField(verbose_name = 'Beschreibung', blank=True, null=True)
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 7)
@@ -46,11 +46,11 @@ class AddressPlaygroundEntry(Address):
 
 class SchoolEntry(PointEntry):
     school_type_choices = (
-        ('1', 'Grundschule'),
-        ('2', 'Hauptschule'),
-        ('3', 'Realschule'),
-        ('4', 'Gesamtschule'),
-        ('5', 'Gymnasium')
+        ('Grundschule', 'Grundschule'),
+        ('Hauptschule', 'Hauptschule'),
+        ('Realschule', 'Realschule'),
+        ('Gesamtschule', 'Gesamtschule'),
+        ('Gymnasium', 'Gymnasium')
     )
     
     id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie', default = 10)
