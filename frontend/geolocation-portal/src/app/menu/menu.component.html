@@ -103,15 +103,17 @@
               <!--Title-->
               <mdb-card-title>
                 <a routerLink="/map/{{category.title}}">
-                <h4>{{category.title}}</h4>
-              </a>
+                  <h4>{{category.title}}</h4>
+                </a>
               </mdb-card-title>
 
               <!--Text-->
               <mdb-card-text>
                 <div *ngFor="let subcategory of subcategories"
                   [ngStyle]="{'display': subcategory.id_category == category.id  ? 'block' : 'none' }">
-                  <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon> <a routerLink="/map/{{category.title}}" [queryParams]="{'selectedSubcategory': subcategory.title }" [ngStyle]="{'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">{{subcategory.title}}</a>
+                  <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon> <a routerLink="/map/{{category.title}}"
+                    [queryParams]="{'selectedSubcategory': subcategory.title }"
+                    [ngStyle]="{'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">{{subcategory.title}}</a>
                 </div>
               </mdb-card-text>
 
@@ -137,22 +139,29 @@
       <a name="API"></a>
       <hr>
       <div class="row">
-        <div class="col-md-7 order-md-2 ">
-          <h2>API</h2>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea
-            takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          <a mdbBtn routerLink="/api" role="button" class="button-link" mdbWavesEffect>Zur API Dokumentation</a>
+        <div class="col-md-7 order-md-2">
+          <div class="d-flex flex-row-reverse">
+            <div>
+              <h2>API</h2>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore
+                et
+                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                amet,
+                consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                no
+                sea
+                takimata sanctus est Lorem ipsum dolor sit amet.</p>
+              <a mdbBtn routerLink="/api" role="button" class="button-link" mdbWavesEffect>Zur API Dokumentation</a>
+            </div>
+          </div>
         </div>
         <div class="col-md-5 order-md-1 mt-2">
-          <svg class=" img-fluid mx-auto" width="400" height="400" preserveAspectRatio="xMidYMid slice"
-            focusable="false" role="img">
-            <rect width="100%" height="100%" fill="lightgrey" /></svg>
+          <img src="./assets/images/API.png" width="300px" height="300px">
         </div>
       </div>
       <!--  <div class="row mb-4">
@@ -185,9 +194,7 @@
             Vorschlagsportal</a>
         </div>
         <div class="col-md-5 order-md-2 mt-2">
-          <svg class=" img-fluid mx-auto" width="400" height="400" preserveAspectRatio="xMidYMid slice"
-            focusable="false" role="img">
-            <rect width="100%" height="100%" fill="lightgrey" /></svg>
+          <img src="./assets/images/Vorschlaege.png" width="300px" height="300px">
         </div>
       </div>
       <!-- <div class="row">

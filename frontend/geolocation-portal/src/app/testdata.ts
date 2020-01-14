@@ -13,10 +13,10 @@ export const CATEGORIES: Category[] = [
 
 
 export const SUBCATEGORIES: Subcategory[] = [
-  { id: 1, id_category: 1, title: 'subcategory1.1', type:'"map' },
-  { id: 2, id_category: 1, title: 'subcategory1.2', type:'"map' },
-  { id: 3, id_category: 2, title: 'subcategory2.1', type:'map' },
-  { id: 4, id_category: 2, title: 'subcategory2.2', type:'map' },
-  { id: 5, id_category: 3, title: 'subcategory3.1', type:'map' },
-  { id: 6, id_category: 3, title: 'subcategory3.2', type:'map' },
+  { id: 1, id_category: 1, title: 'subcategory1.1', description: "test" , entry_types: "test" },
+  { id: 2, id_category: 1, title: 'subcategory1.2', description: "test" , entry_types: "test" },
+  { id: 3, id_category: 2, title: 'subcategory2.1', description: "test" , entry_types: "test" },
+  { id: 4, id_category: 2, title: 'subcategory2.2', description: "test" , entry_types: "test"},
+  { id: 5, id_category: 3, title: 'subcategory3.1', description: "test" , entry_types: "test" },
+  { id: 6, id_category: 3, title: 'subcategory3.2', description: "test" , entry_types: "test" },
 ];

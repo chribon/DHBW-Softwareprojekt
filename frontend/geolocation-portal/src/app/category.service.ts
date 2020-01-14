@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category } from './category';
-import { CATEGORIES } from './api-data';
+import { CATEGORIES } from './testdata';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

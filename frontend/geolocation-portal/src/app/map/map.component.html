@@ -11,7 +11,9 @@
                     (click)="toggleSubcategory(selectedSubcategory); removePOIsFromMap(selectedSubcategory.id)">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                         <div class="d-flex flex-column">
-                            <div id="selected-category-tag"><small>{{getCategoryTitleBySubcategoryID(selectedSubcategory.id_category)}}</small></div>
+                            <div id="selected-category-tag">
+                                <small>{{getCategoryTitleBySubcategoryID(selectedSubcategory.id_category)}}</small>
+                            </div>
                             <div>
                                 <mdb-icon fas icon="angle-right" class="mr-1"></mdb-icon>{{selectedSubcategory.title}}
                             </div>
@@ -23,7 +25,7 @@
                             <div>&nbsp;</div>
                             <div class="checkbox selected-checkbox"></div>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -35,8 +37,7 @@
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
-                <div class="row sub animated bounceInLeft"
-                    (click)="toggleSubcategory(subcategory)"
+                <div class="row sub animated bounceInLeft" (click)="toggleSubcategory(subcategory)"
                     [ngClass]="{'clickDisable': disableClick(subcategory)}">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                         <mdb-icon fas icon="angle-right" class="mr-1"></mdb-icon>{{subcategory.title}}
@@ -60,8 +61,11 @@
             <hr>
             <div class="row" class="mt-0">
                 <div id="map-info">
-                    {{info}}
-                    <div *ngIf="openingHours">
+                    <div *ngIf="price" class="mb-2">
+                        <h4>Preise</h4>
+                        <div>{{price}}</div>
+                    </div>
+                    <div *ngIf="openingHours" class="mb-2">
                         <h4>Öffnungszeiten</h4>
                         <table>
                             <tr>
@@ -109,7 +113,7 @@
                         </table>
                     </div>
                 </div>
-               
+
             </div>
         </div>
 

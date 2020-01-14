@@ -27,7 +27,8 @@ export class MapComponent implements OnInit {
   selectedSubcategories: Subcategory[] = [];
   map: any;
   markers: Marker_ID[] = [];
-  info: string;
+  description: string;
+  price: string;
   openingHours: OpeningHours;
 
 
@@ -172,7 +173,12 @@ export class MapComponent implements OnInit {
             }
             if (feature.properties.price) {
               if (feature.properties.price.length > 0) {
-                _this.info = feature.properties.price.toString();
+                _this.price = feature.properties.price.toString();
+              }
+            }
+            if (feature.properties.description) {
+              if (feature.properties.description.length > 0) {
+                _this.description = feature.properties.description.toString();
               }
             }
 
@@ -200,7 +206,13 @@ export class MapComponent implements OnInit {
             }
             if (feature.properties.price) {
               if (feature.properties.price.length > 0) {
-                _this.info = feature.properties.price.toString();
+                _this.price = feature.properties.price.toString();
+              }
+            }
+
+            if (feature.properties.description) {
+              if (feature.properties.description.length > 0) {
+                _this.description = feature.properties.description.toString();
               }
             }
 
@@ -221,7 +233,7 @@ export class MapComponent implements OnInit {
       if (marker_id.subcategoryID == subcategoryID) {
         for (let marker of marker_id.markers) {
           this.map.removeLayer(marker);
-          this.info = "";
+          this.price = "";
           this.openingHours = null;
         }
       }
