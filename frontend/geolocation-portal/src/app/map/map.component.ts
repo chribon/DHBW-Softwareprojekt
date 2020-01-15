@@ -8,6 +8,7 @@ import { FeatureCollection } from '../Models/FeatureCollection/featurecollection
 import { Marker_ID } from '../Models/marker_id';
 import { OpeningHours } from '../Models/FeatureCollection/Properties/openingHours';
 import { APIService } from '../api.service';
+import { Adress } from '../Models/FeatureCollection/Properties/adress';
 
 
 
@@ -28,6 +29,13 @@ export class MapComponent implements OnInit {
   description: string;
   price: string;
   openingHours: OpeningHours;
+  adess: Adress;
+  mapInfo: boolean = false;
+  polygonStyle = {
+    "color": "#812323",
+    "weight": 5,
+    "opacity": 0.65
+  };
 
 
   constructor(private route: ActivatedRoute,
@@ -63,8 +71,8 @@ export class MapComponent implements OnInit {
 
   initMap() {
     this.map = L.map('mapid').setView([49.352164, 9.145679], 14);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //openstreetmap de 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
 
@@ -82,7 +90,7 @@ export class MapComponent implements OnInit {
      */
 
      // fix marker image output path
-    const iconRetinaUrl = 'assets/marker-icon-2x.png';
+    const iconRetinaUrl = 'assets/images/marker-icon-2x-red.png';
     const iconUrl = 'assets/marker-icon.png';
     const shadowUrl = 'assets/marker-shadow.png';
     const iconDefault = icon({
@@ -153,17 +161,20 @@ export class MapComponent implements OnInit {
                 friday:feature.properties.openinghours.monday,
                 saturday:feature.properties.openinghours.monday,
                 sunday:feature.properties.openinghours.monday };
-
+                
+                _this.mapInfo = true;
 
             }
             if (feature.properties.price) {
               if (feature.properties.price.length > 0) {
                 _this.price = feature.properties.price.toString();
+                _this.mapInfo = true;
               }
             }
             if (feature.properties.description) {
               if (feature.properties.description.length > 0) {
                 _this.description = feature.properties.description.toString();
+                _this.mapInfo = true;
               }
             }
 
@@ -173,7 +184,9 @@ export class MapComponent implements OnInit {
         }
         else if (feature.geometry.type == "Polygon") {
 
-          let marker = L.geoJSON(feature).addTo(this.map).bindPopup(feature.properties.title)
+          let marker = L.geoJSON(feature, {
+            style: this.polygonStyle
+        }).addTo(this.map).bindPopup(feature.properties.title)
           .openPopup().on('click', function () {
 
             if (feature.properties.openinghours) {
@@ -185,19 +198,23 @@ export class MapComponent implements OnInit {
                 friday:feature.properties.openinghours.monday,
                 saturday:feature.properties.openinghours.monday,
                 sunday:feature.properties.openinghours.monday };
-
-              
+               
+                _this.mapInfo = true;
               
             }
             if (feature.properties.price) {
               if (feature.properties.price.length > 0) {
                 _this.price = feature.properties.price.toString();
+
+                _this.mapInfo = true;
               }
             }
 
             if (feature.properties.description) {
               if (feature.properties.description.length > 0) {
                 _this.description = feature.properties.description.toString();
+
+                _this.mapInfo = true;
               }
             }
 
@@ -220,6 +237,7 @@ export class MapComponent implements OnInit {
           this.map.removeLayer(marker);
           this.price = "";
           this.openingHours = null;
+          this.description = "";
         }
       }
   }

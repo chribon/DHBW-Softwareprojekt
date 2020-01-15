@@ -55,12 +55,8 @@
                 <div id="mapid">
                 </div>
             </div>
-            <div class="row pb-0 mb-0 pt-0">
-                <h4>Info</h4>
-            </div>
-            <hr>
-            <div class="row" class="mt-0">
-                <div id="map-info">
+            <div *ngIf="mapInfo" class="row" class="mt-0">
+                <div id="map-info" class="animated bounceInLeft">
                     <div *ngIf="price" class="mb-2">
                         <h4>Preise</h4>
                         <div>{{price}}</div>
