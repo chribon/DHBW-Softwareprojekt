@@ -1,14 +1,13 @@
-import { Component, OnInit, Input, ChangeDetectorRef, NgZone } from '@angular/core';
-import { Category } from '../category';
-import { CategoryService } from '../category.service';
+import { Component, OnInit} from '@angular/core';
+import { Category } from '../Models/category';
 import { ActivatedRoute } from '@angular/router';
-import { SubcategoryService } from '../subcategory.service';
-import { Subcategory } from '../subcategory';
+import { Subcategory } from '../Models/subcategory';
 import * as L from 'leaflet';
 import { icon, Marker } from 'leaflet';
-import { FeatureCollection } from '../FeatureCollection/featurecollection';
-import { Marker_ID } from '../marker_id';
-import { OpeningHours } from '../FeatureCollection/Properties/openingHours';
+import { FeatureCollection } from '../Models/FeatureCollection/featurecollection';
+import { Marker_ID } from '../Models/marker_id';
+import { OpeningHours } from '../Models/FeatureCollection/Properties/openingHours';
+import { APIService } from '../api.service';
 
 
 
@@ -32,18 +31,17 @@ export class MapComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-    private categoryService: CategoryService,
-    private subcategoryService: SubcategoryService, private _ngZone: NgZone) { }
+     private apiService: APIService) { }
 
   ngOnInit() {
     this.initMap();
-     this.categoryService.getCategoriesFromAPI().subscribe((Categories) => {
+     this.apiService.getCategoriesFromAPI().subscribe((Categories) => {
       this.categories = Categories;
 
      this.route.params.subscribe(params => {
         this.title = params['title'];
         this.category = this.categories.find(category => category.title === this.title);
-        this.subcategoryService.getSubcategoriesFromAPI().subscribe((subcategories) => {
+        this.apiService.getSubcategoriesFromAPI().subscribe((subcategories) => {
           this.subcategories = subcategories;
           this.processQueryParameters();
           this.subcategoriesFromCategory = [];
@@ -58,15 +56,6 @@ export class MapComponent implements OnInit {
       });
 
     });
-
-    /* this.getCategory();
-    this.getSubcategories();
-    this.initMap();
-    this.sub = this.route.params.subscribe(params => {
-      this.title = params['title'];
-      this.categoryService.getCategoryByTitle(this.title).subscribe(category => (this.category = category));
-      this.subcategoryService.getSubcategoriesFilterByCid(this.category.id).subscribe(subcategories => (this.subcategories = subcategories));
-    });  */
 
   }
 
@@ -121,7 +110,6 @@ export class MapComponent implements OnInit {
       this.selectedSubcategories.push(subcategory);
       this.displayPOIsOnMap(subcategory.id);
     }
-    //console.log(this.selectedSubcategories);
 
   }
 
@@ -144,7 +132,7 @@ export class MapComponent implements OnInit {
 
   displayPOIsOnMap(subcategoryID: number) {
 
-    this.subcategoryService.getEntriesFromAPI(subcategoryID).subscribe(FeatureCollection => {
+    this.apiService.getEntriesFromAPI(subcategoryID).subscribe(FeatureCollection => {
 
       let featureCollection: FeatureCollection = FeatureCollection;
       console.log(FeatureCollection);
@@ -251,26 +239,5 @@ export class MapComponent implements OnInit {
       }
     });
   }
-
-
-
-
-
-
-
-
-  /* alte Funktionen ohne API
- 
- getCategory(): void {
-   const title = this.route.snapshot.paramMap.get('title');
-
-   this.categoryService.getCategoryByTitle(title).subscribe(category => (this.category = category));
-
- }
-getSubcategories(): void {
-   this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
- }  */
-
-
 
 }

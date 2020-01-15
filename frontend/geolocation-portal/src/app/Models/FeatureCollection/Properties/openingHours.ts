@@ -1,6 +1,4 @@
-import { Info } from './info';
-
-export class OpeningHours extends Info {
+export class OpeningHours {
     monday: number[];
     tuesday: number[];
     wednesday: number[];

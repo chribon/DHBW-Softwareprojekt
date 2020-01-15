@@ -1,5 +1,5 @@
-import { Category } from './category';
-import { Subcategory } from './subcategory';
+import { Category } from './Models/category';
+import { Subcategory } from './Models/subcategory';
 
 
 export const CATEGORIES: Category[] = [

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Category } from '../category';
-import { CategoryService } from '../category.service';
+import { Category } from '../Models/category';
 import { ModalDirective } from "node_modules/angular-bootstrap-md/lib/free/modals/modal.directive";
+import { APIService } from '../api.service';
 
 @Component({
   selector: 'app-vorschlag',
@@ -16,7 +16,7 @@ export class VorschlagComponent implements OnInit {
   @ViewChild('frameModal', {static: false}) modalDirective: ModalDirective;
 
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private apiService: APIService) { }
 
   ngOnInit() {
 
@@ -35,7 +35,7 @@ export class VorschlagComponent implements OnInit {
 
 
   getCategories(){
-    this.categoryService.getCategoriesFromAPI().subscribe(categories => (this.categories = categories));
+    this.apiService.getCategoriesFromAPI().subscribe(categories => (this.categories = categories));
   }
  
 
@@ -67,13 +67,4 @@ export class VorschlagComponent implements OnInit {
     this.formInvalid= true;
    }
   }
-
-
-
-
-
-  /* alte Funktion ohne API 
-  getCategories(){
-    this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
-  } */
 }
