@@ -34,7 +34,7 @@ export class VorschlagComponent implements OnInit {
   }
 
 
-  getCategories(): void {
+  getCategories(){
     this.categoryService.getCategoriesFromAPI().subscribe(categories => (this.categories = categories));
   }
  
@@ -73,7 +73,7 @@ export class VorschlagComponent implements OnInit {
 
 
   /* alte Funktion ohne API 
-  getCategories(): void {
+  getCategories(){
     this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
   } */
 }

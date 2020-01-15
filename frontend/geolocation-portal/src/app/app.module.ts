@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './map/map.component';
-import { ApiComponent } from './api/api.component';
-import { StatisticsComponent } from './statistics/statistics.component';
 import { MenuComponent } from './menu/menu.component';
 import { SubcategoriesPipe } from './subcategories.pipe';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -27,8 +25,6 @@ import { HttpClientModule }    from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     MapComponent,
-    ApiComponent,
-    StatisticsComponent,
     MenuComponent,
     SubcategoriesPipe,
     MapNavComponent,

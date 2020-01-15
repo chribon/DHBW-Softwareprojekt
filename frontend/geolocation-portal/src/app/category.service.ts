@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Category } from './category';
-import { CATEGORIES } from './testdata';
+//import { CATEGORIES } from './testdata';
 import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -14,7 +13,7 @@ export class CategoryService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  constructor(private messageService: MessageService, private http: HttpClient) { 
+  constructor( private http: HttpClient) { 
 
     
   }

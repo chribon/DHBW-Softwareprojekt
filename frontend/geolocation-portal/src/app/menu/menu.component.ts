@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
     this.getSubcategories();
   }
 
-  search(): void {
+  search(){
     this.searchCategories = [];
     this.searchTermLength = this.searchTerm.length;
 
@@ -51,10 +51,10 @@ export class MenuComponent implements OnInit {
     this.searchCategoriesLength = this.searchCategories.length;
   }
 
-  getSubcategories(): void {
+  getSubcategories(){
     this.subcategoryService.getSubcategoriesFromAPI().subscribe((subcategories) => (this.subcategories = subcategories));
   }
-  getCategories(): void {
+  getCategories(){
     this.categoryService.getCategoriesFromAPI().subscribe((category) => (this.categories = category));
   }
   getSubcategoriesOfCatgory(category: Category): Subcategory[] {
@@ -71,10 +71,10 @@ export class MenuComponent implements OnInit {
 
    /* alte Funktionen ohne API
   
-  getSubcategories(): void {
+  getSubcategories(){
     this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
   }
-  getCategories(): void {
+  getCategories(){
     this.categoryService.getCategories().subscribe(CATEGORIES => (this.categories = CATEGORIES));
   } */
 

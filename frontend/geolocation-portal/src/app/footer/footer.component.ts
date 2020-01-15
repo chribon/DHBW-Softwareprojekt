@@ -15,11 +15,11 @@ export class FooterComponent implements OnInit {
   }
 
 
-  scrollToTop():void {
+  scrollToTop(){
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-  displayChatBot():void{
+  displayChatBot(){
 
   }
 

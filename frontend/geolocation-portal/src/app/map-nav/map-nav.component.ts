@@ -43,7 +43,7 @@ export class MapNavComponent implements OnInit {
 
   /*  alte Funktion ohne API
   
-  getCategory(): void {
+  getCategory(){
     this.route.firstChild.params.subscribe(params => {
     this.title = params['title'];
 
@@ -51,7 +51,7 @@ export class MapNavComponent implements OnInit {
     });
   }
 
-  getCategories(): void {
+  getCategories(){
      this.categoryService.getCategories().subscribe(Category => (this.categories = Category));
    }  */
 

@@ -22,7 +22,6 @@ export class MapComponent implements OnInit {
   categories: Category[] = [];
   subcategories: Subcategory[];
   subcategoriesFromCategory: Subcategory[] = [];
-  sub: any;
   title: string;
   selectedSubcategories: Subcategory[] = [];
   map: any;
@@ -38,10 +37,10 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.initMap();
-    this.categoryService.getCategoriesFromAPI().subscribe((Categories) => {
+     this.categoryService.getCategoriesFromAPI().subscribe((Categories) => {
       this.categories = Categories;
 
-      this.sub = this.route.params.subscribe(params => {
+     this.route.params.subscribe(params => {
         this.title = params['title'];
         this.category = this.categories.find(category => category.title === this.title);
         this.subcategoryService.getSubcategoriesFromAPI().subscribe((subcategories) => {
@@ -70,9 +69,7 @@ export class MapComponent implements OnInit {
     });  */
 
   }
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+
 
 
   initMap() {
@@ -248,7 +245,6 @@ export class MapComponent implements OnInit {
   processQueryParameters(){
     this.route.queryParams.subscribe(params => {
       let selectedSubcategoryTitle = params['selectedSubcategory'];
-      console.log(selectedSubcategoryTitle);
       let selectedSubcategory = this.subcategories.find(Subcategory => Subcategory.title == selectedSubcategoryTitle);
       if(selectedSubcategory){
         this.toggleSubcategory(selectedSubcategory);

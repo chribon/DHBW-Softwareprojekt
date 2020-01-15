@@ -6,15 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  searchToggle = false;
+
   constructor() { }
 
   ngOnInit() {
   }
-  toggleSearchbar(){
-    this.searchToggle = !this.searchToggle;
-  }
-
   
-
 }

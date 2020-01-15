@@ -19,13 +19,13 @@ export class SubcategoryService {
   constructor(private http: HttpClient) { }
 
 
-  getSubcategoriesFromAPI() {
+  getSubcategoriesFromAPI(): Observable<Subcategory[]> {
     return this.http.get<Subcategory[]>("http://127.0.0.1:8000/api/subcategories/").pipe(
       catchError(this.handleError<Subcategory[]>('getSubcategoriesFromAPI', []))
     );
   }
 
-	getEntriesFromAPI(subcategoryID: number): Observable<any>{
+	getEntriesFromAPI(subcategoryID: number): Observable<FeatureCollection>{
     return this.http.get<FeatureCollection>("http://127.0.0.1:8000/api/subcategories/"+subcategoryID+"/entries/").pipe(
 	    catchError(this.handleError<FeatureCollection>('getEntriesFromAPI', null))
     );
