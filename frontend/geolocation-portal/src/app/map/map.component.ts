@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category } from '../Models/category';
 import { ActivatedRoute } from '@angular/router';
 import { Subcategory } from '../Models/subcategory';
@@ -9,6 +9,10 @@ import { Marker_ID } from '../Models/marker_id';
 import { OpeningHours } from '../Models/FeatureCollection/Properties/openingHours';
 import { APIService } from '../api.service';
 import { Adress } from '../Models/FeatureCollection/Properties/adress';
+import { InfoObject } from '../Models/FeatureCollection/Properties/infoObject';
+import { Description } from '../Models/FeatureCollection/Properties/description';
+import { Price } from '../Models/FeatureCollection/Properties/price';
+import { Property } from '../Models/FeatureCollection/property';
 
 
 
@@ -26,27 +30,31 @@ export class MapComponent implements OnInit {
   selectedSubcategories: Subcategory[] = [];
   map: any;
   markers: Marker_ID[] = [];
-  description: string;
-  price: string;
-  openingHours: OpeningHours;
-  adess: Adress;
   mapInfo: boolean = false;
   polygonStyle = {
     "color": "#812323",
-    "weight": 5,
+    "weight": 1,
     "opacity": 0.65
   };
+  
+  properties: InfoObject[] = [];
+
+  //properties
+  description: string;
+  price: string;
+  openingHours: OpeningHours;
+  adress: Adress;
 
 
   constructor(private route: ActivatedRoute,
-     private apiService: APIService) { }
+    private apiService: APIService) { }
 
   ngOnInit() {
     this.initMap();
-     this.apiService.getCategoriesFromAPI().subscribe((Categories) => {
+    this.apiService.getCategoriesFromAPI().subscribe((Categories) => {
       this.categories = Categories;
 
-     this.route.params.subscribe(params => {
+      this.route.params.subscribe(params => {
         this.title = params['title'];
         this.category = this.categories.find(category => category.title === this.title);
         this.apiService.getSubcategoriesFromAPI().subscribe((subcategories) => {
@@ -89,7 +97,7 @@ export class MapComponent implements OnInit {
         });
      */
 
-     // fix marker image output path
+    // fix marker image output path
     const iconRetinaUrl = 'assets/images/marker-icon-2x-red.png';
     const iconUrl = 'assets/marker-icon.png';
     const shadowUrl = 'assets/marker-shadow.png';
@@ -149,79 +157,124 @@ export class MapComponent implements OnInit {
 
       for (let feature of featureCollection.features) {
         if (feature.geometry.type == "Point") {
-        
-         let marker = L.geoJSON(feature).addTo(this.map).bindPopup(feature.properties.title)
-          .openPopup().on('click', function () {
-            console.log(feature.properties.openinghours);
-            if (feature.properties.openinghours) {
-              _this.openingHours = { monday:feature.properties.openinghours.monday, 
-                tuesday:feature.properties.openinghours.monday,
-                wednesday:feature.properties.openinghours.monday,
-                thursday:feature.properties.openinghours.monday,
-                friday:feature.properties.openinghours.monday,
-                saturday:feature.properties.openinghours.monday,
-                sunday:feature.properties.openinghours.monday };
-                
-                _this.mapInfo = true;
 
-            }
-            if (feature.properties.price) {
-              if (feature.properties.price.length > 0) {
-                _this.price = feature.properties.price.toString();
-                _this.mapInfo = true;
-              }
-            }
-            if (feature.properties.description) {
-              if (feature.properties.description.length > 0) {
-                _this.description = feature.properties.description.toString();
-                _this.mapInfo = true;
-              }
-            }
+          let marker = L.geoJSON(feature).addTo(this.map).bindPopup(feature.properties.title)
+            .openPopup().on('click', function () {
+              _this.properties = [];
+              console.log(feature.properties.openinghours);
+              if (feature.properties.openinghours) {
 
-          });
-           
+                let openingHours: OpeningHours = new OpeningHours(
+                  feature.properties.openinghours.monday, 
+                  feature.properties.openinghours.tuesday, 
+                  feature.properties.openinghours.wednesday,
+                   feature.properties.openinghours.thursday, 
+                   feature.properties.openinghours.friday,
+                    feature.properties.openinghours.saturday,
+                     feature.properties.openinghours.sunday);
+
+                _this.properties.push(openingHours);
+                console.log(_this.properties);
+                _this.mapInfo = true;
+                _this.overridePropertyClassVariable();
+
+              }
+              if (feature.properties.adress) {
+                let adress: Adress = new Adress( 
+                  feature.properties.adress.street, 
+                  feature.properties.adress.housenumber,
+                  feature.properties.adress.zipcode,
+                  feature.properties.adress.city );
+
+                _this.properties.push(adress);
+                _this.mapInfo = true;
+                _this.overridePropertyClassVariable();
+              }
+              if (feature.properties.price) {
+                if (feature.properties.price.length > 0) {
+                  let price = feature.properties.price.toString();
+
+                  _this.properties.push(new Price(price, "price"));
+                  _this.mapInfo = true;
+                  _this.overridePropertyClassVariable();
+                }
+              }
+              if (feature.properties.description) {
+                if (feature.properties.description.length > 0) {
+                  let description = feature.properties.description.toString();
+
+                  _this.properties.push(new Description(description, "description"));
+                  _this.mapInfo = true;
+                  _this.overridePropertyClassVariable();
+                }
+              }
+
+            });
+
           markerArray.push(marker);
         }
         else if (feature.geometry.type == "Polygon") {
 
           let marker = L.geoJSON(feature, {
             style: this.polygonStyle
-        }).addTo(this.map).bindPopup(feature.properties.title)
-          .openPopup().on('click', function () {
+          }).addTo(this.map).bindPopup(feature.properties.title)
+            .openPopup().on('click', function () {
+              _this.properties = [];
+              if (feature.properties.openinghours) {
 
-            if (feature.properties.openinghours) {
-              
-              _this.openingHours = { monday:feature.properties.openinghours.monday, 
-                tuesday:feature.properties.openinghours.monday,
-                wednesday:feature.properties.openinghours.monday,
-                thursday:feature.properties.openinghours.monday,
-                friday:feature.properties.openinghours.monday,
-                saturday:feature.properties.openinghours.monday,
-                sunday:feature.properties.openinghours.monday };
-               
+                let openingHours: OpeningHours = new OpeningHours(
+                  feature.properties.openinghours.monday,
+                   feature.properties.openinghours.tuesday, 
+                   feature.properties.openinghours.wednesday, 
+                   feature.properties.openinghours.thursday, 
+                   feature.properties.openinghours.friday, 
+                   feature.properties.openinghours.saturday, 
+                   feature.properties.openinghours.sunday);
+                _this.properties.push(openingHours);
                 _this.mapInfo = true;
-              
-            }
-            if (feature.properties.price) {
-              if (feature.properties.price.length > 0) {
-                _this.price = feature.properties.price.toString();
+                _this.overridePropertyClassVariable();
 
-                _this.mapInfo = true;
               }
-            }
+              if (feature.properties.adress) {
 
-            if (feature.properties.description) {
-              if (feature.properties.description.length > 0) {
-                _this.description = feature.properties.description.toString();
-
+                let adress: Adress = new Adress( 
+                  feature.properties.adress.street, 
+                  feature.properties.adress.housenumber,
+                  feature.properties.adress.zipcode,
+                  feature.properties.adress.city );
+                _this.properties.push(adress);
                 _this.mapInfo = true;
+                _this.overridePropertyClassVariable();
               }
-            }
+              if (feature.properties.price) {
+                if (feature.properties.price.length > 0) {
+                  let price = feature.properties.price.toString();
 
-          });
-           
+                  _this.properties.push(new Price(price, "price"));
+
+                  console.log(_this.properties);
+                  _this.mapInfo = true;
+                  _this.overridePropertyClassVariable();
+                }
+              }
+
+              if (feature.properties.description) {
+                if (feature.properties.description.length > 0) {
+                  let description = feature.properties.description.toString();
+
+                  _this.properties.push(new Description(description, "description"));
+                  _this.mapInfo = true;
+                  _this.overridePropertyClassVariable();
+                }
+              }
+
+
+            });
+
           markerArray.push(marker);
+
         }
+
       }
 
 
@@ -241,21 +294,48 @@ export class MapComponent implements OnInit {
         }
       }
   }
-  getCategoryTitleBySubcategoryID(subcategoryID: number): string{
-    let category = this.categories.find(category =>(category.id == subcategoryID));
-    if(category.title){
+  getCategoryTitleBySubcategoryID(subcategoryID: number): string {
+    let category = this.categories.find(category => (category.id == subcategoryID));
+    if (category.title) {
       return category.title;
     }
     return "";
   }
-  processQueryParameters(){
+  processQueryParameters() {
     this.route.queryParams.subscribe(params => {
       let selectedSubcategoryTitle = params['selectedSubcategory'];
       let selectedSubcategory = this.subcategories.find(Subcategory => Subcategory.title == selectedSubcategoryTitle);
-      if(selectedSubcategory){
+      if (selectedSubcategory) {
         this.toggleSubcategory(selectedSubcategory);
       }
     });
   }
+
+  overridePropertyClassVariable() {
+
+    this.price = "";
+    this.adress = null;
+    this.openingHours = null;
+    this.description = "";
+
+    this.properties.forEach(property => {
+      if (property instanceof Adress) {
+        this.adress = property;
+      }
+      if (property instanceof OpeningHours) {
+        console.log("got here");
+        this.openingHours = property;
+      }
+      if (property instanceof Description) {
+        this.description = property.description;
+      }
+      if (property instanceof Price) {
+        this.price = property.price;
+      }
+
+
+    });
+  }
+
 
 }
