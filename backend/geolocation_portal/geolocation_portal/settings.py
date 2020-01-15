@@ -8,12 +8,16 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%1@0f0$o5g5qbdc6psl+slv9q$v_tq=y@v^8vp9^*-o&(-1u#d'
+SECRET_KEY = os.environ.get('SECRET_KEY', '%1@0f0$o5g5qbdc6psl+slv9q$v_tq=y@v^8vp9^*-o&(-1u#d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  os.environ.get('DEBUG') != "False" # export DEBUG=False for production usage
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'geomos.simongensler.de',
+]
 
 
 INSTALLED_APPS = [
