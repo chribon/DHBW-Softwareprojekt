@@ -52,7 +52,7 @@
 
 
       <div class="row mb-4 mt-4"
-        [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null ? 'flex' : 'none'}">
+        [ngStyle]="{'display': searchTermLength == 0 || searchTerm == null ? 'flex' : 'none'}">
 
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
@@ -85,7 +85,7 @@
 
 
       <div class="row mb-4 mt-4"
-        [ngStyle]="{'display': searchTermLength == '0' || searchTerm == null  ? 'none' : 'flex'}">
+        [ngStyle]="{'display': searchTermLength == 0 || searchTerm == null  ? 'none' : 'flex'}">
 
         <div *ngFor="let category of searchCategories"
           class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
