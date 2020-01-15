@@ -1,3 +1,6 @@
+# deployment scripts, that should not be shared
+backend_deploy/
+
 # custom files
 todo_groundvalue_entries.txt
 
