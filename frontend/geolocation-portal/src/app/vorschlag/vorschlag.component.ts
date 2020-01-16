@@ -13,7 +13,6 @@ export class VorschlagComponent implements OnInit {
   submissionForm: FormGroup;
   categories: Category []= [];
   formInvalid: boolean = false;
-  disabledSubmitButton = true;
   @ViewChild('frameModal', {static: false}) modalDirective: ModalDirective;
 
 

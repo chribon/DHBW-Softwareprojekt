@@ -33,7 +33,7 @@
         <input type="email" formControlName="contactFormEmail" id="FormEmail" mdbInput class="form-control mb-4"
             placeholder="E-Mail">
 
-        <!-- Kategorie-->
+        <!-- Category-->
         <label><b>Kategorie</b></label>
         <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
             <option value="" disabled>Option auswählen</option>
@@ -46,10 +46,6 @@
                 rows="3" placeholder="Ihr Vorschlag"></textarea>
         </div>
 
-        <!--  
-        <mdb-checkbox [default]="true" class="mb-4">Eine Kopie dieses Vorschlags an meine E-Mail-Adresse schicken
-        </mdb-checkbox>
-         -->
 
         <label id="check-container">
             <input id="checkbox" type="checkbox">
@@ -58,8 +54,7 @@
         <span class="ml-4">Eine Kopie dieses Vorschlags an meine E-Mail-Adresse schicken</span>
 
         <!-- Submit button -->
-        <button mdbBtn block="true" class="btn z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit"
-            [disabled]="disabledSubmitButton">Vorschlag einreichen</button>
+        <button mdbBtn block="true" class="btn z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit">Vorschlag einreichen</button>
 
 
     </form>
@@ -82,7 +77,7 @@
         </div>
     </div>
     <div *ngIf="formInvalid" class="alert alert-danger">
-        Das Formular ist nicht vollständig ausgefüllt.
+        Das Formular ist nicht vollständig ausgefüllt
     </div>
 
 

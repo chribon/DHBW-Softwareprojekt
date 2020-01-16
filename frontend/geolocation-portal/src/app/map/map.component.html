@@ -55,11 +55,11 @@
                 <div id="mapid">
                 </div>
             </div>
-            <div *ngIf="mapInfo" class="row" class="mt-0">
+            <div *ngIf="checkIfDisplayMapInfo()" class="row" class="mt-0">
                 <div id="map-info" class="animated bounceInLeft">
                     <div *ngIf="price" class="mb-2">
                         <h4>Preise</h4>
-                        <div>{{price}}</div>
+                        <div>{{price.price}}</div>
                     </div>
                     <div *ngIf="openingHours" class="mb-2">
                         <h4>Öffnungszeiten</h4>
