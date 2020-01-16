@@ -105,7 +105,6 @@ class OpeningHours(models.Model):
 
     class Meta:
         verbose_name = "Öffnungszeit"
-        verbose_name_plural = "Öffnungszeiten"
 
 
 class Address(models.Model):
@@ -118,4 +117,3 @@ class Address(models.Model):
 
     class Meta:
         verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
