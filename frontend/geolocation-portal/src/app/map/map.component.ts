@@ -15,6 +15,7 @@ import { Description } from '../Models/FeatureCollection/Properties/description'
 import { Price } from '../Models/FeatureCollection/Properties/price';
 import { Property } from '../Models/FeatureCollection/property';
 import { Feature } from '../Models/FeatureCollection/feature';
+import * as $ from 'jquery';
 
 
 
@@ -52,6 +53,7 @@ export class MapComponent implements OnInit {
     private apiService: APIService) { }
 
   ngOnInit() {
+
     this.initMap();
     this.apiService.getCategoriesFromAPI().subscribe((Categories) => {
       this.categories = Categories;
@@ -77,12 +79,12 @@ export class MapComponent implements OnInit {
 
   }
 
-
+ /*  */
 
   initMap() {
     this.map = L.map('mapid').setView([49.352164, 9.145679], 15);
-    //openstreetmap de 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
 
@@ -298,5 +300,10 @@ export class MapComponent implements OnInit {
       }
     }
   }
+ 
+  toogleHoverAnimation(id:string, element: string,  cssClass: string){
+    $("#"+id).find("."+element).toggleClass(cssClass);
+  }
+ 
 
 }

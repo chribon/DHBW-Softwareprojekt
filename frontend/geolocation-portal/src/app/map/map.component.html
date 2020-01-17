@@ -7,7 +7,7 @@
             </div>
             <hr [ngClass]="{'hideSelectedCategoriesHr': checkEmptySelectedCategories()}" class="animated bounceInLeft">
             <div *ngFor="let selectedSubcategory of selectedSubcategories">
-                <div class="row sub selected-sub animated bounceInLeft"
+                <div id="{{selectedSubcategory.id}}" class="row sub selected-sub animated bounceInLeft" (mouseover)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')" (mouseout)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
                     (click)="toggleSubcategory(selectedSubcategory); removePOIsFromMap(selectedSubcategory.id)">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                         <div class="d-flex flex-column">
@@ -38,14 +38,14 @@
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
-                <div class="row sub animated bounceInLeft subcategory" (click)="toggleSubcategory(subcategory)"
+                <div id="{{subcategory.id}}"class="row sub animated bounceInLeft subcategory" (click)="toggleSubcategory(subcategory)" (mouseover)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')" (mouseout)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')"
                     [ngClass]="{'clickDisable': disableClick(subcategory)}">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                        
                         {{subcategory.title}}
                     </div>
                     <div class="col-2 d-flex justify-content-end pl-0">
-                        <div class="checkbox"></div>
+                        <div class="checkbox subcategory-checkbox"></div>
                         
                     </div>
                 </div>

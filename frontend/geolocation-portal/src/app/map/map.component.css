@@ -10,7 +10,8 @@
 }
 .row{
    padding: 20px 0;
-    margin: 3% 0;
+   margin: 3% 0;
+   margin-top: 0;
    
 }
 .sub{
@@ -27,7 +28,8 @@
 }
 .selected-checkbox{
     background-color:#812323;
-    border-color:#812323 ;
+    border-color:#812323;
+    transition: 0.2s;
 }
 .selected-sub{
     border-bottom: 2px solid #812323;
@@ -35,8 +37,9 @@
 .selected-sub:hover{
     border-bottom: 2px solid rgba(129, 35, 35,.3);
 }
-.row{
-    margin-top: 0;
+.selected-checkbox-hover{
+    background-color: rgba(129, 35, 35,.3);
+    transition: 0.2s;
 }
 #map-info{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
@@ -71,10 +74,15 @@ hr{
 td{
     padding-right: 5px;
 }
-.subcategory:hover{
-    border-bottom: 2px solid #812323;
-    transition: 0.2s;
-}
 .subcategory{
     transition: 0.2s;
 }
+.subcategory:hover{
+    border-bottom: 2px solid rgba(129, 35, 35,.3);;
+    transition: 0.2s;
+}
+.subcategory-checkbox-hover{
+    background-color: rgba(129, 35, 35,.3);
+    transition: 0.2s;
+}
+
