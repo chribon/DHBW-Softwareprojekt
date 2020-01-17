@@ -16,7 +16,7 @@ import { Price } from '../Models/FeatureCollection/Properties/price';
 import { Property } from '../Models/FeatureCollection/property';
 import { Feature } from '../Models/FeatureCollection/feature';
 import * as $ from 'jquery';
-import { Subcategory_ArrayIndex } from '../Models/subcategory_arrayIndex';
+import { Subcategory_ArrayIndex } from '../Models/subcategory_arrayindex';
 
 
 
