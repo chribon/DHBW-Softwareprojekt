@@ -22,8 +22,7 @@ class OpeningHoursMonumentEntry(OpeningHours):
 class AddressMonumentEntry(Address):
     monument_entry = models.OneToOneField(MonumentEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class TrailEntry(PointEntry):
@@ -72,8 +71,7 @@ class OpeningHoursChurchEntry(OpeningHours):
 class AddressChurchEntry(Address):
     church_entry = models.OneToOneField(ChurchEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class AccommodationEntry(PointEntry):
@@ -86,5 +84,4 @@ class AccommodationEntry(PointEntry):
 class AddressAccommodationEntry(Address):
     accommodation_entry = models.OneToOneField(AccommodationEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"

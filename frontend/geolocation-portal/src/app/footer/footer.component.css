@@ -29,7 +29,9 @@
   display-to-top-button{
     display: inline !important;
   }
-
+  #copyright{
+    color: #747373;
+  }
   @media (max-width: 576px) { 
     
     #copyright{

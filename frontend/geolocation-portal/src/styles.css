@@ -2,6 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~animate.css/animate.min.css';
 @import '~leaflet/dist/leaflet.css';
+@import '~leaflet.fullscreen/Control.FullScreen.css';
 @import '~@fortawesome/fontawesome-free/css/fontawesome.css';
 @import '~@fortawesome/fontawesome-free/css/solid.css';
 @import '~@fortawesome/fontawesome-free/css/regular.css';

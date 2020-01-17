@@ -3,7 +3,7 @@
         <ul class="nav nav-pills nav-fill">
             <li *ngFor="let category of categories" class="nav-item">
                 <a class="nav-link active" routerLink="{{category.title}}"
-                    [ngClass]="{'selectedCategory': category.title == checkSelectedCategoryTitle(),'active': category.title == checkSelectedCategoryTitle() } ">{{category.title}}
+                    [ngClass]="{'selectedCategory': category.title == title,'active': category.title == title} ">{{category.title}}
                     <img src="{{category.image}}" height="25px" width="25px" class="ml-2" style="padding-bottom: 5px;"></a>
             </li>
         </ul>

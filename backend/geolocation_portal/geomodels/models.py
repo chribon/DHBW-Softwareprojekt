@@ -13,8 +13,8 @@ class Category(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Kategorie (category)"
-        verbose_name_plural = "Kategorien (categories)"
+        verbose_name = "Kategorie (layer group)"
+        verbose_name_plural = "Kategorien (layer groups)"
 
 
 class Subcategory(models.Model):
@@ -62,8 +62,8 @@ class Subcategory(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Unterkategorie (feature class)"
-        verbose_name_plural = "Unterkategorien (feature classes)"
+        verbose_name = "Unterkategorie (layer)"
+        verbose_name_plural = "Unterkategorien (layers)"
 
 class Entry(models.Model):
     #id_subcategory  = models.ForeignKey(Subcategory, on_delete = models.PROTECT, verbose_name = 'Unterkategorie') # --> bei jeder Eintrag-Klasse gepflegt
@@ -105,7 +105,6 @@ class OpeningHours(models.Model):
 
     class Meta:
         verbose_name = "Öffnungszeit"
-        verbose_name_plural = "Öffnungszeiten"
 
 
 class Address(models.Model):
@@ -118,4 +117,3 @@ class Address(models.Model):
 
     class Meta:
         verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"

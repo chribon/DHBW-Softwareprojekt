@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
-import { Category } from '../category';
-import { Subcategory } from '../subcategory';
-import { SubcategoryService } from '../subcategory.service';
+import { Category } from '../Models/category';
+import { Subcategory } from '../Models/subcategory';
+import { APIService } from '../api.service';
 
 
 
@@ -19,8 +18,7 @@ export class MenuComponent implements OnInit {
   searchCategoriesLength: number;
   searchTerm: string;
   searchTermLength: number;
-  constructor(private categoryService: CategoryService,
-    private subcategoryService: SubcategoryService) { }
+  constructor(private apiSerivce: APIService) { }
 
 
 
@@ -29,7 +27,7 @@ export class MenuComponent implements OnInit {
     this.getSubcategories();
   }
 
-  search(): void {
+  search(){
     this.searchCategories = [];
     this.searchTermLength = this.searchTerm.length;
 
@@ -51,11 +49,11 @@ export class MenuComponent implements OnInit {
     this.searchCategoriesLength = this.searchCategories.length;
   }
 
-  getSubcategories(): void {
-    this.subcategoryService.getSubcategoriesFromAPI().subscribe((subcategories) => (this.subcategories = subcategories));
+  getSubcategories(){
+    this.apiSerivce.getSubcategoriesFromAPI().subscribe((subcategories) => (this.subcategories = subcategories));
   }
-  getCategories(): void {
-    this.categoryService.getCategoriesFromAPI().subscribe((category) => (this.categories = category));
+  getCategories(){
+    this.apiSerivce.getCategoriesFromAPI().subscribe((category) => (this.categories = category));
   }
   getSubcategoriesOfCatgory(category: Category): Subcategory[] {
     let subcategories: Subcategory[];
@@ -66,16 +64,4 @@ export class MenuComponent implements OnInit {
     }
     return subcategories;
   }
-
-
-
-   /* alte Funktionen ohne API
-  
-  getSubcategories(): void {
-    this.subcategoryService.getSubcategories().subscribe(Subcategory => (this.subcategories = Subcategory));
-  }
-  getCategories(): void {
-    this.categoryService.getCategories().subscribe(CATEGORIES => (this.categories = CATEGORIES));
-  } */
-
 }

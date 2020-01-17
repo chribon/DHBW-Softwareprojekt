@@ -18,5 +18,4 @@ class OpeningHoursSportscentreEntry(OpeningHours):
 class AddressSportscentreEntry(Address):
     sportscentre_entry = models.OneToOneField(SportscentreEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
