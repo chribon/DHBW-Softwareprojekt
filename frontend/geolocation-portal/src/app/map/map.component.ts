@@ -9,11 +9,10 @@ import { FeatureCollection } from '../Models/FeatureCollection/featurecollection
 import { Marker_ID } from '../Models/marker_id';
 import { OpeningHours } from '../Models/FeatureCollection/Properties/openingHours';
 import { APIService } from '../api.service';
-import { Adress } from '../Models/FeatureCollection/Properties/adress';
+import { Address } from '../Models/FeatureCollection/Properties/address';
 import { InfoObject } from '../Models/FeatureCollection/Properties/infoObject';
 import { Description } from '../Models/FeatureCollection/Properties/description';
 import { Price } from '../Models/FeatureCollection/Properties/price';
-import { Property } from '../Models/FeatureCollection/property';
 import { Feature } from '../Models/FeatureCollection/feature';
 import * as $ from 'jquery';
 import { Subcategory_ArrayIndex } from '../Models/subcategory_arrayindex';
@@ -30,8 +29,8 @@ export class MapComponent implements OnInit {
   categories: Category[] = [];
   subcategories: Subcategory[];
   subcategoriesFromCategory: Subcategory[] = [];
-  title: string;
   selectedSubcategories: Subcategory[] = [];
+  title: string = "";
   map: any;
   markers: Marker_ID[] = [];
   subcategoryArrayIndex: Subcategory_ArrayIndex[] = [];
@@ -48,7 +47,7 @@ export class MapComponent implements OnInit {
   description: Description;
   price: Price;
   openingHours: OpeningHours;
-  adress: Adress;
+  address: Address;
 
 
   constructor(private route: ActivatedRoute,
@@ -191,7 +190,10 @@ export class MapComponent implements OnInit {
       for (let feature of featureCollection.features) {
         if (feature.geometry.type == "Point") {
 
-          let marker = L.geoJSON(feature).addTo(this.map).bindPopup(feature.properties.title)
+          let marker = L.geoJSON(feature).addTo(this.map).bindPopup(feature.properties.title
+          +"<br><br> <b>Adresse:</b> <br>"+feature.properties.address.street
+          +" "+feature.properties.address.housenumber+"<br>"+feature.properties.address.zipcode
+          +" "+feature.properties.address.city)
             .openPopup().on('click', function () {
 
               _this.setPropertyClassVariablesOnMapClick(feature);
@@ -246,11 +248,11 @@ export class MapComponent implements OnInit {
     this.setPropertyClassVariablesNull();
 
     this.properties.forEach(property => {
-      if (property instanceof Adress) {
-        this.adress = property;
+      if (property instanceof Address) {
+        this.address = property;
       }
       if (property instanceof OpeningHours) {
-        console.log("got here");
+        
         this.openingHours = property;
       }
       if (property instanceof Description) {
@@ -269,14 +271,14 @@ export class MapComponent implements OnInit {
       return false;
     }
     if (this.selectedSubcategories.length > 0 && (this.description != null || this.openingHours != null
-      || this.adress != null || this.price != null)) {
+      || this.address != null || this.price != null)) {
       return true
     }
     return false;
   }
   setPropertyClassVariablesNull() {
     this.price = null;
-    this.adress = null;
+    this.address = null;
     this.openingHours = null;
     this.description = null;
   }
@@ -297,14 +299,14 @@ export class MapComponent implements OnInit {
       this.overridePropertyClassVariables();
 
     }
-    if (feature.properties.adress) {
+    if (feature.properties.address) {
 
-      let adress: Adress = new Adress(
-        feature.properties.adress.street,
-        feature.properties.adress.housenumber,
-        feature.properties.adress.zipcode,
-        feature.properties.adress.city);
-      this.properties.push(adress);
+      let address: Address = new Address(
+        feature.properties.address.street,
+        feature.properties.address.housenumber,
+        feature.properties.address.zipcode,
+        feature.properties.address.city);
+      this.properties.push(address);
       this.mapInfo = true;
       this.overridePropertyClassVariables();
     }

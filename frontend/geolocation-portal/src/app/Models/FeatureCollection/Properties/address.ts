@@ -1,6 +1,6 @@
 import { InfoObject } from './infoObject';
 
-export class Adress extends InfoObject{
+export class Address extends InfoObject{
     street: string;
     housenumber: number;
     zipcode: number;

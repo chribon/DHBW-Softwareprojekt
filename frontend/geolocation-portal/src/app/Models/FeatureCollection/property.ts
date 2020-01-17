@@ -1,12 +1,12 @@
 import { OpeningHours } from './Properties/openingHours';
-import { Adress } from './Properties/adress';
+import { Address } from './Properties/address';
 
 export class Property {
   title: string;
   price: string;
   description: string;
   openinghours: OpeningHours;
-  adress: Adress;
+  address: Address;
 }
 
 

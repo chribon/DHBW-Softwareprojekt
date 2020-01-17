@@ -35,7 +35,8 @@
 
             </div>
             <div class="row mb-0 pb-0">
-                <h4>{{category.title}}</h4>
+
+                <h4 *ngIf="category">{{category.title}}</h4>
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
