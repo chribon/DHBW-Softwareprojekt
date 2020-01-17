@@ -19,20 +19,17 @@
 
 <div id="maincontainer">
   <div class="row">
-
     <div class="col-sm-2 mb-4">
-      <hr id="inhalt-hr">
-      <h3>Inhalte</h3>
-
-      <div class="nav flex-column nav-pills  mt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active mb-1" id="v-pills-home-tab" data-toggle="pill" href="menu#Kategorien" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">Kategorien</a>
-        <a class="nav-link active mb-1" id="v-pills-profile-tab" data-toggle="pill" href="menu#API" role="tab"
-          aria-controls="v-pills-profile" aria-selected="false">API</a>
-        <a class="nav-link active mb-1" id="v-pills-messages-tab" data-toggle="pill" href="menu#Vorschlaege" role="tab"
-          aria-controls="v-pills-messages" aria-selected="false">Vorschläge einreichen</a>
-
-      </div>
+        <hr id="inhalt-hr">
+        <h3>Inhalte</h3>
+        <div class="nav flex-column nav-pills  mt-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active mb-1" id="v-pills-home-tab" data-toggle="pill" href="menu#Kategorien" role="tab"
+            aria-controls="v-pills-home" aria-selected="true">Kategorien</a>
+          <a class="nav-link active mb-1" id="v-pills-profile-tab" data-toggle="pill" href="menu#API" role="tab"
+            aria-controls="v-pills-profile" aria-selected="false">API</a>
+          <a class="nav-link active mb-1" id="v-pills-messages-tab" data-toggle="pill" href="menu#Vorschlaege"
+            role="tab" aria-controls="v-pills-messages" aria-selected="false">Vorschläge einreichen</a>
+        </div>
     </div>
 
     <div class="col-sm-10">
@@ -51,8 +48,7 @@
 
 
 
-      <div class="row mb-4 mt-4"
-        [ngStyle]="{'display': searchTermLength == 0 || searchTerm == null ? 'flex' : 'none'}">
+      <div class="row mb-4 mt-4" [ngStyle]="{'display': searchTermLength == 0 || searchTerm == null ? 'flex' : 'none'}">
 
         <div *ngFor="let category of categories" class="col-sm-3 d-flex align-items-stretch animated bounceInLeft ">
 
@@ -156,7 +152,8 @@
                 no
                 sea
                 takimata sanctus est Lorem ipsum dolor sit amet.</p>
-              <a mdbBtn routerLink="/api" role="button" class="button-link" mdbWavesEffect>Zur API Dokumentation</a>
+              <a mdbBtn href="http://localhost:8000" role="button" class="button-link" mdbWavesEffect>Zur API
+                Dokumentation</a>
             </div>
           </div>
         </div>

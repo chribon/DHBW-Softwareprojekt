@@ -1,7 +1,7 @@
 <div *ngIf="categories">
     <div id="map-nav-container" class="mt-3">
         <ul class="nav nav-pills nav-fill">
-            <li *ngFor="let category of categories" class="nav-item">
+            <li *ngFor="let category of categories" class="nav-item category">
                 <a class="nav-link active" routerLink="{{category.title}}"
                     [ngClass]="{'selectedCategory': category.title == title,'active': category.title == title} ">{{category.title}}
                     <img src="{{category.image}}" height="25px" width="25px" class="ml-2" style="padding-bottom: 5px;"></a>

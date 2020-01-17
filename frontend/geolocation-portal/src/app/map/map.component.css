@@ -32,6 +32,9 @@
 .selected-sub{
     border-bottom: 2px solid #812323;
 }
+.selected-sub:hover{
+    border-bottom: 2px solid rgba(129, 35, 35,.3);
+}
 .row{
     margin-top: 0;
 }
@@ -68,4 +71,10 @@ hr{
 td{
     padding-right: 5px;
 }
-
+.subcategory:hover{
+    border-bottom: 2px solid #812323;
+    transition: 0.2s;
+}
+.subcategory{
+    transition: 0.2s;
+}

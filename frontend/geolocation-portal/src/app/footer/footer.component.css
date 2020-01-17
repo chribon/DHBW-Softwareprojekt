@@ -32,6 +32,9 @@
   #copyright{
     color: #747373;
   }
+  .row{
+    max-width: 100%;
+  }
   @media (max-width: 576px) { 
     
     #copyright{

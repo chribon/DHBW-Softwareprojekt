@@ -5,7 +5,6 @@
     margin-top: 0;
 }
 
-
 .category:hover{
     transform: translateY(-10px);
     transition: 0.5s;

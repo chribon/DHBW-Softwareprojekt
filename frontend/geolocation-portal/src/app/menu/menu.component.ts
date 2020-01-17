@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Category } from '../Models/category';
 import { Subcategory } from '../Models/subcategory';
 import { APIService } from '../api.service';
-
 
 
 @Component({
@@ -19,8 +18,6 @@ export class MenuComponent implements OnInit {
   searchTerm: string;
   searchTermLength: number;
   constructor(private apiSerivce: APIService) { }
-
-
 
   ngOnInit() {
     this.getCategories();

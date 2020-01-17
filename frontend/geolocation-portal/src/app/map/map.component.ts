@@ -79,7 +79,7 @@ export class MapComponent implements OnInit {
 
 
   initMap() {
-    this.map = L.map('mapid').setView([49.352164, 9.145679], 14);
+    this.map = L.map('mapid').setView([49.352164, 9.145679], 15);
     //openstreetmap de 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

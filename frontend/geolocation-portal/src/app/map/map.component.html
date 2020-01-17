@@ -15,7 +15,8 @@
                                 <small>{{getCategoryTitleBySubcategoryID(selectedSubcategory.id_category)}}</small>
                             </div>
                             <div>
-                                <mdb-icon fas icon="angle-right" class="mr-1"></mdb-icon>{{selectedSubcategory.title}}
+                                
+                                {{selectedSubcategory.title}}
                             </div>
                         </div>
 
@@ -37,13 +38,15 @@
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
-                <div class="row sub animated bounceInLeft" (click)="toggleSubcategory(subcategory)"
+                <div class="row sub animated bounceInLeft subcategory" (click)="toggleSubcategory(subcategory)"
                     [ngClass]="{'clickDisable': disableClick(subcategory)}">
                     <div class="col-10 pr-0" style="overflow: hidden;">
-                        <mdb-icon fas icon="angle-right" class="mr-1"></mdb-icon>{{subcategory.title}}
+                       
+                        {{subcategory.title}}
                     </div>
                     <div class="col-2 d-flex justify-content-end pl-0">
                         <div class="checkbox"></div>
+                        
                     </div>
                 </div>
 

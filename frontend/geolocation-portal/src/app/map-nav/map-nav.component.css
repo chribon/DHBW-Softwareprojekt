@@ -10,9 +10,12 @@ mdb-card{
 } */
 a{
     width: 100%;
-    color: black;
-    
+    color: black; 
 }
+a:hover{
+    color: white;
+}
+
 .selectedCategory{
     color:rgb(245, 0, 0);
 }
@@ -30,3 +33,17 @@ a{
     padding: 20px;
     justify-content: center;
 }
+
+.category:hover{
+    transform: translateY(-10px);
+    transition: 0.5s;
+    background-color: rgba(129, 35, 35, 0.4);
+}
+.category{
+    transition: 0.5s;
+    margin-bottom: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+   
