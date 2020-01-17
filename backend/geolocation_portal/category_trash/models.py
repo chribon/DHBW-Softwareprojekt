@@ -15,14 +15,12 @@ class OpeningHoursGlassEntry(OpeningHours):
     glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.PROTECT)
 
     class Meta:
-        verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressGlassEntry(Address):
     glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class ClothingEntry(PointEntry):
@@ -43,8 +41,7 @@ class OpeningHoursClothingEntry(OpeningHours):
 class AddressClothingEntry(Address):
     clothing_entry = models.OneToOneField(ClothingEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class BatteryEntry(PointEntry):
@@ -64,8 +61,7 @@ class OpeningHoursBatteryEntry(OpeningHours):
 class AddressBatteryEntry(Address):
     battery_entry = models.OneToOneField(BatteryEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class IlluminantEntry(PointEntry):
@@ -85,8 +81,7 @@ class OpeningHoursIlluminantEntry(OpeningHours):
 class AddressIlluminantEntry(Address):
     illuminant_entry = models.OneToOneField(IlluminantEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class ElectroEntry(PointEntry):
@@ -106,8 +101,7 @@ class OpeningHoursElectroEntry(OpeningHours):
 class AddressElectroEntry(Address):
     electro_entry = models.OneToOneField(ElectroEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"
 
 
 class RecyclingcentreEntry(PointEntry):
@@ -128,5 +122,4 @@ class OpeningHoursRecyclingcentreEntry(OpeningHours):
 class AddressRecyclingcentreEntry(Address):
     recyclingcentre_entry = models.OneToOneField(RecyclingcentreEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"

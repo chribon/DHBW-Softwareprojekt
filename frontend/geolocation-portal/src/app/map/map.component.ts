@@ -3,6 +3,7 @@ import { Category } from '../Models/category';
 import { ActivatedRoute } from '@angular/router';
 import { Subcategory } from '../Models/subcategory';
 import * as L from 'leaflet';
+import 'leaflet.fullscreen';
 import { icon, Marker } from 'leaflet';
 import { FeatureCollection } from '../Models/FeatureCollection/featurecollection';
 import { Marker_ID } from '../Models/marker_id';
@@ -84,6 +85,12 @@ export class MapComponent implements OnInit {
     L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
+
+	L.control.fullscreen({
+		position: 'topleft',
+		title: 'Im Vollbild anzeigen',
+		titleCancel: 'Vollbild verlassen'
+	}).addTo(this.map);
 
     /* costum marker
         var greenIcon = L.icon({

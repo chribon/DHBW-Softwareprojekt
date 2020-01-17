@@ -17,5 +17,4 @@ class OpeningHoursViewpointEntry(OpeningHours):
 class AddressViewpointEntry(Address):
     viewpoint_entry = models.OneToOneField(ViewpointEntry, blank=True, null=True, on_delete = models.PROTECT)
     class Meta:
-        verbose_name = "Adresse"
-        verbose_name_plural = "Adressen"
+        verbose_name_plural = "Adresse"

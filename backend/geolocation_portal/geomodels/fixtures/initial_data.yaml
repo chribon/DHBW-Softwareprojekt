@@ -1,3 +1,6 @@
+# -------------------------------- Kategorien und Unterkategorien -----------------------------------
+
+#Kategorie Müll mit Unterkategorien
 - model: geomodels.Category
   pk: 1
   fields:
@@ -6,6 +9,7 @@
     image: images/category/muell.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: geomodels.Subcategory
   pk: 1
   fields:
@@ -68,6 +72,7 @@
     coordinates_type: point
 
 
+#Kategorie Wohnen mit Unterkategorien
 - model: geomodels.Category
   pk: 2
   fields:
@@ -76,6 +81,7 @@
     image: images/category/wohnen.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: geomodels.Subcategory
   pk: 7
   fields:
@@ -118,6 +124,7 @@
     coordinates_type: point
 
 
+#Kategorie Tourismus mit Unterkategorien
 - model: geomodels.Category
   pk: 3
   fields:
@@ -126,6 +133,7 @@
     image: images/category/tourismus.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: geomodels.Subcategory
   pk: 11
   fields:
@@ -168,6 +176,7 @@
     coordinates_type: point
 
 
+#Kategorie Natur mit Unterkategorien
 - model: geomodels.Category
   pk: 4
   fields:
@@ -176,6 +185,7 @@
     image: images/category/natur.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: geomodels.Subcategory
   pk: 15
   fields:
@@ -188,6 +198,7 @@
     coordinates_type: point
 
 
+#Kategorie Verkehr mit Unterkategorien
 - model: geomodels.Category
   pk: 5
   fields:
@@ -196,6 +207,7 @@
     image: images/category/verkehr.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: geomodels.Subcategory
   pk: 16
   fields:
@@ -208,6 +220,7 @@
     coordinates_type: point
 
 
+#Kategorie Freizeit mit Unterkategorien
 - model: geomodels.Category
   pk: 6
   fields:
@@ -216,6 +229,7 @@
     image: images/category/freizeit.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: geomodels.Subcategory
   pk: 17
   fields:
@@ -227,6 +241,22 @@
     entry_types: sportscentresparetime
     coordinates_type: point
 
+
+
+
+# -------------------------------- Einträge -----------------------------------
+
+#---Kategorie Müll---
+
+#Glas
+- model: category_trash.GlassEntry
+  pk: 1
+  fields:
+    title: Container Nr. 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+    description: Beschreibung
 - model: geomodels.OpeningHours
   pk: 1
   fields:
@@ -241,39 +271,175 @@
   pk: 1
   fields:
     glass_entry: 1
-
-- model: category_trash.GlassEntry
+- model: geomodels.Address
   pk: 1
   fields:
-    title: Container Nr. 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressGlassEntry
+  pk: 1
+  fields:
+    glass_entry: 1
 
+
+#Kleidung
+- model: category_trash.ClothingEntry
+  pk: 1
+  fields:
+    title: Kleidungsentsorgungsstelle
+    description: Beschreibung
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    id_subcategory_id: 2
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 2
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursClothingEntry
+  pk: 2
+  fields:
+    clothing_entry: 1
+- model: geomodels.Address
+  pk: 2
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressClothingEntry
+  pk: 2
+  fields:
+    clothing_entry: 1
+
+
+#Batterien
 - model: category_trash.BatteryEntry
   pk: 1
   fields:
-    title: Wertstoffhof in Mosbach INAST-Firmengelände
+    title: Batterieentsorgungsstelle
     coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
     id_subcategory_id: 3
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 3
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursBatteryEntry
+  pk: 3
+  fields:
+    battery_entry: 1
+- model: geomodels.Address
+  pk: 3
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressBatteryEntry
+  pk: 3
+  fields:
+    battery_entry: 1
+
+
+#Leuchtmittel
 - model: category_trash.IlluminantEntry
   pk: 1
   fields:
-    title: Wertstoffhof in Mosbach INAST-Firmengelände
+    title: Leuchtmittelentsorgungsstelle
     coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
     id_subcategory_id: 4
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 4
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursIlluminantEntry
+  pk: 4
+  fields:
+    illuminant_entry: 1
+- model: geomodels.Address
+  pk: 4
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressIlluminantEntry
+  pk: 4
+  fields:
+    illuminant_entry: 1
+
+
+#Elektro
 - model: category_trash.ElectroEntry
   pk: 1
   fields:
-    title: Wertstoffhof in Mosbach INAST-Firmengelände
+    title: Elektroentsorgungsstelle
     coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
     id_subcategory_id: 5
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 5
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursElectroEntry
+  pk: 5
+  fields:
+    electro_entry: 1
+- model: geomodels.Address
+  pk: 5
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressElectroEntry
+  pk: 5
+  fields:
+    electro_entry: 1
+
+
+#Recyclinghöfe
 - model: category_trash.RecyclingcentreEntry
   pk: 1
   fields:
@@ -282,8 +448,41 @@
     id_subcategory_id: 6
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+    description: Beschreibung
+- model: geomodels.OpeningHours
+  pk: 6
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursRecyclingcentreEntry
+  pk: 6
+  fields:
+    recyclingcentre_entry: 1
+- model: geomodels.Address
+  pk: 6
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressRecyclingcentreEntry
+  pk: 6
+  fields:
+    recyclingcentre_entry: 1
 
 
+
+
+#---Kategorie Wohnen---
+
+#Bodenrichtwerte
 - model: category_living.GroundvalueEntry
   pk: 1
   fields:
@@ -291,8 +490,11 @@
     title: Diedesheim Nr. 10
     coordinates: 0103000020E61000000100000014000000C7F143A5113B2240B308C556D0AC4840B6BE4868CB392240A80183A44FAD4840A7AE7C96E73922400FBA84436FAD48406C3D433866392240D4D2DC0A61AD4840D0ECBAB7223922400F46EC1340AD484087FC3383F8382240BC3C9D2B4AAD48403A58FFE730372240F5F411F8C3AD48405B0A48FB1F382240C172840CE4AD4840679DF17D71392240EE27637C98AD484011FE45D098392240AE0E80B8ABAD4840170D198F52392240D4BA0D6ABFAD4840A20E2BDCF239224094A12AA6D2AD4840E5D3635B063C2240E204A6D3BAAD484087C43D963E3C2240BFD7101C97AD48409F2287889B3B2240249D819197AD48409F2287889B3B22407100FDBE7FAD484040C05AB56B3A22404C546F0D6CAD484052F355F2B13B2240D844662E70AD48405262D7F6763B2240FA62EFC517AD4840C7F143A5113B2240B308C556D0AC4840
     price: 140
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 2
   fields:
@@ -300,8 +502,11 @@
     title: Mos - Mitte Nr. 93
     coordinates: 0103000020E61000000100000016000000FBCBEEC9C34222408CBFED0912AD4840E71BD13DEB4222405D6F9BA910AD48402B6C06B820432240CB9E0436E7AC48404F75C8CD704322406B11514CDEAC48405A2E1B9DF343224055A2EC2DE5AC4840554CA59F7046224078094E7D20AD4840705E9CF86A4722408255F5F23BAD48408927BB99D147224055BE672442AD48400C40A374E9472240166BB8C83DAD4840051901158E4822403CFA5FAE45AD48407F4DD6A887482240B1C22D1F49AD4840B9C3263273492240A0F99CBB5DAD4840F52F49658A492240CD902A8A57AD4840E2016553AE4822400685419946AD4840E1270EA0DF4722409A7D1EA33CAD4840C345EEE9EA4622401631EC3026AD484003ECA35357462240849A215514AD48403D0AD7A370452240BBD573D2FBAC4840908653E6E643224058552FBFD3AC48407A8D5DA27A432240F0A2AF20CDAC48408EACFC32184322408080B56AD7AC4840FBCBEEC9C34222408CBFED0912AD4840
     price: 95
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 3
   fields:
@@ -309,8 +514,11 @@
     title: Mos - Mitte Nr. 100
     coordinates: 0103000020E6100000010000000A0000003AAE4676A545224045D95BCAF9AC484041D5E8D500452240A8716F7EC3AC484014CC9882354622409EEA909BE1AC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48404641F0F8F64622404A0B9755D8AC484098A1F14410472240D0D6C1C1DEAC48409301A08A1B47224090A0F831E6AC48409758198D7C462240B8CB7EDDE9AC48403AAE4676A545224045D95BCAF9AC4840
     price: 110
+    description: Beschreibung
+    using_type: gewerblich
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 4
   fields:
@@ -318,8 +526,11 @@
     title: Mos - Mitte Nr. 91
     coordinates: 0103000020E6100000010000000B000000CA54C1A8A4462240663046240AAD48408CF7E3F6CB4722400C1F115322AD484055302AA9134822403E5C72DC29AD48400AB952CF82482240280AF4893CAD48401C9947FE604822405A47551344AD4840AE9FFEB3E64722405F7F129F3BAD4840C345EEE9EA4622401631EC3026AD484003ECA35357462240849A215514AD4840268A90BA9D4522405FEE93A300AD4840957EC2D9AD452240EA25C632FDAC4840CA54C1A8A4462240663046240AAD4840
     price: 150
+    description: Beschreibung
+    using_type: gewerblich
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 5
   fields:
@@ -327,8 +538,11 @@
     title: Mos - Mitte Nr. 102
     coordinates: 0103000020E6100000010000000A000000ADDC0BCC0A452240C0EB33677DAC48406A183E22A64422402594BE1072AC48408CBB41B4564422408351499D80AC4840CEC7B5A162442240E3AAB2EF8AAC48403F74417DCB442240B6813B50A7AC4840D8F4A0A01445224062F9F36DC1AC484086730D3334462240E7FEEA71DFAC48406CB41CE8A14622400B9B012EC8AC48403B8DB454DE462240E94317D4B7AC4840ADDC0BCC0A452240C0EB33677DAC4840
     price: 65
+    description: Beschreibung
+    using_type: gemischt genutzt
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 6
   fields:
@@ -336,8 +550,11 @@
     title: Mos - Mitte Nr. 106
     coordinates: 0103000020E6100000010000003D000000EAAF5758703F22405AD8D30E7FAD48408944A165DD3F2240E08618AF79AD4840520E6613604022408E942D9276AD4840BCB0355B794122405A2A6F4738AD4840BCB0355B79412240BFD364C6DBAC4840D7DEA7AAD040224079211D1EC2AC4840705F07CE194122409F5912A0A6AC4840B340BB438A41224008910C39B6AC4840C520B07268412240F853E3A59BAC484003B5183C4C4322406BD784B4C6AC4840BC033C69E14222402BBEA1F0D9AC4840D653ABAFAE422240A3E716BA12AD484072A43330F24222400FD253E410AD48405854C4E924432240C4793881E9AC4840A7751BD47E432240D0D6C1C1DEAC48402C465D6BEF432240A33F34F3E4AC4840734A404CC2452240A3E716BA12AD4840EA9788B7CE472240840EBA8443AD48400C40A374E9472240166BB8C83DAD484043E1B3757048224057772CB649AD48400053060E684922404A9BAA7B64AD484053B3075A814922403B51121269AD4840C1A7397991492240E7ABE46377AD48404F745DF8C1492240BFD7101C97AD48405B28999CDA492240C37DE4D6A4AD484066683C11C4492240E753C72AA5AD4840EF8FF7AA95492240B35DA10F96AD484075E789E76C492240B6BFB33D7AAD484037A6272CF1482240A016838769AD4840C85EEFFE784722405A643BDF4FAD4840D78A36C7B945224032AEB8382AAD48403E26529ACD432240F14A92E7FAAC4840F1D4230D6E4322400FD253E410AD4840BFD364C6DB422240D0B8702024AD4840CEE33098BF422240D2AB014A43AD4840BFD364C6DB422240635E471CB2AD4840D653ABAFAE422240A56ABB09BEAD4840560BEC319142224084640113B8AD48405FEFFE78AF422240F0315871AAAD484037A79201A04222406F9F55664AAD4840FB3A70CE8842224079944A7842AD484095B6B8C667422240268BFB8F4CAD484040170D198F422240804A95287BAD4840D1AE42CA4F422240952D9276A3AD48404451A04FE4412240083D9B559FAD4840B07092E68F412240DBC2F352B1AD48405CC7B8E2E24022405EF23FF9BBAD48404A99D4D0064022404E0CC9C9C4AD484080812040863E2240A98427F4FAAD4840D28E1B7E373D22403944DC9C4AAE48403A048E041A3C224008AF5DDA70AE48408733BF9A033C2240E7A8A3E36AAE4840D4D2DC0A613D22404567994528AE48400FD07D39B33D224037E3344415AE4840978C63247B3C2240C3B645990DAE48403CDEE4B7E83C2240F0A5F0A0D9AD48400490DAC4C93D2240EB8B84B69CAD48403E062B4EB53E2240C6C210397DAD484087FBC8AD493F224016FC36C478AD4840984F560C573F2240B323D5777EAD4840EAAF5758703F22405AD8D30E7FAD4840
     price: 100
+    description: Beschreibung
+    using_type: gemischt genutzt
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 7
   fields:
@@ -345,8 +562,11 @@
     title: Mos - Mitte Nr. 125
     coordinates: 0103000020E6100000010000000900000053B4722F30432240FA4674CFBAAC48407CD6355A0E442240AC527AA697AC484049D576137C4322403CBCE7C072AC484059DB148F8B42224069E55E6056AC484011FDDAFAE93F22402FE1D05B3CAC4840679C86A8C23F2240A662635E47AC4840C520B07268412240BD38F1D58EAC48407CF2B0506B422240FDF9B660A9AC484053B4722F30432240FA4674CFBAAC4840
     price: 0
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 8
   fields:
@@ -354,8 +574,11 @@
     title: Mos - Mitte Nr. 161
     coordinates: 0103000020E6100000010000000B0000006C98A1F1444822409EEA909BE1AC4840919C4CDC2A4822400D71AC8BDBAC48405C3AE63C6347224018B14F00C5AC48401EF98381E74622408907944DB9AC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48404371C79BFC4622403E5DDDB1D8AC48409301A08A1B4722402922C32ADEAC484004C6FA06264722404FB16A10E6AC4840AB5B3D27BD47224003B00111E2AC48406C98A1F1444822409EEA909BE1AC4840
     price: 110
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 9
   fields:
@@ -363,8 +586,11 @@
     title: Mos - Mitte Nr. 99
     coordinates: 0103000020E6100000010000000F000000A30227DBC045224068AF3E1EFAAC4840DB34B6D7824622403E05C07806AD4840F98557923C472240C689AF7614AD484044DC9C4A0648224058207A5226AD484057790261A748224001DF6DDE38AD48402C6684B707492240782634492CAD48401A170E8464492240975643E21EAD48403197546D37492240FCE1E7BF07AD484051DEC7D11C492240014EEFE2FDAC48406DFE5F75E4482240A0C03BF9F4AC484066F84F37504822409C4EB2D5E5AC4840E63BF889034822406150A6D1E4AC4840239EEC6646472240E3C62DE6E7AC4840A5DC7D8E8F462240166C239EECAC4840A30227DBC045224068AF3E1EFAAC4840
     price: 150
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 10
   fields:
@@ -372,8 +598,11 @@
     title: Mos - Mitte Nr. 98
     coordinates: 0103000020E6100000010000000700000011A7936C75492240F277EFA831AD48405EF3AACE6A49224084F1D3B837AD4840676325E65949224040321D3A3DAD4840014EEFE2FD4822404015376E31AD4840408A3A730F492240904E5DF92CAD48401A170E8464492240666A12BC21AD484011A7936C75492240F277EFA831AD4840
     price: 0
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 11
   fields:
@@ -381,8 +610,11 @@
     title: Mos - Mitte Nr. 90
     coordinates: 0103000020E6100000010000000700000012178046E94A2240E4D9E55B1FAE48400CE6AF90B94A2240A5129ED0EBAD4840048E041A6C4A2240BD3AC780ECAD48404E7E8B4E964A22407670B03731AE48406A865451BC4A224028D3687231AE484014E7A8A3E34A22408201840F25AE484012178046E94A2240E4D9E55B1FAE4840
     price: 60
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 12
   fields:
@@ -390,8 +622,11 @@
     title: Mos - Mitte Nr. 104
     coordinates: 0103000020E61000000100000008000000B0389CF9D544224027309DD66DAC48400A2FC1A90F4422404DDC2A8881AC4840A7751BD47E432240A164726A67AC4840DA9255116E4222400B28D4D347AC4840FD4CBD6E11402240E57B462234AC48407B9FAA42034122406954E0641BAC4840E5417A8A1C422240F2D24D6210AC4840B0389CF9D544224027309DD66DAC4840
     price: 50
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
+
 - model: category_living.GroundvalueEntry
   pk: 13
   fields:
@@ -399,10 +634,330 @@
     title: Mos - Mitte Nr. 161
     coordinates: 0103000020E610000001000000080000009C5088804348224087C267EBE0AC4840AA81E673EE46224047E4BB94BAAC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48408A1D8D43FD46224097A8DE1AD8AC4840F3716DA818472240EE23B726DDAC48404B72C0AE264722402BDB87BCE5AC48409C5088804348224087C267EBE0AC4840
     price: 110
+    description: Beschreibung
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 
 
+#Baugebiete
+- model: category_living.BuildingareaEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 8
+    title: Baugebiet 1
+    coordinates: 0103000020E610000001000000080000009C5088804348224087C267EBE0AC4840AA81E673EE46224047E4BB94BAAC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48408A1D8D43FD46224097A8DE1AD8AC4840F3716DA818472240EE23B726DDAC48404B72C0AE264722402BDB87BCE5AC48409C5088804348224087C267EBE0AC4840
+    description: Beschreibung
+    areanumber: 101
+    no_buildingplaces: 5
+    no_free_buildingplaces: 2
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+
+
+#Spielplätze
+- model: category_living.PlaygroundEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 9
+    title: Spielplatz 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    description: Beschreibung
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 7
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressPlaygroundEntry
+  pk: 7
+  fields:
+    playground_entry: 1
+
+
+#Schulen
+- model: category_living.SchoolEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 10
+    title: Schule 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    school_type: Gymnasium
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 8
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressSchoolEntry
+  pk: 8
+  fields:
+    school_entry: 1
+
+
+
+
+#---Kategorie Tourismus---
+
+#Denkmäler
+- model: category_tourism.MonumentEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 11
+    title: Denkmal 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    buildingyear: 1987
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 7
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_tourism.OpeningHoursMonumentEntry
+  pk: 7
+  fields:
+    monument_entry: 1
+- model: geomodels.Address
+  pk: 9
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressMonumentEntry
+  pk: 9
+  fields:
+    monument_entry: 1
+
+
+#Wanderwege
+- model: category_tourism.TrailEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 12
+    title: Wanderweg 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    description: Beschreibung
+    length: 10
+    difficulty: mittel
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 10
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressTrailEntry
+  pk: 10
+  fields:
+    trail_entry: 1
+
+
+#Kirchen
+- model: category_tourism.ChurchEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 13
+    title: Kirche 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    buildingyear: 1741
+    denomination: evangelisch
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 8
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_tourism.OpeningHoursChurchEntry
+  pk: 8
+  fields:
+    church_entry: 1
+- model: geomodels.Address
+  pk: 11
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressChurchEntry
+  pk: 11
+  fields:
+    church_entry: 1
+
+
+#Unterkünfte
+- model: category_tourism.AccommodationEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 14
+    title: Unterkunft 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    description: Beschreibung
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 12
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressAccommodationEntry
+  pk: 12
+  fields:
+    accommodation_entry: 1
+
+
+
+
+#---Kategorie Natur---
+
+#Aussichtspunkte
+- model: category_nature.ViewpointEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 15
+    title: Aussichtspunkt 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 9
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_nature.OpeningHoursViewpointEntry
+  pk: 9
+  fields:
+    viewpoint_entry: 1
+- model: geomodels.Address
+  pk: 13
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_nature.AddressViewpointEntry
+  pk: 13
+  fields:
+    viewpoint_entry: 1
+
+
+
+
+#---Kategorie Verkehr---
+
+#Parkplätze
+- model: category_traffic.ParkingEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 16
+    title: Parkplatz 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    no_places: 20
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 10
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_traffic.OpeningHoursParkingEntry
+  pk: 10
+  fields:
+    parking_entry: 1
+
+
+
+
+#---Kategorie Freizeit---
+
+#Sporthallen
+- model: category_sparetime.SportscentreEntry
+  pk: 1
+  fields:
+    id_subcategory_id: 17
+    title: Sporthalle 1
+    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 11
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: null
+    sunday: null
+- model: category_sparetime.OpeningHoursSportscentreEntry
+  pk: 11
+  fields:
+    sportscentre_entry: 1
+- model: geomodels.Address
+  pk: 14
+  fields:
+    street: Forststraße
+    housenumber: 13
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_sparetime.AddressSportscentreEntry
+  pk: 14
+  fields:
+    sportscentre_entry: 1
+
+
+
+
+
+# -------------------------------- Authentifizierung -----------------------------------
 
 - model: auth.group
   pk: 1
