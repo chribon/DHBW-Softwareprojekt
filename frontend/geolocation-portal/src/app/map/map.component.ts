@@ -16,6 +16,7 @@ import { Price } from '../Models/FeatureCollection/Properties/price';
 import { Property } from '../Models/FeatureCollection/property';
 import { Feature } from '../Models/FeatureCollection/feature';
 import * as $ from 'jquery';
+import { Subcategory_ArrayIndex } from '../Models/subcategory_arrayIndex';
 
 
 
@@ -33,6 +34,7 @@ export class MapComponent implements OnInit {
   selectedSubcategories: Subcategory[] = [];
   map: any;
   markers: Marker_ID[] = [];
+  subcategoryArrayIndex: Subcategory_ArrayIndex[] = [];
   mapInfo: boolean = false;
   polygonStyle = {
     "color": "#812323",
@@ -79,20 +81,20 @@ export class MapComponent implements OnInit {
 
   }
 
- /*  */
+  /*  */
 
   initMap() {
     this.map = L.map('mapid').setView([49.352164, 9.145679], 15);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
 
-	L.control.fullscreen({
-		position: 'topleft',
-		title: 'Im Vollbild anzeigen',
-		titleCancel: 'Vollbild verlassen'
-	}).addTo(this.map);
+    L.control.fullscreen({
+      position: 'topleft',
+      title: 'Im Vollbild anzeigen',
+      titleCancel: 'Vollbild verlassen'
+    }).addTo(this.map);
 
     /* costum marker
         var greenIcon = L.icon({
@@ -128,13 +130,35 @@ export class MapComponent implements OnInit {
   toggleSubcategory(subcategory: Subcategory) {
 
     if (this.selectedSubcategories.some(subcategoryFromArray => subcategoryFromArray.title === subcategory.title)) {
-      var index = this.selectedSubcategories.indexOf(subcategory);
+      //when clicked subcategory is a already selectedSubcategory, remove the subcategory from selectedSubcategory
+      let index = this.selectedSubcategories.indexOf(subcategory);
       if (index > -1) {
         this.selectedSubcategories.splice(index, 1);
+
+        //insert the subcategory again in the subcategoriesFromCategory Array at the previous index, only if the matching category is selected
+        if(subcategory.id_category == this.category.id){
+          let subcategory_arrayindex = this.subcategoryArrayIndex.find(subcategory_arrayindex => subcategory_arrayindex.subcategory.id == subcategory.id);
+          this.subcategoriesFromCategory.splice(subcategory_arrayindex.index, 0, subcategory)
+        }
+        
+       
       }
+
     } else {
+      //when clicked subcategory is NOT a selectedSubcategory, push the subcategory into selectedSubcategories
       this.selectedSubcategories.push(subcategory);
-      this.displayPOIsOnMap(subcategory.id);
+      let index = this.subcategoriesFromCategory.indexOf(subcategory);
+      if (index > -1) {
+        this.subcategoriesFromCategory.splice(index, 1);
+        //save the subcategoryID and the index from the subcategoriesFromCategory to put them back in at the right index later (when subcateory gets unselected again)
+        let subcategory_arrayindex: Subcategory_ArrayIndex = { subcategory: subcategory, index: index };
+        this.subcategoryArrayIndex.push(subcategory_arrayindex);
+
+        //display the POIs from the given subcategory on map
+        this.displayPOIsOnMap(subcategory.id);
+      }
+
+
     }
 
   }
@@ -180,7 +204,7 @@ export class MapComponent implements OnInit {
             style: this.polygonStyle
           }).addTo(this.map).bindPopup(feature.properties.title)
             .openPopup().on('click', function () {
-      
+
               _this.setPropertyClassVariablesOnMapClick(feature);
             });
           markerArray.push(marker);
@@ -219,7 +243,7 @@ export class MapComponent implements OnInit {
 
   overridePropertyClassVariables() {
 
-   this.setPropertyClassVariablesNull();
+    this.setPropertyClassVariablesNull();
 
     this.properties.forEach(property => {
       if (property instanceof Adress) {
@@ -250,13 +274,13 @@ export class MapComponent implements OnInit {
     }
     return false;
   }
-  setPropertyClassVariablesNull(){
-      this.price = null;
-      this.adress = null;
-      this.openingHours = null;
-      this.description = null;
+  setPropertyClassVariablesNull() {
+    this.price = null;
+    this.adress = null;
+    this.openingHours = null;
+    this.description = null;
   }
-  setPropertyClassVariablesOnMapClick(feature:Feature){
+  setPropertyClassVariablesOnMapClick(feature: Feature) {
     this.properties = [];
     if (feature.properties.openinghours) {
 
@@ -300,10 +324,10 @@ export class MapComponent implements OnInit {
       }
     }
   }
- 
-  toogleHoverAnimation(id:string, element: string,  cssClass: string){
-    $("#"+id).find("."+element).toggleClass(cssClass);
+
+  toogleHoverAnimation(id: string, element: string, cssClass: string) {
+    $("#" + id).find("." + element).toggleClass(cssClass);
   }
- 
+
 
 }

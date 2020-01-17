@@ -7,7 +7,8 @@
             </div>
             <hr [ngClass]="{'hideSelectedCategoriesHr': checkEmptySelectedCategories()}" class="animated bounceInLeft">
             <div *ngFor="let selectedSubcategory of selectedSubcategories">
-                <div id="{{selectedSubcategory.id}}" class="row sub selected-sub animated bounceInLeft" (mouseover)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')" (mouseout)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
+                <div id="{{selectedSubcategory.id}}" class="row selected-sub animated bounceInLeft" (mouseover)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
+                 (mouseout)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
                     (click)="toggleSubcategory(selectedSubcategory); removePOIsFromMap(selectedSubcategory.id)">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                         <div class="d-flex flex-column">
@@ -34,12 +35,13 @@
 
             </div>
             <div class="row mb-0 pb-0">
-                <h4>Points-Of-Interest</h4>
+                <h4>{{category.title}}</h4>
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
-                <div id="{{subcategory.id}}"class="row sub animated bounceInLeft subcategory" (click)="toggleSubcategory(subcategory)" (mouseover)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')" (mouseout)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')"
-                    [ngClass]="{'clickDisable': disableClick(subcategory)}">
+                <div id="{{subcategory.id}}"class="row animated bounceInLeft subcategory" (click)="toggleSubcategory(subcategory)" (mouseover)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')" 
+                (mouseout)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')"
+                >
                     <div class="col-10 pr-0" style="overflow: hidden;">
                        
                         {{subcategory.title}}
