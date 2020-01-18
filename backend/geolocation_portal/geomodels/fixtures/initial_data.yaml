@@ -5,7 +5,7 @@
   pk: 1
   fields:
     title: Müll
-    description: Müllentsorgung in und um Mosbach
+    description: Müllentsorgungsorte in und um Mosbach
     image: images/category/muell.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -15,7 +15,7 @@
   fields:
     id_category_id: 1
     title: Glassmüll
-    description: Glassmüll in und um Mosbach
+    description: Entsorgungsorte für Glassmüll in und um Mosbach
     created_at: 2019-01-01T00:01:00+00:00
     updated_at: 2019-01-01T00:01:00+00:00
     entry_types: glasstrash
@@ -87,7 +87,7 @@
   fields:
     id_category_id: 2
     title: Bodenrichtwerte
-    description: Bodenrichtwerte in Mosbach
+    description: Bodenrichtwerte der Stadt Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: groundvalueliving
@@ -97,7 +97,7 @@
   fields:
     id_category_id: 2
     title: Baugebiete
-    description: Baugebiete in Mosbach
+    description: Baugebiete der Stadt Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: buildingarealiving
@@ -129,7 +129,7 @@
   pk: 3
   fields:
     title: Tourismus
-    description: Tourismus in und um Mosbach
+    description: Interessantes für Touristen in und um Mosbach
     image: images/category/tourismus.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -139,7 +139,7 @@
   fields:
     id_category_id: 3
     title: Denkmäler
-    description: Denkmäler in Mosbach
+    description: Denkmäler in Mosbach und Umgebung
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: monumenttourism
@@ -149,7 +149,7 @@
   fields:
     id_category_id: 3
     title: Wanderwege
-    description: Wanderwege in Mosbach
+    description: Wanderwege in Mosbach und Umgebung
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: trailtourism
@@ -169,7 +169,7 @@
   fields:
     id_category_id: 3
     title: Unterkünfte
-    description: Unterkünfte in Mosbach
+    description: Unterkünfte in Mosbach und Umgebung
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: accommodationtourism
@@ -181,7 +181,7 @@
   pk: 4
   fields:
     title: Natur
-    description: Natur in und um Mosbach
+    description: Interssante Naturmonumente in und um Mosbach
     image: images/category/natur.png
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -191,7 +191,7 @@
   fields:
     id_category_id: 4
     title: Aussichtspunkte
-    description: Aussichtspunkte in und um Mosbach
+    description: Interessante Aussichtspunkte in und um Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: viewpointnature
@@ -249,23 +249,25 @@
 #---Kategorie Müll---
 
 #Glas
+#Glas Datensatz 1
 - model: category_trash.GlassEntry
   pk: 1
   fields:
-    title: Container Nr. 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: Glascontainer Nüstenbacher Straße
+    coordinates: 0101000020E6100000E02D90A0F8412240F59D5F94A0AD4840
+    id_subcategory_id: 1
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
-    description: Beschreibung
+    description: Entsorgung von Weißglas, Grünglas und Braunglas
 - model: geomodels.OpeningHours
   pk: 1
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
+    monday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     sunday: null
 - model: category_trash.OpeningHoursGlassEntry
   pk: 1
@@ -274,8 +276,8 @@
 - model: geomodels.Address
   pk: 1
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Im Nüstenbacher Grund
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
@@ -285,204 +287,621 @@
   fields:
     glass_entry: 1
 
+#Glas Datensatz 2
+- model: category_trash.GlassEntry
+  pk: 2
+  fields:
+    title: Glascontainer am Sportplatz
+    coordinates: 0101000020E6100000E481C8224D4C22403E75AC527AAE4840
+    id_subcategory_id: 1
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+    description: Entsorgung von Weißglas, Grünglas und Braunglas
+- model: geomodels.OpeningHours
+  pk: 2
+  fields:
+    monday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursGlassEntry
+  pk: 2
+  fields:
+    glass_entry: 2
+- model: geomodels.Address
+  pk: 2
+  fields:
+    street: Neckarburkener Str. 
+    housenumber: 15
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressGlassEntry
+  pk: 2
+  fields:
+    glass_entry: 2
+
+#Glas Datensatz 3
+- model: category_trash.GlassEntry
+  pk: 3
+  fields:
+    title: Glascontainer am Rathaus
+    coordinates: 0101000020E6100000A11342075D4A22403F390A1005AD4840
+    id_subcategory_id: 1
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+    description: Entsorgung von Weißglas, Grünglas und Braunglas
+- model: geomodels.OpeningHours
+  pk: 3
+  fields:
+    monday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursGlassEntry
+  pk: 3
+  fields:
+    glass_entry: 3
+- model: geomodels.Address
+  pk: 3
+  fields:
+    street: Hauptstraße 
+    housenumber: 21
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressGlassEntry
+  pk: 3
+  fields:
+    glass_entry: 3
+
+#Glas Datensatz 4
+- model: category_trash.GlassEntry
+  pk: 4
+  fields:
+    title: Glascontainer Neckarelz Auguste-Pattberg-Gymnaisum
+    coordinates: 0101000020E61000002A1BD6541635224091D0967329AC4840
+    id_subcategory_id: 1
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+    description: Entsorgung von Weißglas, Grünglas und Braunglas
+- model: geomodels.OpeningHours
+  pk: 4
+  fields:
+    monday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursGlassEntry
+  pk: 4
+  fields:
+    glass_entry: 4
+- model: geomodels.Address
+  pk: 4
+  fields:
+    street: Heidelberger Str.
+    housenumber: 39
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressGlassEntry
+  pk: 4
+  fields:
+    glass_entry: 4
+
 
 #Kleidung
+# Kleidung Datensatz 1
 - model: category_trash.ClothingEntry
   pk: 1
   fields:
-    title: Kleidungsentsorgungsstelle
-    description: Beschreibung
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: DRK Kreisverband Altkleider
+    description: Altkleidercontainer des DRK Kreisverband Mosbach e.V.
+    coordinates: 0101000020E61000005DC0CB0C1B4D2240C1CAA145B6AD4840
     id_subcategory_id: 2
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 2
+  pk: 5
   fields:
     monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
-    sunday: null
+    saturday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    sunday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
 - model: category_trash.OpeningHoursClothingEntry
-  pk: 2
+  pk: 5
   fields:
     clothing_entry: 1
 - model: geomodels.Address
-  pk: 2
+  pk: 5
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Sulzbacher Str. 
+    housenumber: 17
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_trash.AddressClothingEntry
-  pk: 2
+  pk: 5
   fields:
     clothing_entry: 1
 
 
-#Batterien
-- model: category_trash.BatteryEntry
-  pk: 1
+#Kleidung Datensatz 2
+- model: category_trash.ClothingEntry
+  pk: 2
   fields:
-    title: Batterieentsorgungsstelle
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    id_subcategory_id: 3
+    title: Altkleidercontainer Neckarelz
+    description: Altkleidercontainer des Roten Kreuzes
+    coordinates: 0101000020E61000003C84F1D3B83F224038F581E49DAB4840
+    id_subcategory_id: 2
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 3
+  pk: 6
   fields:
     monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
+    saturday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    sunday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+- model: category_trash.OpeningHoursClothingEntry
+  pk: 6
+  fields:
+    clothing_entry: 2
+- model: geomodels.Address
+  pk: 6
+  fields:
+    street: Pfalzgraf-Otto-Straße
+    housenumber: 50
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressClothingEntry
+  pk: 6
+  fields:
+    clothing_entry: 2
+
+#Kleidung Datensatz 3
+- model: category_trash.ClothingEntry
+  pk: 3
+  fields:
+    title: Altkleidercontainer Nüstenbacher Straße
+    description: Altkleidercontainer des Roten Kreuzes
+    coordinates: 0101000020E6100000E02D90A0F8412240F59D5F94A0AD4840
+    id_subcategory_id: 2
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 7
+  fields:
+    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    saturday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    sunday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+- model: category_trash.OpeningHoursClothingEntry
+  pk: 7
+  fields:
+    clothing_entry: 3
+- model: geomodels.Address
+  pk: 7
+  fields:
+    street: Im Nüstenbacher Grund
+    housenumber: 1
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressClothingEntry
+  pk: 7
+  fields:
+    clothing_entry: 3
+
+
+#Batterien
+#Batterien Datensatz 1
+- model: category_trash.BatteryEntry
+  pk: 1
+  fields:
+    title: INAST Abfallbeseitigungs GmbH
+    coordinates: 0101000020E610000068B3EA73B53D2240CFBC1C76DFAB4840
+    id_subcategory_id: 3
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 8
+  fields:
+    monday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    tuesday: [2000-01-01T08:30:00, 2000-01-01T16:30:00]
+    wednesday: [2000-01-01T08:30:00, 2000-01-01T16:30:00]
+    thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    friday: [2000-01-01T08:30:00, 2000-01-01T16:30:00]
+    saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
     sunday: null
 - model: category_trash.OpeningHoursBatteryEntry
-  pk: 3
+  pk: 8
   fields:
     battery_entry: 1
 - model: geomodels.Address
-  pk: 3
+  pk: 8
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Industriestraße
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_trash.AddressBatteryEntry
-  pk: 3
+  pk: 8
   fields:
     battery_entry: 1
 
+#Batterien Datensatz 2
+- model: category_trash.BatteryEntry
+  pk: 2
+  fields:
+    title: Euronics Betzwieser
+    coordinates: 0101000020E6100000D6FD63213A4C2240BC40498105AE4840
+    id_subcategory_id: 3
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 9
+  fields:
+    monday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    tuesday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    wednesday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    thursday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    friday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursBatteryEntry
+  pk: 9
+  fields:
+    battery_entry: 2
+- model: geomodels.Address
+  pk: 9
+  fields:
+    street: Odenwaldstraße
+    housenumber: 31
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressBatteryEntry
+  pk: 9
+  fields:
+    battery_entry: 2
+
+#Batterien Datensatz 3
+- model: category_trash.BatteryEntry
+  pk: 3
+  fields:
+    title: DM Markt Mosbach
+    coordinates: 0101000020E610000001E0D8B3E7422240001E51A1BAAB4840
+    id_subcategory_id: 3
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 10
+  fields:
+    monday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursBatteryEntry
+  pk: 10
+  fields:
+    battery_entry: 3
+- model: geomodels.Address
+  pk: 10
+  fields:
+    street: Pfalzgraf-Otto-Straße
+    housenumber: 95
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressBatteryEntry
+  pk: 10
+  fields:
+    battery_entry: 3
+
 
 #Leuchtmittel
+#Leuchtmittel Datensatz 1
 - model: category_trash.IlluminantEntry
   pk: 1
   fields:
-    title: Leuchtmittelentsorgungsstelle
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: Nüstenbacher Straße
+    coordinates: 0101000020E6100000E02D90A0F8412240F59D5F94A0AD4840
     id_subcategory_id: 4
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 4
+  pk: 11
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
+    monday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     sunday: null
 - model: category_trash.OpeningHoursIlluminantEntry
-  pk: 4
+  pk: 11
   fields:
     illuminant_entry: 1
 - model: geomodels.Address
-  pk: 4
+  pk: 11
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Im Nüstenbacher Grund 
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_trash.AddressIlluminantEntry
-  pk: 4
+  pk: 11
   fields:
     illuminant_entry: 1
 
+#Leuchtmittel Datensatz 2
+- model: category_trash.IlluminantEntry
+  pk: 2
+  fields:
+    title: DM Markt Mosbach
+    coordinates: 0101000020E610000001E0D8B3E7422240001E51A1BAAB4840
+    id_subcategory_id: 4
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 12
+  fields:
+    monday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    wednesday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    thursday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    friday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    saturday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursIlluminantEntry
+  pk: 12
+  fields:
+    illuminant_entry: 2
+- model: geomodels.Address
+  pk: 12
+  fields:
+    street: Pfalzgraf-Otto-Straße
+    housenumber: 95
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressIlluminantEntry
+  pk: 12
+  fields:
+    illuminant_entry: 2
+
+ #Leuchtmittel Datensatz 3
+- model: category_trash.IlluminantEntry
+  pk: 3
+  fields:
+    title: Lidl Mosbach
+    coordinates: 0101000020E610000048C2BE9D444C2240202A8D98D9AD4840
+    id_subcategory_id: 4
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 13
+  fields:
+    monday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
+    tuesday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
+    wednesday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
+    thursday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
+    friday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
+    saturday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursIlluminantEntry
+  pk: 13
+  fields:
+    illuminant_entry: 3
+- model: geomodels.Address
+  pk: 13
+  fields:
+    street: Hauptstraße
+    housenumber: 97
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressIlluminantEntry
+  pk: 13
+  fields:
+    illuminant_entry: 3
 
 #Elektro
+#Eltektro DS 1
 - model: category_trash.ElectroEntry
-  pk: 1
+  pk: 1 
   fields:
-    title: Elektroentsorgungsstelle
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: INAST Abfallbeseitigungs GmbH
+    coordinates: 0101000020E610000068B3EA73B53D2240CFBC1C76DFAB4840
     id_subcategory_id: 5
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 5
+  pk: 14 
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
+    monday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    tuesday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    wednesday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    friday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
     sunday: null
 - model: category_trash.OpeningHoursElectroEntry
-  pk: 5
+  pk: 14 
   fields:
-    electro_entry: 1
+    electro_entry: 1 
 - model: geomodels.Address
-  pk: 5
+  pk: 14 
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Industriestraße
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_trash.AddressElectroEntry
-  pk: 5
+  pk: 14 
   fields:
-    electro_entry: 1
+    electro_entry: 1 
 
+#Eltektro DS 2
+- model: category_trash.ElectroEntry
+  pk: 2
+  fields:
+    title: Euronics Betzwieser
+    coordinates: 0101000020E6100000D6FD63213A4C2240BC40498105AE4840
+    id_subcategory_id: 5
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 15
+  fields:
+    monday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    tuesday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    wednesday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    thursday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    friday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
+    saturday: null
+    sunday: null
+- model: category_trash.OpeningHoursElectroEntry
+  pk: 15
+  fields:
+    electro_entry: 2 
+- model: geomodels.Address
+  pk: 15 
+  fields:
+    street: Odenwaldstraße
+    housenumber: 31
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressElectroEntry
+  pk: 15 
+  fields:
+    electro_entry: 2 
 
 #Recyclinghöfe
+#Recyclinghöfe DS 1
 - model: category_trash.RecyclingcentreEntry
   pk: 1
   fields:
     title: Wertstoffhof in Mosbach INAST-Firmengelände
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    coordinates: 0101000020E610000068B3EA73B53D2240CFBC1C76DFAB4840
     id_subcategory_id: 6
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
-    description: Beschreibung
+    description: Entsorgung von Grüngut, Elektroschrott, Altmetall
 - model: geomodels.OpeningHours
-  pk: 6
+  pk: 16
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
+    monday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    tuesday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    wednesday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    friday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
     sunday: null
 - model: category_trash.OpeningHoursRecyclingcentreEntry
-  pk: 6
+  pk: 16
   fields:
     recyclingcentre_entry: 1
 - model: geomodels.Address
-  pk: 6
+  pk: 16
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Industriestraße
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_trash.AddressRecyclingcentreEntry
-  pk: 6
+  pk: 16
   fields:
     recyclingcentre_entry: 1
 
+#Recyclinghöfe DS 2
+- model: category_trash.RecyclingcentreEntry
+  pk: 2
+  fields:
+    title: INAST Abfallbeseitigungs GmbH
+    coordinates: 0101000020E6100000F4BF5C8B164822401D740987DEAA4840
+    id_subcategory_id: 6
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+    description: Entsorgung von Sperrmüll, Altmetall und Grüngut
+- model: geomodels.OpeningHours
+  pk: 17
+  fields:
+    monday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    tuesday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    wednesday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    friday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
+    saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
+    sunday: null
+- model: category_trash.OpeningHoursRecyclingcentreEntry
+  pk: 17
+  fields:
+    recyclingcentre_entry: 2
+- model: geomodels.Address
+  pk: 17
+  fields:
+    street: Luttenbachtalstraße 
+    housenumber: 30
+    zipcode: 74865
+    city: Neckarzimmern
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_trash.AddressRecyclingcentreEntry
+  pk: 17
+  fields:
+    recyclingcentre_entry: 2
 
 
 
 #---Kategorie Wohnen---
 
 #Bodenrichtwerte
+#Bodenrichtwerte DS1
 - model: category_living.GroundvalueEntry
   pk: 1
   fields:
@@ -490,7 +909,7 @@
     title: Diedesheim Nr. 10
     coordinates: 0103000020E61000000100000014000000C7F143A5113B2240B308C556D0AC4840B6BE4868CB392240A80183A44FAD4840A7AE7C96E73922400FBA84436FAD48406C3D433866392240D4D2DC0A61AD4840D0ECBAB7223922400F46EC1340AD484087FC3383F8382240BC3C9D2B4AAD48403A58FFE730372240F5F411F8C3AD48405B0A48FB1F382240C172840CE4AD4840679DF17D71392240EE27637C98AD484011FE45D098392240AE0E80B8ABAD4840170D198F52392240D4BA0D6ABFAD4840A20E2BDCF239224094A12AA6D2AD4840E5D3635B063C2240E204A6D3BAAD484087C43D963E3C2240BFD7101C97AD48409F2287889B3B2240249D819197AD48409F2287889B3B22407100FDBE7FAD484040C05AB56B3A22404C546F0D6CAD484052F355F2B13B2240D844662E70AD48405262D7F6763B2240FA62EFC517AD4840C7F143A5113B2240B308C556D0AC4840
     price: 140
-    description: Beschreibung
+    description: Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -502,7 +921,7 @@
     title: Mos - Mitte Nr. 93
     coordinates: 0103000020E61000000100000016000000FBCBEEC9C34222408CBFED0912AD4840E71BD13DEB4222405D6F9BA910AD48402B6C06B820432240CB9E0436E7AC48404F75C8CD704322406B11514CDEAC48405A2E1B9DF343224055A2EC2DE5AC4840554CA59F7046224078094E7D20AD4840705E9CF86A4722408255F5F23BAD48408927BB99D147224055BE672442AD48400C40A374E9472240166BB8C83DAD4840051901158E4822403CFA5FAE45AD48407F4DD6A887482240B1C22D1F49AD4840B9C3263273492240A0F99CBB5DAD4840F52F49658A492240CD902A8A57AD4840E2016553AE4822400685419946AD4840E1270EA0DF4722409A7D1EA33CAD4840C345EEE9EA4622401631EC3026AD484003ECA35357462240849A215514AD48403D0AD7A370452240BBD573D2FBAC4840908653E6E643224058552FBFD3AC48407A8D5DA27A432240F0A2AF20CDAC48408EACFC32184322408080B56AD7AC4840FBCBEEC9C34222408CBFED0912AD4840
     price: 95
-    description: Beschreibung
+    description: zentrumsnahes Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -514,8 +933,8 @@
     title: Mos - Mitte Nr. 100
     coordinates: 0103000020E6100000010000000A0000003AAE4676A545224045D95BCAF9AC484041D5E8D500452240A8716F7EC3AC484014CC9882354622409EEA909BE1AC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48404641F0F8F64622404A0B9755D8AC484098A1F14410472240D0D6C1C1DEAC48409301A08A1B47224090A0F831E6AC48409758198D7C462240B8CB7EDDE9AC48403AAE4676A545224045D95BCAF9AC4840
     price: 110
-    description: Beschreibung
-    using_type: gewerblich
+    description: Wohn- und Gewerbegebiet
+    using_type: gemischt genutzt
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 
@@ -526,8 +945,8 @@
     title: Mos - Mitte Nr. 91
     coordinates: 0103000020E6100000010000000B000000CA54C1A8A4462240663046240AAD48408CF7E3F6CB4722400C1F115322AD484055302AA9134822403E5C72DC29AD48400AB952CF82482240280AF4893CAD48401C9947FE604822405A47551344AD4840AE9FFEB3E64722405F7F129F3BAD4840C345EEE9EA4622401631EC3026AD484003ECA35357462240849A215514AD4840268A90BA9D4522405FEE93A300AD4840957EC2D9AD452240EA25C632FDAC4840CA54C1A8A4462240663046240AAD4840
     price: 150
-    description: Beschreibung
-    using_type: gewerblich
+    description: Wohngebiet
+    using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 
@@ -538,7 +957,7 @@
     title: Mos - Mitte Nr. 102
     coordinates: 0103000020E6100000010000000A000000ADDC0BCC0A452240C0EB33677DAC48406A183E22A64422402594BE1072AC48408CBB41B4564422408351499D80AC4840CEC7B5A162442240E3AAB2EF8AAC48403F74417DCB442240B6813B50A7AC4840D8F4A0A01445224062F9F36DC1AC484086730D3334462240E7FEEA71DFAC48406CB41CE8A14622400B9B012EC8AC48403B8DB454DE462240E94317D4B7AC4840ADDC0BCC0A452240C0EB33677DAC4840
     price: 65
-    description: Beschreibung
+    description: Wohn- und Gewerbegebiet
     using_type: gemischt genutzt
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -550,7 +969,7 @@
     title: Mos - Mitte Nr. 106
     coordinates: 0103000020E6100000010000003D000000EAAF5758703F22405AD8D30E7FAD48408944A165DD3F2240E08618AF79AD4840520E6613604022408E942D9276AD4840BCB0355B794122405A2A6F4738AD4840BCB0355B79412240BFD364C6DBAC4840D7DEA7AAD040224079211D1EC2AC4840705F07CE194122409F5912A0A6AC4840B340BB438A41224008910C39B6AC4840C520B07268412240F853E3A59BAC484003B5183C4C4322406BD784B4C6AC4840BC033C69E14222402BBEA1F0D9AC4840D653ABAFAE422240A3E716BA12AD484072A43330F24222400FD253E410AD48405854C4E924432240C4793881E9AC4840A7751BD47E432240D0D6C1C1DEAC48402C465D6BEF432240A33F34F3E4AC4840734A404CC2452240A3E716BA12AD4840EA9788B7CE472240840EBA8443AD48400C40A374E9472240166BB8C83DAD484043E1B3757048224057772CB649AD48400053060E684922404A9BAA7B64AD484053B3075A814922403B51121269AD4840C1A7397991492240E7ABE46377AD48404F745DF8C1492240BFD7101C97AD48405B28999CDA492240C37DE4D6A4AD484066683C11C4492240E753C72AA5AD4840EF8FF7AA95492240B35DA10F96AD484075E789E76C492240B6BFB33D7AAD484037A6272CF1482240A016838769AD4840C85EEFFE784722405A643BDF4FAD4840D78A36C7B945224032AEB8382AAD48403E26529ACD432240F14A92E7FAAC4840F1D4230D6E4322400FD253E410AD4840BFD364C6DB422240D0B8702024AD4840CEE33098BF422240D2AB014A43AD4840BFD364C6DB422240635E471CB2AD4840D653ABAFAE422240A56ABB09BEAD4840560BEC319142224084640113B8AD48405FEFFE78AF422240F0315871AAAD484037A79201A04222406F9F55664AAD4840FB3A70CE8842224079944A7842AD484095B6B8C667422240268BFB8F4CAD484040170D198F422240804A95287BAD4840D1AE42CA4F422240952D9276A3AD48404451A04FE4412240083D9B559FAD4840B07092E68F412240DBC2F352B1AD48405CC7B8E2E24022405EF23FF9BBAD48404A99D4D0064022404E0CC9C9C4AD484080812040863E2240A98427F4FAAD4840D28E1B7E373D22403944DC9C4AAE48403A048E041A3C224008AF5DDA70AE48408733BF9A033C2240E7A8A3E36AAE4840D4D2DC0A613D22404567994528AE48400FD07D39B33D224037E3344415AE4840978C63247B3C2240C3B645990DAE48403CDEE4B7E83C2240F0A5F0A0D9AD48400490DAC4C93D2240EB8B84B69CAD48403E062B4EB53E2240C6C210397DAD484087FBC8AD493F224016FC36C478AD4840984F560C573F2240B323D5777EAD4840EAAF5758703F22405AD8D30E7FAD4840
     price: 100
-    description: Beschreibung
+    description: Wohn- und Gewerbegebiet
     using_type: gemischt genutzt
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -561,8 +980,8 @@
     id_subcategory_id: 7
     title: Mos - Mitte Nr. 125
     coordinates: 0103000020E6100000010000000900000053B4722F30432240FA4674CFBAAC48407CD6355A0E442240AC527AA697AC484049D576137C4322403CBCE7C072AC484059DB148F8B42224069E55E6056AC484011FDDAFAE93F22402FE1D05B3CAC4840679C86A8C23F2240A662635E47AC4840C520B07268412240BD38F1D58EAC48407CF2B0506B422240FDF9B660A9AC484053B4722F30432240FA4674CFBAAC4840
-    price: 0
-    description: Beschreibung
+    price: 150
+    description: Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -574,7 +993,7 @@
     title: Mos - Mitte Nr. 161
     coordinates: 0103000020E6100000010000000B0000006C98A1F1444822409EEA909BE1AC4840919C4CDC2A4822400D71AC8BDBAC48405C3AE63C6347224018B14F00C5AC48401EF98381E74622408907944DB9AC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48404371C79BFC4622403E5DDDB1D8AC48409301A08A1B4722402922C32ADEAC484004C6FA06264722404FB16A10E6AC4840AB5B3D27BD47224003B00111E2AC48406C98A1F1444822409EEA909BE1AC4840
     price: 110
-    description: Beschreibung
+    description: Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -586,7 +1005,7 @@
     title: Mos - Mitte Nr. 99
     coordinates: 0103000020E6100000010000000F000000A30227DBC045224068AF3E1EFAAC4840DB34B6D7824622403E05C07806AD4840F98557923C472240C689AF7614AD484044DC9C4A0648224058207A5226AD484057790261A748224001DF6DDE38AD48402C6684B707492240782634492CAD48401A170E8464492240975643E21EAD48403197546D37492240FCE1E7BF07AD484051DEC7D11C492240014EEFE2FDAC48406DFE5F75E4482240A0C03BF9F4AC484066F84F37504822409C4EB2D5E5AC4840E63BF889034822406150A6D1E4AC4840239EEC6646472240E3C62DE6E7AC4840A5DC7D8E8F462240166C239EECAC4840A30227DBC045224068AF3E1EFAAC4840
     price: 150
-    description: Beschreibung
+    description: Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -597,8 +1016,8 @@
     id_subcategory_id: 7
     title: Mos - Mitte Nr. 98
     coordinates: 0103000020E6100000010000000700000011A7936C75492240F277EFA831AD48405EF3AACE6A49224084F1D3B837AD4840676325E65949224040321D3A3DAD4840014EEFE2FD4822404015376E31AD4840408A3A730F492240904E5DF92CAD48401A170E8464492240666A12BC21AD484011A7936C75492240F277EFA831AD4840
-    price: 0
-    description: Beschreibung
+    price: 140
+    description: Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -610,7 +1029,7 @@
     title: Mos - Mitte Nr. 90
     coordinates: 0103000020E6100000010000000700000012178046E94A2240E4D9E55B1FAE48400CE6AF90B94A2240A5129ED0EBAD4840048E041A6C4A2240BD3AC780ECAD48404E7E8B4E964A22407670B03731AE48406A865451BC4A224028D3687231AE484014E7A8A3E34A22408201840F25AE484012178046E94A2240E4D9E55B1FAE4840
     price: 60
-    description: Beschreibung
+    description: Familienwohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -622,7 +1041,7 @@
     title: Mos - Mitte Nr. 104
     coordinates: 0103000020E61000000100000008000000B0389CF9D544224027309DD66DAC48400A2FC1A90F4422404DDC2A8881AC4840A7751BD47E432240A164726A67AC4840DA9255116E4222400B28D4D347AC4840FD4CBD6E11402240E57B462234AC48407B9FAA42034122406954E0641BAC4840E5417A8A1C422240F2D24D6210AC4840B0389CF9D544224027309DD66DAC4840
     price: 50
-    description: Beschreibung
+    description: familiäres Wohngebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
@@ -634,212 +1053,785 @@
     title: Mos - Mitte Nr. 161
     coordinates: 0103000020E610000001000000080000009C5088804348224087C267EBE0AC4840AA81E673EE46224047E4BB94BAAC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48408A1D8D43FD46224097A8DE1AD8AC4840F3716DA818472240EE23B726DDAC48404B72C0AE264722402BDB87BCE5AC48409C5088804348224087C267EBE0AC4840
     price: 110
-    description: Beschreibung
+    description: Wohn- und Gewerbegebiet
     using_type: privat
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 
 
 #Baugebiete
+#Baugebiete DS 1
 - model: category_living.BuildingareaEntry
   pk: 1
   fields:
     id_subcategory_id: 8
-    title: Baugebiet 1
-    coordinates: 0103000020E610000001000000080000009C5088804348224087C267EBE0AC4840AA81E673EE46224047E4BB94BAAC4840C784984BAA46224064B2B8FFC8AC4840F641960513472240A6F27684D3AC48408A1D8D43FD46224097A8DE1AD8AC4840F3716DA818472240EE23B726DDAC48404B72C0AE264722402BDB87BCE5AC48409C5088804348224087C267EBE0AC4840
-    description: Beschreibung
-    areanumber: 101
-    no_buildingplaces: 5
+    title: Baugebiet Dorfwiesen-Bremen
+    coordinates: 0103000020E610000001000000130000001D739EB12F492240958098840BB34840C84274081C492240323A2009FBB24840D1B2EE1F0B492240C8CEDBD8ECB24840CB129D6516492240D272A087DAB248406AA2CF47194922402B6D718DCFB24840704221020E49224026C79DD2C1B24840C2A2224E274922406CD102B4ADB248406A334E4354492240D3156C239EB24840FD135CACA8492240B20FB22C98B24840E08442041C4A22409DA04D0E9FB2484015562AA8A84A224044A67C08AAB248400C772E8CF44A2240B5368DEDB5B248404F58E201654B224046CD57C9C7B24840FB96395D164B2240B0389CF9D5B248405C76887FD84A22407F69519FE4B24840C8957A16844A22404E9A0645F3B24840E3546B61164A2240BF2A172AFFB248400684D6C397492240747ADE8D05B348401D739EB12F492240958098840BB34840
+    description: Lage am südlichen Rand des Stadtteils Lohrbach, Größe des Gebietes ca. 6,7 ha
+    areanumber: 15
+    no_buildingplaces: 73
     no_free_buildingplaces: 2
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+
+#Baugebiete DS 2
+- model: category_living.BuildingareaEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 8
+    title: Neubaugebiet Mittel
+    coordinates: 0103000020E6100000010000001700000038BC2022354D2240AB3E575BB1AD48406ABDDF68C74D22405EDBDB2DC9AD4840444FCAA4864E2240A60C1CD0D2AD48408E3F51D9B04E2240E3A6069ACFAD484032005471E34E22406AA67B9DD4AD48402FC1A90F244F22402766BD18CAAD4840B76114048F4F22406500A8E2C6AD484000E31934F44F2240F1F09E03CBAD48403E93FDF334502240CF6BEC12D5AD4840E62329E961502240DA0242EBE1AD4840871403249A5022407AE3A430EFAD4840CB64389ECF502240D50451F701AE48407364E597C15022403F70952710AE48408AE42B8194502240A2B60DA320AE484033535A7F4B502240D106600322AE484003B34291EE4F224088A1D5C919AE48407041B62C5F4F2240F48B12F417AE4840DAFF006BD54E2240F48B12F417AE48405C3E92921E4E22405951836918AE48401B2D077AA84D2240D38558FD11AE484047CCECF3184D2240FD2FD7A205AE4840E92B4833164D2240C746205ED7AD484038BC2022354D2240AB3E575BB1AD4840
+    description: Zentrumsnahe Lage in der Mosbacher Kernstadt
+    areanumber: 16
+    no_buildingplaces: 111
+    no_free_buildingplaces: 20
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 
 
 #Spielplätze
+#Spielplätze DS 1
 - model: category_living.PlaygroundEntry
   pk: 1
   fields:
     id_subcategory_id: 9
-    title: Spielplatz 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    description: Beschreibung
+    title: Spiellandschaft "Altes Schlachthaus"
+    coordinates: 0101000020E610000024D5777E514A2240D978B0C56EAD4840
+    description: Spiellandschaft am Landesgartenschaugelände
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.Address
-  pk: 7
+  pk: 18
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Landesgartenschaugelände
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_living.AddressPlaygroundEntry
-  pk: 7
+  pk: 18
   fields:
     playground_entry: 1
 
+  #Spielplätze DS 2
+- model: category_living.PlaygroundEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 9
+    title: Dreibrunnenwiese
+    coordinates: 0101000020E6100000FA0CA837A3462240EDD3F19881B04840
+    description: Waldspielplatz
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 19
+  fields:
+    street: Dreibrunnenwiese
+    housenumber: 1
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressPlaygroundEntry
+  pk: 19
+  fields:
+    playground_entry: 2
+
+#Spielplätze DS 3
+- model: category_living.PlaygroundEntry
+  pk: 3
+  fields:
+    id_subcategory_id: 9
+    title: Boltzplatz Mosbach
+    coordinates: 0101000020E610000088BA0F406A532240E6965643E2AC4840
+    description: Boltzplatz
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 20
+  fields:
+    street: Wilhelm-Schwarz-Straße
+    housenumber: 70
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressPlaygroundEntry
+  pk: 20
+  fields:
+    playground_entry: 3
+
+  #Spielplätze DS 4
+- model: category_living.PlaygroundEntry
+  pk: 4
+  fields:
+    id_subcategory_id: 9
+    title: Spielplatz Donauschwabenstraße
+    coordinates: 0101000020E6100000D50968226C402240A83462669FAD4840
+    description: Spielplatz
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 21
+  fields:
+    street: Donauschwabenstraße
+    housenumber: 84
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressPlaygroundEntry
+  pk: 21
+  fields:
+    playground_entry: 4
+
+#Spielplätze DS 5
+- model: category_living.PlaygroundEntry
+  pk: 5
+  fields:
+    id_subcategory_id: 9
+    title: Die STREET
+    coordinates: 0101000020E6100000FEF2C98AE14A2240CA51802898AD4840
+    description: Spiel- und Erlebnisweg im Landesgartenschaugelände Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 22
+  fields:
+    street: Landesgartenschaugelände
+    housenumber: 1
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressPlaygroundEntry
+  pk: 22
+  fields:
+    playground_entry: 5
+  
 
 #Schulen
+#Schulen DS1
 - model: category_living.SchoolEntry
   pk: 1
   fields:
     id_subcategory_id: 10
-    title: Schule 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    school_type: Gymnasium
+    title: Clemens-Brentano-Grundschule
+    coordinates: 0101000020E61000005F402FDCB938224019C5724BABAB4840
+    school_type: Grundschule
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.Address
-  pk: 8
+  pk: 23
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Mosbacher Str.
+    housenumber: 39
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_living.AddressSchoolEntry
-  pk: 8
+  pk: 23
   fields:
     school_entry: 1
 
+#Schulen DS 2
+- model: category_living.SchoolEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 10
+    title: Lohrtalschule Mosbach
+    coordinates: 0101000020E61000009D4A06802A4E2240EF1AF4A5B7AD4840
+    school_type: Werkrealschule
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 24
+  fields:
+    street: Alte Schefflenzer Steige
+    housenumber: 3
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressSchoolEntry
+  pk: 24
+  fields:
+    school_entry: 2
 
+#Schulen DS 3
+- model: category_living.SchoolEntry
+  pk: 3
+  fields:
+    id_subcategory_id: 10
+    title: Pestalozzi-Realschule
+    coordinates: 0101000020E61000004F9143C4CD412240EA03C93B87AC4840
+    school_type: Realschule
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 25
+  fields:
+    street: Jean de la Fontaine-Str. 
+    housenumber: 2
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressSchoolEntry
+  pk: 25
+  fields:
+    school_entry: 3
+
+#Schulen DS 4
+- model: category_living.SchoolEntry
+  pk: 4
+  fields:
+    id_subcategory_id: 10
+    title: Auguste-Pattberg-Gymnasium
+    coordinates: 0101000020E61000006B274A4222352240AC1919E42EAC4840
+    school_type: Gymnasium
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 26
+  fields:
+    street: Heidelberger Straße
+    housenumber: 39
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_living.AddressSchoolEntry
+  pk: 26
+  fields:
+    school_entry: 4
 
 
 #---Kategorie Tourismus---
 
 #Denkmäler
+#Denkmäler DS 1
 - model: category_tourism.MonumentEntry
   pk: 1
   fields:
     id_subcategory_id: 11
-    title: Denkmal 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: KZ-Gedenkstätte Neckarelz
+    coordinates: 0101000020E61000008461C092AB3822404F232D95B7AB4840
     buildingyear: 1987
+    description: Gezeigt werden in verschiedenen Stationen Themen aus der Geschichte der sechs Konzentrationslager am Neckar. Neben Originalgegenständen in Vitrinen finden sich auch symbolische Installationen sowie Zeichnungen des ehemaligen Häftlings Jacques Barrau, großformatige Fotos, Pläne und Karten.
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 7
+  pk: 18
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    monday: null
+    tuesday: null
+    wednesday: null
+    thursday: null
+    friday: null
     saturday: null
-    sunday: null
+    sunday: [2000-01-01T14:00:00, 2000-01-01T17:00:00]
 - model: category_tourism.OpeningHoursMonumentEntry
-  pk: 7
+  pk: 18
   fields:
     monument_entry: 1
 - model: geomodels.Address
-  pk: 9
+  pk: 27
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Mosbacher Str. 
+    housenumber: 39
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_tourism.AddressMonumentEntry
-  pk: 9
+  pk: 27
   fields:
     monument_entry: 1
 
+#Denkmäler DS 2
+- model: category_tourism.MonumentEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 11
+    title: Altes Hospital
+    coordinates: 0101000020E6100000FE614B8FA64A224050E449D235AD4840
+    buildingyear: 1576
+    description: Ein Meisterwerk der Zimmermannskunst und zugleich eines der ältesten Gebäude der Stadt ist das Alte Hospital. Es stammt aus der zweiten Hälfte des 15. Jahrhunderts und diente weniger der Unterbringung von Kranken, sondern als Anstalt für Hilfsbedürftige, Arme und Alte. Die Fachwerk-Konstruktion wurde bei der Restaurierung (1978/79) weitgehend erhalten. Im Hospitalkomplex ist das Stadtmuseum mit seiner hervorragenden Fayencensammlung untergebracht. 
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 19
+  fields:
+    monday: null
+    tuesday: null
+    wednesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    thursday: null
+    friday: null
+    saturday: null
+    sunday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+- model: category_tourism.OpeningHoursMonumentEntry
+  pk: 19
+  fields:
+    monument_entry: 2
+- model: geomodels.Address
+  pk: 28
+  fields:
+    street: Hospitalgasse
+    housenumber: 4
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressMonumentEntry
+  pk: 28
+  fields:
+    monument_entry: 2
+
+#Denkmäler DS 3
+- model: category_tourism.MonumentEntry
+  pk: 3
+  fields:
+    id_subcategory_id: 11
+    title: Rathaus Mosbach
+    coordinates: 0101000020E6100000A3570394864A2240467BBC900EAD4840
+    buildingyear: 1554
+    description: >
+      Den Mosbacher Marktplatz prägt das Rathaus, das 1554 bis 1558 auf den Resten der Cäcilienpfarrkirche errichtet wurde. 
+      Über vier Geschosse erstreckt sich der Bau im Renaissance-Stil. Im unteren, einer Art Markthalle, hielten Bäcker und Metzger ihre Waren feil. Darüber lagen der Bürgersaal, wo der Stadtrat tagte (und dies heute noch tut) und Gericht gehalten wurde, Amtsräume, das alte Archiv und die Ratsküche. Im nächsten Stockwerk kehrte die Bürgerschaft zu Tanz und Trunk ein, und im Dachgeschoss lagerte Getreide für Notfälle.
+      Das untere Drittel des Rathausturmes entspricht dem ehemaligen Kirchturm mit gotischem Kreuzgewölbe. Der Rathausturm hat eine Höhe von 34 Metern. Von hier hat man einen wunderbaren Ausblick über die Dächer Mosbachs. 
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 20
+  fields:
+    monday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    tuesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    wednesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    thursday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    friday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    saturday: null
+    sunday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+- model: category_tourism.OpeningHoursMonumentEntry
+  pk: 20
+  fields:
+    monument_entry: 3
+- model: geomodels.Address
+  pk: 29
+  fields:
+    street: Hauptstraße 
+    housenumber: 19
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressMonumentEntry
+  pk: 29
+  fields:
+    monument_entry: 3
+
+#Denkmäler DS 4
+- model: category_tourism.MonumentEntry
+  pk: 4
+  fields:
+    id_subcategory_id: 11
+    title: Haus Kickelhain
+    coordinates: 0101000020E6100000871A8524B34A22401EE1B4E045AD4840
+    buildingyear: 1759
+    description: Beengte Lebensverhältnisse wie im 18. und 19. Jahrhundert vermittelt das kuriose Haus Kickelhain, das mit 52 qm Wohnfläche, verteilt auf drei Etagen, eines der kleinsten freistehenden Fachwerkhäuser Deutschlands ist.  Benannt nach der Familie des letzten Mieters, ist es heute Teil des städtischen Museums.
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 21
+  fields:
+    monday: null
+    tuesday: null
+    wednesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+    thursday: null
+    friday: null
+    saturday: null
+    sunday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
+- model: category_tourism.OpeningHoursMonumentEntry
+  pk: 21
+  fields:
+    monument_entry: 4
+- model: geomodels.Address
+  pk: 30
+  fields:
+    street: Harnischgasse
+    housenumber: 15
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressMonumentEntry
+  pk: 30
+  fields:
+    monument_entry: 4
 
 #Wanderwege
+#Wanderwege DS1
 - model: category_tourism.TrailEntry
   pk: 1
   fields:
     id_subcategory_id: 12
-    title: Wanderweg 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    description: Beschreibung
-    length: 10
-    difficulty: mittel
+    title: Panoramaweg nach Neckarburken
+    coordinates: 0101000020E610000007D2C5A6954A2240C0EAC891CEAC4840
+    description: Der Panoramaweg führt am südöstlichen Waldhang von Mosbach aus nordöstlich nach Neckarburgen. Rückweg zu Fuß über den Radweg im Tal oder mit Bahn oder Bus.
+    length: 8
+    difficulty: leicht
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.Address
-  pk: 10
+  pk: 31
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Franz-Roser-Platz
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_tourism.AddressTrailEntry
-  pk: 10
+  pk: 31
   fields:
     trail_entry: 1
 
 
+#Wanderwege DS2
+- model: category_tourism.TrailEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 12
+    title: Rundweg über den Henschelberg
+    coordinates: 0101000020E6100000213EB0E3BF482240C2BF081A33AD4840
+    description: Der Weg führt über den „Sonnenrain“ in steilem, später gemächlichem Anstieg den Henschelberg hinauf. Er bietet ständig neue Blicke auf die Mosbacher Altstadt und führt durch geschützte Gebiete mit seltener Flora und Fauna.
+    length: 5
+    difficulty: mittelschwer
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 32
+  fields:
+    street: An der Bleiche
+    housenumber: 3
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressTrailEntry
+  pk: 32
+  fields:
+    trail_entry: 2
+
+#Wanderwege DS3
+- model: category_tourism.TrailEntry
+  pk: 3
+  fields:
+    id_subcategory_id: 12
+    title: Elzuferweg
+    coordinates: 0101000020E6100000A1698995D14822407C478D0931AD4840
+    description: Der Weg führt immer am Elzufer entlang. An dieser Strecke befindet sich auch ein Fischerlehrpfad, die Mosbacher Jugendherberge und die KZ-Gedenkstätte. Sie erreichen die alte Schiffergemeinde Neckarelz, von dort schöne Sicht auf das Tempelhaus und das Schloss Neuburg. Bei der Mündung der Elz in den Neckar biegen Sie nach Süden ab und folgen dem Neckaruferradweg durch die Felder bis nach Neckarzimmern. Von dort Rückfahrt mit Bahn möglich.
+    length: 9
+    difficulty: leicht
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 33
+  fields:
+    street: An der Bleiche
+    housenumber: 3
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressTrailEntry
+  pk: 33
+  fields:
+    trail_entry: 3
+
+#Wanderwege DS4
+- model: category_tourism.TrailEntry
+  pk: 4
+  fields:
+    id_subcategory_id: 12
+    title: Neckarsteig
+    coordinates: 0101000020E6100000B7D26BB3B14A2240F8DD74CB0EAD4840
+    description: >
+      Der Neckarsteig verläuft überwiegend im baden-württembergischen Naturpark Neckartal-Odenwald, durchzieht aber auch die beiden hessischen Städte Neckarsteinach und Hirschhorn und tritt südlich von Haßmersheim aus der Naturpark-Kulisse heraus in die gleichwohl sehenswerte Kulturlandschaft bei Bad Wimpfen.
+      Der Neckarsteig wurde nach den Kriterien des Deutschen Wanderverbands als „Qualitätsweg Wanderbares Deutschland“ zertifiziert. Damit ist auf allen Streckenabschnitten ein erstklassiges Wandererlebnis garantiert und das Wegeleitsystem macht die Route „unverlaufbar“.
+    length: 15
+    difficulty: schwer
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 34
+  fields:
+    street: Marktplatz
+    housenumber: 3
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressTrailEntry
+  pk: 34
+  fields:
+    trail_entry: 4
+
 #Kirchen
+#Kirchen DS 1
 - model: category_tourism.ChurchEntry
   pk: 1
   fields:
     id_subcategory_id: 13
-    title: Kirche 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    buildingyear: 1741
-    denomination: evangelisch
+    title: Stiftskirche St. Juliana
+    coordinates: 0101000020E6100000CA6ABA9EE84A224015E0BBCD1BAD4840
+    buildingyear: 1370
+    denomination: katholisch
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 8
+  pk: 22
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
-    sunday: null
+    monday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    tuesday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    wednesday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    thursday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    friday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    saturday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    sunday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
 - model: category_tourism.OpeningHoursChurchEntry
-  pk: 8
+  pk: 22
   fields:
     church_entry: 1
 - model: geomodels.Address
-  pk: 11
+  pk: 35
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Kirchplatz
+    housenumber: 6
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_tourism.AddressChurchEntry
-  pk: 11
+  pk: 35
   fields:
     church_entry: 1
 
+#Kirchen DS 2
+- model: category_tourism.ChurchEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 13
+    title: Stiftskirche St. Juliana
+    coordinates: 0101000020E6100000471D1D57234B22400C1F115322AD4840
+    buildingyear: 1559
+    denomination: evangelisch
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 23
+  fields:
+    monday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    tuesday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    wednesday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    thursday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    friday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    saturday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    sunday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+- model: category_tourism.OpeningHoursChurchEntry
+  pk: 23
+  fields:
+    church_entry: 2
+- model: geomodels.Address
+  pk: 36
+  fields:
+    street: Kirchplatz
+    housenumber: 5
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressChurchEntry
+  pk: 36
+  fields:
+    church_entry: 2
+
+#Kirchen DS 3
+- model: category_tourism.ChurchEntry
+  pk: 3
+  fields:
+    id_subcategory_id: 13
+    title: Kirche St. Cäcilia
+    coordinates: 0101000020E610000017B7D100DE4A2240766EDA8CD3AC4840
+    buildingyear: 1934
+    denomination: katholisch
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 24
+  fields:
+    monday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    tuesday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    wednesday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    thursday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    friday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    saturday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+    sunday: [2000-01-01T09:00:00, 2000-01-01T19:00:00]
+- model: category_tourism.OpeningHoursChurchEntry
+  pk: 24
+  fields:
+    church_entry: 3
+- model: geomodels.Address
+  pk: 37
+  fields:
+    street: Franz-Roser-Platz
+    housenumber: 1
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressChurchEntry
+  pk: 37
+  fields:
+    church_entry: 3
+
+  #Kirchen DS 4
+- model: category_tourism.ChurchEntry
+  pk: 4
+  fields:
+    id_subcategory_id: 13
+    title: Martinskirche Neckarelz
+    coordinates: 0101000020E6100000D0D1AA9674342240168733BF9AAB4840
+    buildingyear: 1954
+    denomination: evangelisch
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.OpeningHours
+  pk: 25
+  fields:
+    monday: null
+    tuesday: null
+    wednesday: null
+    thursday: null
+    friday: null
+    saturday: null
+    sunday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
+- model: category_tourism.OpeningHoursChurchEntry
+  pk: 25
+  fields:
+    church_entry: 4
+- model: geomodels.Address
+  pk: 38
+  fields:
+    street: Martin-Luther-Str.
+    housenumber: 23
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressChurchEntry
+  pk: 38
+  fields:
+    church_entry: 4
 
 #Unterkünfte
+#Unterkünfte DS1
 - model: category_tourism.AccommodationEntry
   pk: 1
   fields:
     id_subcategory_id: 14
-    title: Unterkunft 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
-    description: Beschreibung
+    title: Hotel Zum Amtsstüble ***
+    coordinates: 0101000020E610000026547078414C2240D6FF39CC97AD4840
+    description: Direkte Lage in der Innenstadt von Mosbach; Kontakt über info@amtsstueble.de; Homepage www.amtsstueble.de
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.Address
-  pk: 12
+  pk: 39
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Lohrtalweg
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_tourism.AddressAccommodationEntry
-  pk: 12
+  pk: 39
   fields:
     accommodation_entry: 1
 
+  #Unterkünfte DS2
+- model: category_tourism.AccommodationEntry
+  pk: 2
+  fields:
+    id_subcategory_id: 14
+    title: Hotel Gasthof-Destille Eisenbahn
+    coordinates: 0101000020E610000076A8A624EB38224016A75A0BB3AC4840
+    description: Dieses Hotel befindet sich in Neckarelz, einem Stadtteil von Mosbach. Kontakt info@gasthof-eisenbahn.de; Homepage www.gasthof-eisenbahn.de
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 40
+  fields:
+    street: Kantstraße 
+    housenumber: 29
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressAccommodationEntry
+  pk: 40
+  fields:
+    accommodation_entry: 2
 
+#Unterkünfte DS3
+- model: category_tourism.AccommodationEntry
+  pk: 3
+  fields:
+    id_subcategory_id: 14
+    title: Hotel & Restaurant Lamm ***
+    coordinates: 0101000020E610000091990B5C1E4B2240EAEA8EC536AD4840
+    description: Dieses Hotel liegt in der Innenstadt von Mosbach. Kontakt info@lamm-mosbach.de; Homepage www.lamm-mosbach.de
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 41
+  fields:
+    street: Hauptstraße
+    housenumber: 59
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressAccommodationEntry
+  pk: 41
+  fields:
+    accommodation_entry: 3
+
+#Unterkünfte DS4
+- model: category_tourism.AccommodationEntry
+  pk: 4
+  fields:
+    id_subcategory_id: 14
+    title: Landgasthof Hirsch
+    coordinates: 0101000020E610000083DF8618AF31224098FA795391B24840
+    description: Diese Unterkunft finden Sie im Mosbacher Stadtteil Reichenbuch. Kontakt info@gasthof-hirsch.eu; Homepage www.gasthof-hirsch.eu
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: geomodels.Address
+  pk: 42
+  fields:
+    street: Kirchenstaße
+    housenumber: 10
+    zipcode: 74821
+    city: Mosbach
+    created_at: 2019-01-01T00:00:10+00:00
+    updated_at: 2019-01-01T00:00:10+00:00
+- model: category_tourism.AddressAccommodationEntry
+  pk: 42
+  fields:
+    accommodation_entry: 4
 
 
 #---Kategorie Natur---
@@ -849,35 +1841,35 @@
   pk: 1
   fields:
     id_subcategory_id: 15
-    title: Aussichtspunkt 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: Schreckberg
+    coordinates: 0101000020E6100000880E8123813622409EB29AAE27AE4840
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 9
+  pk: 26
   fields:
     monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
-    sunday: null
+    saturday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    sunday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
 - model: category_nature.OpeningHoursViewpointEntry
-  pk: 9
+  pk: 26
   fields:
     viewpoint_entry: 1
 - model: geomodels.Address
-  pk: 13
+  pk: 43
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Schreckberg
+    housenumber: 1
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_nature.AddressViewpointEntry
-  pk: 13
+  pk: 43
   fields:
     viewpoint_entry: 1
 
@@ -891,23 +1883,23 @@
   pk: 1
   fields:
     id_subcategory_id: 16
-    title: Parkplatz 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: P7 Franz-Roser-Platz
+    coordinates: 0101000020E610000007D2C5A6954A2240C0EAC891CEAC4840
     no_places: 20
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 10
+  pk: 27
   fields:
     monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
     friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    saturday: null
-    sunday: null
+    saturday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    sunday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
 - model: category_traffic.OpeningHoursParkingEntry
-  pk: 10
+  pk: 27
   fields:
     parking_entry: 1
 
@@ -921,35 +1913,35 @@
   pk: 1
   fields:
     id_subcategory_id: 17
-    title: Sporthalle 1
-    coordinates: 0101000020E61000007026A60BB14A2240BDFDB968C8AC4840
+    title: Jahnhalle
+    coordinates: 0101000020E610000028EE7893DF422240618BDD3EABAC4840
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: geomodels.OpeningHours
-  pk: 11
+  pk: 28
   fields:
-    monday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    tuesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    wednesday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    thursday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
-    friday: [2000-01-01T00:00:00, 2000-01-01T23:59:59]
+    monday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
+    tuesday: [2000-01-01T10:00:00, 2000-01-01T20:00:00]
+    wednesday: null
+    thursday: [2000-01-01T12:00:00, 2000-01-01T18:00:00]
+    friday: [2000-01-01T12:00:00, 2000-01-01T22:00:00]
     saturday: null
     sunday: null
 - model: category_sparetime.OpeningHoursSportscentreEntry
-  pk: 11
+  pk: 28
   fields:
     sportscentre_entry: 1
 - model: geomodels.Address
-  pk: 14
+  pk: 44
   fields:
-    street: Forststraße
-    housenumber: 13
+    street: Hammerweg
+    housenumber: 7
     zipcode: 74821
     city: Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
 - model: category_sparetime.AddressSportscentreEntry
-  pk: 14
+  pk: 44
   fields:
     sportscentre_entry: 1
 
