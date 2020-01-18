@@ -24,7 +24,7 @@ from geoadmin.admin import admin_site
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name = 'geoapi/start.html')),
-    path(r'imprint/', TemplateView.as_view(template_name = 'geoapi/imprint.html')),
+    path(r'impressum/', TemplateView.as_view(template_name = 'geoapi/impressum.html')),
     path('admin/', admin_site.urls, name = 'admin'),
     path('api/', include(router.urls), name = 'api'),
 ]
