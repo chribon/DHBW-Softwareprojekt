@@ -7,8 +7,9 @@
             </div>
             <hr [ngClass]="{'hideSelectedCategoriesHr': checkEmptySelectedCategories()}" class="animated bounceInLeft">
             <div *ngFor="let selectedSubcategory of selectedSubcategories">
-                <div id="{{selectedSubcategory.id}}" class="row selected-sub animated bounceInLeft" (mouseover)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
-                 (mouseout)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
+                <div id="{{selectedSubcategory.id}}" class="row selected-sub animated bounceInLeft"
+                    (mouseover)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
+                    (mouseout)="toogleHoverAnimation(selectedSubcategory.id,'selected-checkbox', 'selected-checkbox-hover')"
                     (click)="toggleSubcategory(selectedSubcategory); removePOIsFromMap(selectedSubcategory.id)">
                     <div class="col-10 pr-0" style="overflow: hidden;">
                         <div class="d-flex flex-column">
@@ -16,7 +17,7 @@
                                 <small>{{getCategoryTitleBySubcategoryID(selectedSubcategory.id_category)}}</small>
                             </div>
                             <div>
-                                
+
                                 {{selectedSubcategory.title}}
                             </div>
                         </div>
@@ -40,16 +41,17 @@
             </div>
             <hr>
             <div *ngFor="let subcategory of subcategoriesFromCategory">
-                <div id="{{subcategory.id}}"class="row animated bounceInLeft subcategory" (click)="toggleSubcategory(subcategory)" (mouseover)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')" 
-                (mouseout)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')"
-                >
+                <div id="{{subcategory.id}}" class="row animated bounceInLeft subcategory"
+                    (click)="toggleSubcategory(subcategory)"
+                    (mouseover)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')"
+                    (mouseout)="toogleHoverAnimation(subcategory.id,'subcategory-checkbox', 'subcategory-checkbox-hover')">
                     <div class="col-10 pr-0" style="overflow: hidden;">
-                       
+
                         {{subcategory.title}}
                     </div>
                     <div class="col-2 d-flex justify-content-end pl-0">
                         <div class="checkbox subcategory-checkbox"></div>
-                        
+
                     </div>
                 </div>
 
@@ -63,6 +65,10 @@
             </div>
             <div *ngIf="checkIfDisplayMapInfo()" class="row" class="mt-0">
                 <div id="map-info" class="animated bounceInLeft">
+                    <div *ngIf="description" class="mb-2">
+                        <h4>Beschreibung</h4>
+                        <div>{{description.description}}</div>
+                    </div>
                     <div *ngIf="price" class="mb-2">
                         <h4>Preise</h4>
                         <div>{{price.price}}</div>
@@ -70,48 +76,90 @@
                     <div *ngIf="openingHours" class="mb-2">
                         <h4>Öffnungszeiten</h4>
                         <table>
-                            <tr>
+                            <tr *ngIf="openingHours.monday; else geschlossen_monday">
                                 <td><b>Montag: </b></td>
                                 <td>{{openingHours.monday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.monday[1]}}</td>
                             </tr>
-                            <tr>
+                            <ng-template #geschlossen_monday>
+                                <tr>
+                                    <td><b>Montag: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
+                            <tr *ngIf="openingHours.tuesday; else geschlossen_tuesday">
                                 <td><b>Dienstag: </b></td>
                                 <td>{{openingHours.tuesday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.tuesday[1]}}</td>
                             </tr>
-                            <tr>
+                            <ng-template #geschlossen_tuesday>
+                                <tr>
+                                    <td><b>Dienstag: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
+                            <tr *ngIf="openingHours.wednesday; else geschlossen_wednesday">
                                 <td><b>Mittwoch: </b></td>
                                 <td>{{openingHours.wednesday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.wednesday[1]}}</td>
                             </tr>
-                            <tr>
+                            <ng-template #geschlossen_wednesday>
+                                <tr>
+                                    <td><b>Mittwoch: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
+                            <tr *ngIf="openingHours.thursday; else geschlossen_thursday">
                                 <td><b>Donnerstag: </b></td>
                                 <td>{{openingHours.thursday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.thursday[1]}}</td>
                             </tr>
-                            <tr>
+                            <ng-template #geschlossen_thursday>
+                                <tr>
+                                    <td><b>Donnerstag: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
+                            <tr *ngIf="openingHours.friday; else geschlossen_friday">
                                 <td><b>Freitag: </b></td>
                                 <td>{{openingHours.friday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.friday[1]}}</td>
                             </tr>
-                            <tr>
+                            <ng-template #geschlossen_friday>
+                                <tr>
+                                    <td><b>Freitag: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
+                            <tr *ngIf="openingHours.saturday; else geschlossen_saturday">
                                 <td><b>Samstag: </b></td>
                                 <td>{{openingHours.saturday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.saturday[1]}}</td>
                             </tr>
-                            <tr>
+                            <ng-template #geschlossen_saturday>
+                                <tr>
+                                    <td><b>Samstag: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
+                            <tr *ngIf="openingHours.sunday; else geschlossen_sunday">
                                 <td><b>Sonntag: </b></td>
                                 <td>{{openingHours.sunday[0]}}</td>
                                 <td>bis</td>
                                 <td>{{openingHours.sunday[1]}}</td>
                             </tr>
+                            <ng-template #geschlossen_sunday>
+                                <tr>
+                                    <td><b>Sonntag: </b></td>
+                                    <td>geschlossen</td>
+                                </tr>
+                            </ng-template>
                         </table>
                     </div>
                 </div>

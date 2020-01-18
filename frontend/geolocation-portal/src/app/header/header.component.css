@@ -3,3 +3,7 @@ a{
     text-decoration: none;
     color:black;
 }
+img{
+    margin-bottom: 2px;
+    cursor: pointer;
+}
