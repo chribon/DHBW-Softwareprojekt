@@ -53,9 +53,11 @@ export class MenuComponent implements OnInit {
   getSubcategories(){
     this.apiSerivce.getSubcategoriesFromAPI().subscribe((subcategories) => (this.subcategories = subcategories));
   }
+
   getCategories(){
     this.apiSerivce.getCategoriesFromAPI().subscribe((category) => (this.categories = category));
   }
+  
   getSubcategoriesOfCatgory(category: Category): Subcategory[] {
     let subcategories: Subcategory[];
     for (let subcategory of this.subcategories) {

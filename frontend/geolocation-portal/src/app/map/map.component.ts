@@ -77,31 +77,39 @@ export class MapComponent implements OnInit {
   ngOnInit() {
 
     this.initMap();
-    this.apiService.getCategoriesFromAPI().subscribe((Categories) => {
-      this.categories = Categories;
-
-      this.route.params.subscribe(params => {
-        this.title = params['title'];
-        this.category = this.categories.find(category => category.title === this.title);
-        this.apiService.getSubcategoriesFromAPI().subscribe((subcategories) => {
-          this.subcategories = subcategories;
-          this.processQueryParameters();
-          this.subcategoriesFromCategory = [];
-          for (let key in this.subcategories) {
-            if (this.subcategories[key].id_category === this.category.id) {
-              this.subcategoriesFromCategory.push(this.subcategories[key]);
-            }
-          }
-
-        });
-
-      });
-
-    });
-
+    this.getCategories();
+    
   }
 
-  /*  */
+  getCategories(){
+    this.apiService.getCategoriesFromAPI().subscribe((Categories) => {
+      this.categories = Categories;
+      this.getCategoryTitleFromUrl();
+    });
+  }
+
+  getCategoryTitleFromUrl(){
+    this.route.params.subscribe(params => {
+      this.title = params['title'];
+      this.category = this.categories.find(category => category.title === this.title);
+     this.getSubcategories();
+
+    });
+  }
+
+  getSubcategories(){
+    this.apiService.getSubcategoriesFromAPI().subscribe((subcategories) => {
+      this.subcategories = subcategories;
+      this.processQueryParameters();
+      this.subcategoriesFromCategory = [];
+      for (let key in this.subcategories) {
+        if (this.subcategories[key].id_category === this.category.id) {
+          this.subcategoriesFromCategory.push(this.subcategories[key]);
+        }
+      }
+
+    });
+  }
 
   initMap() {
     this.map = L.map('mapid').setView([49.352164, 9.145679], 15);
@@ -115,19 +123,6 @@ export class MapComponent implements OnInit {
       title: 'Im Vollbild anzeigen',
       titleCancel: 'Vollbild verlassen'
     }).addTo(this.map);
-
-    /* costum marker
-        var greenIcon = L.icon({
-          iconUrl: 'assets/marker-icon.png',
-          shadowUrl: 'assets/marker-shadow.png',
-    
-          iconSize: [38, 95], // size of the icon
-          shadowSize: [50, 64], // size of the shadow
-          iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-          shadowAnchor: [4, 62],  // the same for the shadow
-          popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
-        });
-     */
 
     // fix marker image output path
     const iconRetinaUrl = 'assets/images/marker-icon-2x-red.png';
@@ -160,8 +155,6 @@ export class MapComponent implements OnInit {
           let subcategory_arrayindex = this.subcategoryArrayIndex.find(subcategory_arrayindex => subcategory_arrayindex.subcategory.id == subcategory.id);
           this.subcategoriesFromCategory.splice(subcategory_arrayindex.index, 0, subcategory)
         }
-
-
       }
 
     } else {
@@ -177,8 +170,6 @@ export class MapComponent implements OnInit {
         //display the POIs from the given subcategory on map
         this.displayPOIsOnMap(subcategory.id);
       }
-
-
     }
 
   }
@@ -247,6 +238,7 @@ export class MapComponent implements OnInit {
         }
       }
   }
+
   getCategoryTitleBySubcategoryID(subcategoryID: number): string {
     let category = this.categories.find(category => (category.id == subcategoryID));
     if (category.title) {
@@ -254,6 +246,7 @@ export class MapComponent implements OnInit {
     }
     return "";
   }
+
   processQueryParameters() {
     this.route.queryParams.subscribe(params => {
       let selectedSubcategoryTitle = params['selectedSubcategory'];
@@ -316,6 +309,7 @@ export class MapComponent implements OnInit {
 
     });
   }
+
   checkIfDisplayMapInfo(): boolean {
     if (this.selectedSubcategories.length == 0) {
       this.setPropertyClassVariablesNull();
@@ -339,6 +333,7 @@ export class MapComponent implements OnInit {
     }
     return false;
   }
+
   setPropertyClassVariablesNull() {
     this.price = null;
     this.address = null;
@@ -355,6 +350,7 @@ export class MapComponent implements OnInit {
     this.school_type = null;
     this.using_type = null;
   }
+
   setPropertyClassVariablesOnMapClick(feature: Feature) {
     this.properties = [];
     if (feature.properties.openinghours) {
@@ -473,6 +469,5 @@ export class MapComponent implements OnInit {
   toogleHoverAnimation(id: string, element: string, cssClass: string) {
     $("#" + id).find("." + element).toggleClass(cssClass);
   }
-
 
 }

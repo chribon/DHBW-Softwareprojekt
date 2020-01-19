@@ -19,9 +19,11 @@ export class VorschlagComponent implements OnInit {
   constructor(private apiService: APIService) { }
 
   ngOnInit() {
-
     this.getCategories();
+    this.initSubmissionForm();
+  }
 
+  initSubmissionForm(){
     this.submissionForm = new FormGroup({
       contactFormName: new FormControl('', [<any>Validators.required]),
       contactFormLastName: new FormControl('', [<any>Validators.required]),
@@ -29,10 +31,7 @@ export class VorschlagComponent implements OnInit {
       contactFormSubjects: new FormControl('', [<any>Validators.required]),
       contactFormMessage: new FormControl('', [<any>Validators.required]),
     });
-
-
   }
-
 
   getCategories(){
     this.apiService.getCategoriesFromAPI().subscribe(categories => (this.categories = categories));

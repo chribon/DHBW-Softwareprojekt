@@ -21,15 +21,22 @@ export class MapNavComponent implements OnInit {
      private apiService: APIService) { }
 
   ngOnInit() {
+    this.getCategories();
+  }
 
+  getCategories(){
     this.apiService.getCategoriesFromAPI().subscribe(categories => {
       this.categories = categories;
 
-      this.route.firstChild.params.subscribe(params => {
+      this.getCategoryTitleFromUrl();
+    });
+  }
+  
+  getCategoryTitleFromUrl(){
+    this.route.firstChild.params.subscribe(params => {
       this.title = params['title'];
         this.category = this.categories.find(category => category.title === this.title);
       });
-
-    });
   }
+
 }
