@@ -2,32 +2,19 @@
   a{
     color: #812323 ;
   }
-  .footer-overlay {
+  #back-to-top{
+    bottom: 90px; 
+    right: 30px; 
+    box-shadow:  0 2px 5px 1px rgba(107,104,104,.5);
     position: fixed; 
     z-index: 1000; 
-    border: 1px solid white; 
     outline: none; 
-    background-color:#812323 ;
+    background-color: #812323;
     color: white; 
     cursor: pointer; 
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-  }
-  #back-to-top{
-    bottom: 20px; 
-    right: 20px; 
-  }
-  #chat-bot{
-    bottom: 75px; 
-    right: 20px; 
-  }
-  #chat-bot mdb-icon{
-    transform: translateY(18px);
-  }
-
-  display-to-top-button{
-    display: inline !important;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
   }
   #copyright{
     color: #747373;
