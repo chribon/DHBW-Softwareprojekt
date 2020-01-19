@@ -112,7 +112,7 @@
                   [ngStyle]="{'display': subcategory.id_category == category.id  ? 'block' : 'none' }">
                   <mdb-icon fas icon="angle-right" class="mr-2"></mdb-icon> <a routerLink="/map/{{category.title}}"
                     [queryParams]="{'selectedSubcategory': subcategory.title }"
-                    [ngStyle]="{'color': subcategory.title.includes(searchTerm)  ? '#812323': 'inherit' }">{{subcategory.title}}</a>
+                    [ngStyle]="{'color': subcategory.title.match(searchRegex)  ? '#812323': 'inherit' }">{{subcategory.title}}</a>
                 </div>
               </mdb-card-text>
 

@@ -17,6 +17,8 @@ export class MenuComponent implements OnInit {
   searchCategoriesLength: number;
   searchTerm: string;
   searchTermLength: number;
+  searchRegex: RegExp;
+  
   constructor(private apiSerivce: APIService) { }
 
   ngOnInit() {
@@ -27,14 +29,16 @@ export class MenuComponent implements OnInit {
   search(){
     this.searchCategories = [];
     this.searchTermLength = this.searchTerm.length;
-
+    this.searchRegex = new RegExp(this.searchTerm, "i");
     for (let category of this.categories) {
-      if (category.title.includes(this.searchTerm) && this.searchTerm.length != 0) {
+     
+      if (category.title.match(this.searchRegex) && this.searchTerm.length != 0) {
         this.searchCategories.push(category);
       }
     }
     for (let subcategory of this.subcategories) {
-      if (subcategory.title.includes(this.searchTerm) && this.searchTerm.length != 0) {
+     
+      if (subcategory.title.match(this.searchRegex) && this.searchTerm.length != 0) {
 
         if(!(this.searchCategories.some(category => category.id == subcategory.id_category))){
           this.searchCategories.push(this.categories.find(category => category.id == subcategory.id_category));
