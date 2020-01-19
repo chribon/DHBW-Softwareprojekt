@@ -71,7 +71,47 @@
                     </div>
                     <div *ngIf="price" class="mb-2">
                         <h4>Preise</h4>
-                        <div>{{price.price}}</div>
+                        <div>{{price.price}}&euro; pro m<sup>2</sup></div>
+                    </div>
+                    <div *ngIf="areanumber" class="mb-2">
+                        <h4>Baugebietenummer</h4>
+                        <div>{{areanumber.areanumber}}</div>
+                    </div>
+                    <div *ngIf="buildingyear" class="mb-2">
+                        <h4>Baujahr</h4>
+                        <div>{{buildingyear.buildingyear}}</div>
+                    </div>
+                    <div *ngIf="denomination" class="mb-2">
+                        <h4>Konfession</h4>
+                        <div>{{denomination.denomination}}</div>
+                    </div>
+                    <div *ngIf="difficulty" class="mb-2">
+                        <h4>Schwierigkeitsgrad</h4>
+                        <div>{{difficulty.difficulty}}</div>
+                    </div>
+                    <div *ngIf="length" class="mb-2">
+                        <h4>Länge</h4>
+                        <div>{{length.length}} km</div>
+                    </div>
+                    <div *ngIf="no_buildingplaces" class="mb-2">
+                        <h4>Anzahl an Bauplätzen</h4>
+                        <div>{{no_buildingplaces.no_buildingplaces}} Bauplätze</div>
+                    </div>
+                    <div *ngIf="no_free_buildingplaces" class="mb-2">
+                        <h4>Anzahl an freien Bauplätzen</h4>
+                        <div>{{no_free_buildingplaces.no_free_buildingplaces}} Bauplätze</div>
+                    </div>
+                    <div *ngIf="no_places" class="mb-2">
+                        <h4>Anzahl an Parkplätzen</h4>
+                        <div>{{no_places.no_places}} Parkplätze</div>
+                    </div>
+                    <div *ngIf="school_type" class="mb-2">
+                        <h4>Schulart</h4>
+                        <div>{{school_type.school_type}}</div>
+                    </div>
+                    <div *ngIf="using_type" class="mb-2">
+                        <h4>Nutzungsart</h4>
+                        <div>{{using_type.using_type}}</div>
                     </div>
                     <div *ngIf="openingHours" class="mb-2">
                         <h4>Öffnungszeiten</h4>

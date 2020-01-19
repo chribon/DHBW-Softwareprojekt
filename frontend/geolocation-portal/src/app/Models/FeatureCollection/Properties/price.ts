@@ -4,7 +4,7 @@ export class Price extends InfoObject{
   price: string;
 
 
-  constructor(price: string, type:string){
+  constructor(price: string){
     super();
       this.price = price;
   }

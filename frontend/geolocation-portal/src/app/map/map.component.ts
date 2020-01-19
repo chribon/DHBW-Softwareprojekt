@@ -16,6 +16,16 @@ import { Price } from '../Models/FeatureCollection/Properties/price';
 import { Feature } from '../Models/FeatureCollection/feature';
 import * as $ from 'jquery';
 import { Subcategory_ArrayIndex } from '../Models/subcategory_arrayindex';
+import { Areanumber } from '../Models/FeatureCollection/Properties/areanumber';
+import { Buildingyear } from '../Models/FeatureCollection/Properties/buildingyear';
+import { Denomination } from '../Models/FeatureCollection/Properties/denomination';
+import { Difficulty } from '../Models/FeatureCollection/Properties/difficulty';
+import { Length } from '../Models/FeatureCollection/Properties/length';
+import { No_Free_Buildingplaces } from '../Models/FeatureCollection/Properties/no_free_buildingplaces';
+import { No_Places } from '../Models/FeatureCollection/Properties/no_places';
+import { School_Type } from '../Models/FeatureCollection/Properties/school_type';
+import { Using_Type } from '../Models/FeatureCollection/Properties/using_type';
+import { No_Buildingplaces } from '../Models/FeatureCollection/Properties/no_buildingplaces';
 
 
 
@@ -48,6 +58,17 @@ export class MapComponent implements OnInit {
   price: Price;
   openingHours: OpeningHours;
   address: Address;
+  areanumber: Areanumber;
+  buildingyear: Buildingyear;
+  denomination: Denomination;
+  difficulty: Difficulty;
+  length: Length;
+  no_buildingplaces: No_Buildingplaces;
+  no_free_buildingplaces: No_Free_Buildingplaces;
+  no_places: No_Places;
+  school_type: School_Type;
+  using_type: Using_Type;
+
 
 
   constructor(private route: ActivatedRoute,
@@ -135,12 +156,12 @@ export class MapComponent implements OnInit {
         this.selectedSubcategories.splice(index, 1);
 
         //insert the subcategory again in the subcategoriesFromCategory Array at the previous index, only if the matching category is selected
-        if(subcategory.id_category == this.category.id){
+        if (subcategory.id_category == this.category.id) {
           let subcategory_arrayindex = this.subcategoryArrayIndex.find(subcategory_arrayindex => subcategory_arrayindex.subcategory.id == subcategory.id);
           this.subcategoriesFromCategory.splice(subcategory_arrayindex.index, 0, subcategory)
         }
-        
-       
+
+
       }
 
     } else {
@@ -186,14 +207,14 @@ export class MapComponent implements OnInit {
       let featureCollection: FeatureCollection = FeatureCollection;
       let markerArray = [];
       let _this = this;
-
+      let subcategory:Subcategory = this.selectedSubcategories.find(subcategory => subcategory.id == subcategoryID)
       for (let feature of featureCollection.features) {
         if (feature.geometry.type == "Point") {
-
-          let marker = L.geoJSON(feature).addTo(this.map).bindPopup(feature.properties.title
-          +"<br><br> <b>Adresse:</b> <br>"+feature.properties.address.street
-          +" "+feature.properties.address.housenumber+"<br>"+feature.properties.address.zipcode
-          +" "+feature.properties.address.city)
+         
+          let marker = L.geoJSON(feature).addTo(this.map).bindPopup("<b>"+subcategory.title+"</b><br>"+feature.properties.title
+            + "<br><br> <b>Adresse:</b> <br>" + feature.properties.address.street
+            + " " + feature.properties.address.housenumber + "<br>" + feature.properties.address.zipcode
+            + " " + feature.properties.address.city)
             .openPopup().on('click', function () {
 
               _this.setPropertyClassVariablesOnMapClick(feature);
@@ -204,7 +225,7 @@ export class MapComponent implements OnInit {
 
           let marker = L.geoJSON(feature, {
             style: this.polygonStyle
-          }).addTo(this.map).bindPopup(feature.properties.title)
+          }).addTo(this.map).bindPopup("<b>"+subcategory.title+"</b><br>"+feature.properties.title)
             .openPopup().on('click', function () {
 
               _this.setPropertyClassVariablesOnMapClick(feature);
@@ -251,15 +272,45 @@ export class MapComponent implements OnInit {
       if (property instanceof Address) {
         this.address = property;
       }
-      if (property instanceof OpeningHours) {
-        
+      else if (property instanceof OpeningHours) {
+
         this.openingHours = property;
       }
-      if (property instanceof Description) {
+      else if (property instanceof Description) {
         this.description = property;
       }
-      if (property instanceof Price) {
+      else if (property instanceof Price) {
         this.price = property;
+      }
+      else if (property instanceof Areanumber) {
+        this.areanumber = property;
+      }
+      else if (property instanceof Buildingyear) {
+        this.buildingyear = property;
+      }
+      else if (property instanceof Denomination) {
+        this.denomination = property;
+      }
+      else if (property instanceof Difficulty) {
+        this.difficulty = property;
+      }
+      else if (property instanceof Length) {
+        this.length = property;
+      }
+      else if (property instanceof No_Buildingplaces) {
+        this.no_buildingplaces = property;
+      }
+      else if (property instanceof No_Free_Buildingplaces) {
+        this.no_free_buildingplaces = property;
+      }
+      else if (property instanceof No_Places) {
+        this.no_places = property;
+      }
+      else if (property instanceof School_Type) {
+        this.school_type = property;
+      }
+      else if (property instanceof Using_Type) {
+        this.using_type = property;
       }
 
 
@@ -270,8 +321,20 @@ export class MapComponent implements OnInit {
       this.setPropertyClassVariablesNull();
       return false;
     }
-    if (this.selectedSubcategories.length > 0 && (this.description != null || this.openingHours != null
-      || this.address != null || this.price != null)) {
+    if (this.selectedSubcategories.length > 0 && (this.description != null
+      || this.openingHours != null
+      || this.address != null
+      || this.price != null
+      || this.areanumber != null
+      || this.buildingyear != null
+      || this.denomination != null
+      || this.difficulty != null
+      || this.length != null
+      || this.no_buildingplaces != null
+      || this.no_free_buildingplaces != null
+      || this.no_places != null
+      || this.school_type != null
+      || this.using_type != null)) {
       return true
     }
     return false;
@@ -281,6 +344,16 @@ export class MapComponent implements OnInit {
     this.address = null;
     this.openingHours = null;
     this.description = null;
+    this.areanumber = null;
+    this.buildingyear = null;
+    this.denomination = null;
+    this.difficulty = null;
+    this.length = null;
+    this.no_buildingplaces = null;
+    this.no_free_buildingplaces = null;
+    this.no_places = null;
+    this.school_type = null;
+    this.using_type = null;
   }
   setPropertyClassVariablesOnMapClick(feature: Feature) {
     this.properties = [];
@@ -312,7 +385,7 @@ export class MapComponent implements OnInit {
     }
     if (feature.properties.price) {
       if (feature.properties.price.length > 0) {
-        this.properties.push(new Price(feature.properties.price, "price"));
+        this.properties.push(new Price(feature.properties.price));
         this.mapInfo = true;
         this.overridePropertyClassVariables();
       }
@@ -320,7 +393,77 @@ export class MapComponent implements OnInit {
 
     if (feature.properties.description) {
       if (feature.properties.description.length > 0) {
-        this.properties.push(new Description(feature.properties.description, "description"));
+        this.properties.push(new Description(feature.properties.description));
+        this.mapInfo = true;
+        this.overridePropertyClassVariables();
+      }
+    }
+    if (feature.properties.areanumber) {
+
+      this.properties.push(new Areanumber(feature.properties.areanumber));
+      this.mapInfo = true;
+      this.overridePropertyClassVariables();
+
+    }
+    if (feature.properties.buildingyear) {
+
+      this.properties.push(new Buildingyear(feature.properties.buildingyear));
+      this.mapInfo = true;
+      this.overridePropertyClassVariables();
+
+    }
+    if (feature.properties.denomination) {
+      if (feature.properties.denomination.length > 0) {
+        this.properties.push(new Denomination(feature.properties.denomination));
+        this.mapInfo = true;
+        this.overridePropertyClassVariables();
+      }
+    }
+    if (feature.properties.difficulty) {
+      if (feature.properties.difficulty.length > 0) {
+        this.properties.push(new Difficulty(feature.properties.difficulty));
+        this.mapInfo = true;
+        this.overridePropertyClassVariables();
+      }
+    }
+    if (feature.properties.length) {
+
+      this.properties.push(new Length(feature.properties.length));
+      this.mapInfo = true;
+      this.overridePropertyClassVariables();
+
+    }
+    if (feature.properties.no_buildingplaces) {
+
+      this.properties.push(new No_Buildingplaces(feature.properties.no_buildingplaces));
+      this.mapInfo = true;
+      this.overridePropertyClassVariables();
+
+    }
+    if (feature.properties.no_free_buildingplaces) {
+
+      this.properties.push(new No_Free_Buildingplaces(feature.properties.no_free_buildingplaces));
+      this.mapInfo = true;
+      this.overridePropertyClassVariables();
+
+    }
+    if (feature.properties.no_places) {
+
+      this.properties.push(new No_Places(feature.properties.no_places));
+      this.mapInfo = true;
+      this.overridePropertyClassVariables();
+
+    }
+    if (feature.properties.school_type) {
+      if (feature.properties.school_type.length > 0) {
+        this.properties.push(new School_Type(feature.properties.school_type));
+        this.mapInfo = true;
+        this.overridePropertyClassVariables();
+      }
+    }
+    if (feature.properties.using_type) {
+      if (feature.properties.using_type.length > 0) {
+        this.properties.push(new Using_Type(feature.properties.using_type));
         this.mapInfo = true;
         this.overridePropertyClassVariables();
       }
