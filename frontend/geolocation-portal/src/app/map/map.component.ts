@@ -100,14 +100,13 @@ export class MapComponent implements OnInit {
   getSubcategories(){
     this.apiService.getSubcategoriesFromAPI().subscribe((subcategories) => {
       this.subcategories = subcategories;
-      this.processQueryParameters();
       this.subcategoriesFromCategory = [];
       for (let key in this.subcategories) {
         if (this.subcategories[key].id_category === this.category.id) {
           this.subcategoriesFromCategory.push(this.subcategories[key]);
         }
       }
-
+      this.processQueryParameters();
     });
   }
 
@@ -158,9 +157,11 @@ export class MapComponent implements OnInit {
       }
 
     } else {
+     
       //when clicked subcategory is NOT a selectedSubcategory, push the subcategory into selectedSubcategories
       this.selectedSubcategories.push(subcategory);
       let index = this.subcategoriesFromCategory.indexOf(subcategory);
+      console.log(index);
       if (index > -1) {
         this.subcategoriesFromCategory.splice(index, 1);
         //save the subcategoryID and the index from the subcategoriesFromCategory to put them back in at the right index later (when subcateory gets unselected again)
