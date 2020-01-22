@@ -1,3 +1,20 @@
+<div mdbModal #cookieModal="mdbModal" class="modal fade bottom" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog  modal-frame modal-bottom" role="document">
+        <div class="modal-content">
+            <div class="modal-body ml-4 mt-2 pb-1" style="border:none">
+                <h3>Datenschutz</h3>
+                <span>Mit der Nutzung dieser Website erklären Sie sich damit einverstanden, dass wir Cookies verwenden.
+                    Außerdem stimmen Sie zu die Datenschutzerklärung gelesen und eingewilligt zu haben.</span>
+            </div>
+            <div class="d-flex flex-row align-items-center ml-4 mb-2" style="border:none; padding-left: 16px">
+                <span class="mr-3"> <a routerLink="/impressum"> Impressum und Datenschutzerklärung</a></span>
+                <button id="cookieModalButton" type="button" mdbBtn class="waves-light" aria-label="Close"
+                    (click)="cookieModal.hide(); setConsentCookie();" mdbWavesEffect>Akzeptieren</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <footer>
     <div class="row d-flex align-items-center">
@@ -10,7 +27,9 @@
         </div>
         <div class="col-6">
             <div class="d-flex flex-row-reverse align-items-center ml-5">
-                <span id="back-to-top" class="d-flex align-items-center justify-content-center" (click)="scrollToTop()"> <mdb-icon fas icon="arrow-up" class="white-text" size="2x"></mdb-icon></span>
+                <span id="back-to-top" class="d-flex align-items-center justify-content-center" (click)="scrollToTop()">
+                    <mdb-icon fas icon="arrow-up" class="white-text" size="2x"></mdb-icon>
+                </span>
             </div>
         </div>
     </div>

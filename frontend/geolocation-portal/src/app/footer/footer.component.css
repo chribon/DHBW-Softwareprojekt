@@ -2,6 +2,13 @@
   a{
     color: #812323 ;
   }
+  button{
+    background-color:#812323 ;
+    color: white;
+  }
+  button:hover{
+    color: white;
+  }
   #back-to-top{
     bottom: 90px; 
     right: 30px; 
@@ -19,13 +26,21 @@
   #copyright{
     color: #747373;
   }
+  .modal{
+    z-index: 3000000;
+  }
   .row{
     max-width: 100%;
   }
   @media (max-width: 576px) { 
-    
     #copyright{
         margin-bottom:8px;
     }
   }
+  @media (max-width: 498px) { 
+    #cookieModalButton{
+      transform: translateX(-20px);
+    }
+  }
+
  

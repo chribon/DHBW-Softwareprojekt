@@ -12,6 +12,7 @@ import { VorschlagComponent } from './vorschlag/vorschlag.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
    
 
@@ -38,7 +39,7 @@ import { HttpClientModule }    from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
