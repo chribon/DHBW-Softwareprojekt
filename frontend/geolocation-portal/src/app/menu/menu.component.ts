@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Category } from '../Models/category';
 import { Subcategory } from '../Models/subcategory';
 import { APIService } from '../api.service';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +10,8 @@ import { APIService } from '../api.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
+  baseUrl = environment.baseUrl;
+  apiUrl = this.baseUrl+"/api";
   categories: Category[];
   subcategories: Subcategory[];
   searchCategories: Category[];
