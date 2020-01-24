@@ -14,8 +14,8 @@
   pk: 1
   fields:
     id_category_id: 1
-    title: Glassmüll
-    description: Entsorgungsorte für Glassmüll in und um Mosbach
+    title: Glasmüll
+    description: Entsorgungsorte für Glasmüll in und um Mosbach
     created_at: 2019-01-01T00:01:00+00:00
     updated_at: 2019-01-01T00:01:00+00:00
     entry_types: glasstrash
