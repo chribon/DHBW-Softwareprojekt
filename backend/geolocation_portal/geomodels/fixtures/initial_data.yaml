@@ -65,7 +65,7 @@
   fields:
     id_category_id: 1
     title: Wertstoffhöfe
-    description: wertstoffhöfe in und um Mosbach
+    description: Wertstoffhöfe in und um Mosbach
     created_at: 2019-01-01T00:00:10+00:00
     updated_at: 2019-01-01T00:00:10+00:00
     entry_types: recyclingcentretrash
@@ -268,7 +268,7 @@
     thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursGlassEntry
   pk: 1
   fields:
@@ -306,7 +306,7 @@
     thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursGlassEntry
   pk: 2
   fields:
@@ -344,7 +344,7 @@
     thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursGlassEntry
   pk: 3
   fields:
@@ -382,7 +382,7 @@
     thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursGlassEntry
   pk: 4
   fields:
@@ -538,7 +538,7 @@
     thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     friday: [2000-01-01T08:30:00, 2000-01-01T16:30:00]
     saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursBatteryEntry
   pk: 8
   fields:
@@ -574,8 +574,8 @@
     wednesday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
     thursday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
     friday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
-    saturday: null
-    sunday: null
+    saturday: []
+    sunday: []
 - model: category_trash.OpeningHoursBatteryEntry
   pk: 9
   fields:
@@ -612,7 +612,7 @@
     thursday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursBatteryEntry
   pk: 10
   fields:
@@ -651,7 +651,7 @@
     thursday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T07:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursIlluminantEntry
   pk: 11
   fields:
@@ -688,7 +688,7 @@
     thursday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
     friday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
     saturday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursIlluminantEntry
   pk: 12
   fields:
@@ -725,7 +725,7 @@
     thursday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
     friday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
     saturday: [2000-01-01T07:00:00, 2000-01-01T22:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursIlluminantEntry
   pk: 13
   fields:
@@ -763,7 +763,7 @@
     thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     friday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursElectroEntry
   pk: 14 
   fields:
@@ -799,8 +799,8 @@
     wednesday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
     thursday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
     friday: [2000-01-01T09:00:00, 2000-01-01T18:30:00]
-    saturday: null
-    sunday: null
+    saturday: []
+    sunday: []
 - model: category_trash.OpeningHoursElectroEntry
   pk: 15
   fields:
@@ -839,7 +839,7 @@
     thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     friday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursRecyclingcentreEntry
   pk: 16
   fields:
@@ -877,7 +877,7 @@
     thursday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     friday: [2000-01-01T08:30:00, 2000-01-01T18:00:00]
     saturday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
-    sunday: null
+    sunday: []
 - model: category_trash.OpeningHoursRecyclingcentreEntry
   pk: 17
   fields:
@@ -1326,12 +1326,12 @@
 - model: geomodels.OpeningHours
   pk: 18
   fields:
-    monday: null
-    tuesday: null
-    wednesday: null
-    thursday: null
-    friday: null
-    saturday: null
+    monday: []
+    tuesday: []
+    wednesday: []
+    thursday: []
+    friday: []
+    saturday: []
     sunday: [2000-01-01T14:00:00, 2000-01-01T17:00:00]
 - model: category_tourism.OpeningHoursMonumentEntry
   pk: 18
@@ -1365,12 +1365,12 @@
 - model: geomodels.OpeningHours
   pk: 19
   fields:
-    monday: null
-    tuesday: null
+    monday: []
+    tuesday: []
     wednesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
-    thursday: null
-    friday: null
-    saturday: null
+    thursday: []
+    friday: []
+    saturday: []
     sunday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
 - model: category_tourism.OpeningHoursMonumentEntry
   pk: 19
@@ -1412,7 +1412,7 @@
     wednesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
     thursday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
     friday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
-    saturday: null
+    saturday: []
     sunday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
 - model: category_tourism.OpeningHoursMonumentEntry
   pk: 20
@@ -1446,12 +1446,12 @@
 - model: geomodels.OpeningHours
   pk: 21
   fields:
-    monday: null
-    tuesday: null
+    monday: []
+    tuesday: []
     wednesday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
-    thursday: null
-    friday: null
-    saturday: null
+    thursday: []
+    friday: []
+    saturday: []
     sunday: [2000-01-01T15:00:00, 2000-01-01T18:00:00]
 - model: category_tourism.OpeningHoursMonumentEntry
   pk: 21
@@ -1711,12 +1711,12 @@
 - model: geomodels.OpeningHours
   pk: 25
   fields:
-    monday: null
-    tuesday: null
-    wednesday: null
-    thursday: null
-    friday: null
-    saturday: null
+    monday: []
+    tuesday: []
+    wednesday: []
+    thursday: []
+    friday: []
+    saturday: []
     sunday: [2000-01-01T08:30:00, 2000-01-01T12:00:00]
 - model: category_tourism.OpeningHoursChurchEntry
   pk: 25
@@ -1922,11 +1922,11 @@
   fields:
     monday: [2000-01-01T08:00:00, 2000-01-01T20:00:00]
     tuesday: [2000-01-01T10:00:00, 2000-01-01T20:00:00]
-    wednesday: null
+    wednesday: []
     thursday: [2000-01-01T12:00:00, 2000-01-01T18:00:00]
     friday: [2000-01-01T12:00:00, 2000-01-01T22:00:00]
-    saturday: null
-    sunday: null
+    saturday: []
+    sunday: []
 - model: category_sparetime.OpeningHoursSportscentreEntry
   pk: 28
   fields:
