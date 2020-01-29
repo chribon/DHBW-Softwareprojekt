@@ -31,7 +31,7 @@ class CategoryAdmin(ReadOnlyAdmin):
 admin_site.register(Category, CategoryAdmin)
 
 
-class SubcategoryAdmin(admin.ModelAdmin):
+class SubcategoryAdmin(ReadOnlyAdmin):
     list_display = ['title', 'hauptkategorie']
     ordering = ['title']
     search_fields = ['title']
