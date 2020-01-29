@@ -476,4 +476,14 @@ export class MapComponent implements OnInit {
     $("#" + id).find("." + element).toggleClass(cssClass);
   }
 
+  checkOpeningHours(openingHours: any){
+    if(!openingHours){
+      return false;
+    }else if(openingHours.length > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }

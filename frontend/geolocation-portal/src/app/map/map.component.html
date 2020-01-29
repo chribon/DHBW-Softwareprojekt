@@ -116,7 +116,7 @@
                     <div *ngIf="openingHours" class="mb-2">
                         <h4>Öffnungszeiten</h4>
                         <table>
-                            <tr *ngIf="openingHours.monday; else geschlossen_monday">
+                            <tr *ngIf="checkOpeningHours(openingHours.monday); else geschlossen_monday">
                                 <td><b>Montag: </b></td>
                                 <td>{{openingHours.monday[0]}}</td>
                                 <td>bis</td>
@@ -128,7 +128,7 @@
                                     <td>geschlossen</td>
                                 </tr>
                             </ng-template>
-                            <tr *ngIf="openingHours.tuesday; else geschlossen_tuesday">
+                            <tr *ngIf="checkOpeningHours(openingHours.tuesday); else geschlossen_tuesday">
                                 <td><b>Dienstag: </b></td>
                                 <td>{{openingHours.tuesday[0]}}</td>
                                 <td>bis</td>
@@ -140,7 +140,7 @@
                                     <td>geschlossen</td>
                                 </tr>
                             </ng-template>
-                            <tr *ngIf="openingHours.wednesday; else geschlossen_wednesday">
+                            <tr *ngIf="checkOpeningHours(openingHours.wednesday); else geschlossen_wednesday">
                                 <td><b>Mittwoch: </b></td>
                                 <td>{{openingHours.wednesday[0]}}</td>
                                 <td>bis</td>
@@ -152,7 +152,7 @@
                                     <td>geschlossen</td>
                                 </tr>
                             </ng-template>
-                            <tr *ngIf="openingHours.thursday; else geschlossen_thursday">
+                            <tr *ngIf="checkOpeningHours(openingHours.thursday); else geschlossen_thursday">
                                 <td><b>Donnerstag: </b></td>
                                 <td>{{openingHours.thursday[0]}}</td>
                                 <td>bis</td>
@@ -164,7 +164,7 @@
                                     <td>geschlossen</td>
                                 </tr>
                             </ng-template>
-                            <tr *ngIf="openingHours.friday; else geschlossen_friday">
+                            <tr *ngIf="checkOpeningHours(openingHours.friday); else geschlossen_friday">
                                 <td><b>Freitag: </b></td>
                                 <td>{{openingHours.friday[0]}}</td>
                                 <td>bis</td>
@@ -176,7 +176,7 @@
                                     <td>geschlossen</td>
                                 </tr>
                             </ng-template>
-                            <tr *ngIf="openingHours.saturday; else geschlossen_saturday">
+                            <tr *ngIf="checkOpeningHours(openingHours.saturday); else geschlossen_saturday">
                                 <td><b>Samstag: </b></td>
                                 <td>{{openingHours.saturday[0]}}</td>
                                 <td>bis</td>
@@ -188,7 +188,7 @@
                                     <td>geschlossen</td>
                                 </tr>
                             </ng-template>
-                            <tr *ngIf="openingHours.sunday; else geschlossen_sunday">
+                            <tr *ngIf="checkOpeningHours(openingHours.sunday); else geschlossen_sunday">
                                 <td><b>Sonntag: </b></td>
                                 <td>{{openingHours.sunday[0]}}</td>
                                 <td>bis</td>
