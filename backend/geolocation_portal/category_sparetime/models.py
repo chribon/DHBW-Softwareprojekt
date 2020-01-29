@@ -10,12 +10,12 @@ class SportscentreEntry(PointEntry):
         verbose_name_plural = "Sporthallen"
 
 class OpeningHoursSportscentreEntry(OpeningHours):
-    sportscentre_entry = models.OneToOneField(SportscentreEntry, blank=True, null=True, on_delete = models.PROTECT)
+    sportscentre_entry = models.OneToOneField(SportscentreEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 class AddressSportscentreEntry(Address):
-    sportscentre_entry = models.OneToOneField(SportscentreEntry, blank=True, null=True, on_delete = models.PROTECT)
+    sportscentre_entry = models.OneToOneField(SportscentreEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"

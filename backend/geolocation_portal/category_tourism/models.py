@@ -13,14 +13,14 @@ class MonumentEntry(PointEntry):
         verbose_name_plural = "Denkmäler"
 
 class OpeningHoursMonumentEntry(OpeningHours):
-    monument_entry = models.OneToOneField(MonumentEntry, blank=True, null=True, on_delete = models.PROTECT)
+    monument_entry = models.OneToOneField(MonumentEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressMonumentEntry(Address):
-    monument_entry = models.OneToOneField(MonumentEntry, blank=True, null=True, on_delete = models.PROTECT)
+    monument_entry = models.OneToOneField(MonumentEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -42,7 +42,7 @@ class TrailEntry(PointEntry):
         verbose_name_plural = "Wanderwege"
 
 class AddressTrailEntry(Address):
-    trail_entry = models.OneToOneField(TrailEntry, blank=True, null=True, on_delete = models.PROTECT)
+    trail_entry = models.OneToOneField(TrailEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name = "Startadresse"
         verbose_name_plural = "Startadressen"
@@ -64,12 +64,12 @@ class ChurchEntry(PointEntry):
         verbose_name_plural = "Kirchen"
         
 class OpeningHoursChurchEntry(OpeningHours):
-    church_entry    = models.OneToOneField(ChurchEntry, blank=True, null=True, on_delete = models.PROTECT)
+    church_entry    = models.OneToOneField(ChurchEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 class AddressChurchEntry(Address):
-    church_entry = models.OneToOneField(ChurchEntry, blank=True, null=True, on_delete = models.PROTECT)
+    church_entry = models.OneToOneField(ChurchEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -82,6 +82,6 @@ class AccommodationEntry(PointEntry):
         verbose_name = "Unterkunft"
         verbose_name_plural = "Unterkünfte"
 class AddressAccommodationEntry(Address):
-    accommodation_entry = models.OneToOneField(AccommodationEntry, blank=True, null=True, on_delete = models.PROTECT)
+    accommodation_entry = models.OneToOneField(AccommodationEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"

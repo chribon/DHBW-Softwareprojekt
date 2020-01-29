@@ -11,7 +11,7 @@ class ParkingEntry(PointEntry):
         verbose_name_plural = "Parkplätze"
 
 class OpeningHoursParkingEntry(OpeningHours):
-    parking_entry = models.OneToOneField(ParkingEntry, blank=True, null=True, on_delete = models.PROTECT)
+    parking_entry = models.OneToOneField(ParkingEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
