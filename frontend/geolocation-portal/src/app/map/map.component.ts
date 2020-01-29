@@ -207,7 +207,7 @@ export class MapComponent implements OnInit {
             + "<br><br> <b>Adresse:</b> <br>" + feature.properties.address.street
             + " " + feature.properties.address.housenumber + "<br>" + feature.properties.address.zipcode
             + " " + feature.properties.address.city
-            +"<br> <a href='https://google.de/maps/place/"
+            +"<br> <a target='blank' href='https://google.de/maps/place/"
             +feature.properties.address.street+" "
             +feature.properties.address.housenumber+", "
             +feature.properties.address.zipcode+" "
