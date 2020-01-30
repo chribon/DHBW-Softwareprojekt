@@ -12,13 +12,13 @@ class GlassEntry(PointEntry):
         verbose_name_plural = "Glassammelstellen"
 
 class OpeningHoursGlassEntry(OpeningHours):
-    glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.PROTECT)
+    glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressGlassEntry(Address):
-    glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.PROTECT)
+    glass_entry = models.OneToOneField(GlassEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -32,14 +32,14 @@ class ClothingEntry(PointEntry):
         verbose_name_plural = "Altkleidersammelstellen"
 
 class OpeningHoursClothingEntry(OpeningHours):
-    clothing_entry = models.OneToOneField(ClothingEntry, blank=True, null=True, on_delete = models.PROTECT)
+    clothing_entry = models.OneToOneField(ClothingEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressClothingEntry(Address):
-    clothing_entry = models.OneToOneField(ClothingEntry, blank=True, null=True, on_delete = models.PROTECT)
+    clothing_entry = models.OneToOneField(ClothingEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -52,14 +52,14 @@ class BatteryEntry(PointEntry):
         verbose_name_plural = "Batteriesammelstellen"
 
 class OpeningHoursBatteryEntry(OpeningHours):
-    battery_entry = models.OneToOneField(BatteryEntry, blank=True, null=True, on_delete = models.PROTECT)
+    battery_entry = models.OneToOneField(BatteryEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressBatteryEntry(Address):
-    battery_entry = models.OneToOneField(BatteryEntry, blank=True, null=True, on_delete = models.PROTECT)
+    battery_entry = models.OneToOneField(BatteryEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -72,14 +72,14 @@ class IlluminantEntry(PointEntry):
         verbose_name_plural = "Leuchtmittelsammelstelle"
 
 class OpeningHoursIlluminantEntry(OpeningHours):
-    illuminant_entry = models.OneToOneField(IlluminantEntry, blank=True, null=True, on_delete = models.PROTECT)
+    illuminant_entry = models.OneToOneField(IlluminantEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressIlluminantEntry(Address):
-    illuminant_entry = models.OneToOneField(IlluminantEntry, blank=True, null=True, on_delete = models.PROTECT)
+    illuminant_entry = models.OneToOneField(IlluminantEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -92,14 +92,14 @@ class ElectroEntry(PointEntry):
         verbose_name_plural = "Elektroschrottsammelstellen"
 
 class OpeningHoursElectroEntry(OpeningHours):
-    electro_entry = models.OneToOneField(ElectroEntry, blank=True, null=True, on_delete = models.PROTECT)
+    electro_entry = models.OneToOneField(ElectroEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressElectroEntry(Address):
-    electro_entry = models.OneToOneField(ElectroEntry, blank=True, null=True, on_delete = models.PROTECT)
+    electro_entry = models.OneToOneField(ElectroEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -113,13 +113,13 @@ class RecyclingcentreEntry(PointEntry):
         verbose_name_plural = "Wertstoffhöfe"
 
 class OpeningHoursRecyclingcentreEntry(OpeningHours):
-    recyclingcentre_entry = models.OneToOneField(RecyclingcentreEntry, blank=True, null=True, on_delete = models.PROTECT)
+    recyclingcentre_entry = models.OneToOneField(RecyclingcentreEntry, blank=True, null=True, on_delete = models.CASCADE)
 
     class Meta:
         verbose_name = "Öffnungszeit"
         verbose_name_plural = "Öffnungszeiten"
 
 class AddressRecyclingcentreEntry(Address):
-    recyclingcentre_entry = models.OneToOneField(RecyclingcentreEntry, blank=True, null=True, on_delete = models.PROTECT)
+    recyclingcentre_entry = models.OneToOneField(RecyclingcentreEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"

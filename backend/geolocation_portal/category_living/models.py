@@ -38,7 +38,7 @@ class PlaygroundEntry(PointEntry):
         verbose_name_plural = "Spielplätze"
 
 class AddressPlaygroundEntry(Address):
-    playground_entry = models.OneToOneField(PlaygroundEntry, blank=True, null=True, on_delete = models.PROTECT)
+    playground_entry = models.OneToOneField(PlaygroundEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
 
@@ -59,6 +59,6 @@ class SchoolEntry(PointEntry):
         verbose_name_plural = "Schulen"
 
 class AddressSchoolEntry(Address):
-    school_entry = models.OneToOneField(SchoolEntry, blank=True, null=True, on_delete = models.PROTECT)
+    school_entry = models.OneToOneField(SchoolEntry, blank=True, null=True, on_delete = models.CASCADE)
     class Meta:
         verbose_name_plural = "Adresse"
