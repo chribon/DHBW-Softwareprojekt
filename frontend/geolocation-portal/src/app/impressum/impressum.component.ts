@@ -5,12 +5,16 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./impressum.component.css']
 })
 export class ImpressumComponent implements OnInit {
-	
+
 	constructor() { }
 
 	ngOnInit() {
-
+		this.scrollToTop();
 	}
-
+	
+	scrollToTop() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
 }
 
