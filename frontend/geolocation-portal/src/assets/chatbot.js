@@ -1,6 +1,6 @@
 (function(d, m){
     var kommunicateSettings = {
-        "appId":"1647c4f916134918e167408dd9f8a6e4f",
+        "appId":"1deae80a9100184b299693deb316914c",
         "popupWidget":true,
         "automaticChatOpenOnNavigation":true,
         "sessionTimeout": 0
